@@ -1,0 +1,10 @@
+\contentsline {chapter}{\numberline {1}Use cases}{3}
+\contentsline {section}{\numberline {1.1}Magic}{3}
+\contentsline {subsection}{\numberline {1.1.1}Magic I: Spell Segment}{3}
+\contentsline {subsection}{\numberline {1.1.2}Magic II: CounterSpell Segment}{3}
+\contentsline {subsection}{\numberline {1.1.3}Magic III: Spell Selection}{4}
+\contentsline {subsection}{\numberline {1.1.4}Magic IV: Spell Selection Helper}{4}
+\contentsline {subsection}{\numberline {1.1.5}Magic V: Spell Cast}{5}
+\contentsline {subsection}{\numberline {1.1.6}Magic VI: Manna Regeneration}{6}
+\contentsline {section}{\numberline {1.2}Technical/Misc}{7}
+\contentsline {subsection}{\numberline {1.2.1}Technical/MiscI: Players' Turns}{7}

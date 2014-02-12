@@ -1,0 +1,91 @@
+magic use cases
+
+
+name:	Spell segment
+actor:	Phasing player, computer
+goals:	Cast spells limited only for magic phase
+Preconditions:	End of movement phase
+Summary:	
+Related use cases:
+Steps:
+	1. Phasing player start spell selection
+	2. Computer perform spells
+Alternatives: 
+Postconditions:
+
+name:	CounterSpell Segment
+actor:	Non-Phasing players. Computer
+goals:	Perform counterspells
+Preconditions: 	Phasing player end spell segment 
+Summary:	
+Related use cases:
+Steps:
+	1. non-phasing player select counterspells in the player-order of this turn
+	2. Computer perform counterspells of all non-phasing players selected
+Alternatives: 
+Postconditions:
+
+name:	Spell selection 
+actor: 	Phasing player
+goals:	To select spells to cast
+Preconditions: 	
+Summary:	Phasing player performs Spell selection
+Related use cases:	Spell selection helper, Spell cast
+Steps:	
+	1. Select a character who has magic PL
+	2. Select a spell 
+	3. Click "Cast Spell" button. 
+	4. Repeat steps to cast enough spells
+Alternatives: 
+	Click "End Spell Segment" button to end spell selection phase
+Postconditions:
+
+
+name:	Spell selection helper
+actor:	Computer
+goals:	To avoid player from choosing unaccessible spells for characters 
+Preconditions:	During Spell selection phase
+Summary:	
+	Computer select all avaible spells for each character and show them to player.
+Related use cases:	Spell selection
+Steps:
+	1. Scan and make a list of all current characters who are able to cast spells
+	2. for each characters on the list, make another list of spells that character has ability to cast.
+Alternatives: 
+Postconditions:	Display information on the screen
+
+
+name:	Spell Cast
+actor:	Computer
+goals:	Perform spell cast
+Preconditions:	Player assign a character to cast a spell
+Summary:
+Related use cases:
+Steps:
+	1. Roll a die (Random Number) to determing spell casting succeed or not
+	2. Refresh information
+	3. Second roll taken to determine whether the character die or not
+	4. Refresh information
+Alternatives: 
+	1a. If succeed, perform the spell 
+	1b. If fail, nothing happen
+	2a. If death, perform and remove the information of that character
+	2b. If alive, nothing.
+Postconditions:
+	Display the information for spell casting and whether character die or survive. 
+
+
+name: mana regeneration
+actor: Computer
+Goals: regenerate Manna points for each Spell-casting characters
+Preconditins: End of diplomacy Inter-phase
+Summary: Computer performs manna regeneration
+Related use cases: None
+Steps:
+	1. Scan and make a list of all current characters who need implement manna regeneration phase
+	2. Computer calculate and add the mana points that each character gained based on different kind of conditions and cases
+	3. Computer refresh the screen to display new manna information
+Alternatives: None
+Postconditions: 
+	dialog box says "Start Manna regeneration inter-phase" sleep for a while and ends with "Manna regeneration phase done!"
+

@@ -1,0 +1,191 @@
+\documentclass[12pt,letterpaper]{scrreprt}
+
+%----------------------------------------------------------------------
+%				Required Packages
+%----------------------------------------------------------------------
+\usepackage{usecases}
+\usepackage{enumitem}
+%\usepackage{paralist}
+%\usepackage{tabto}
+\usepackage[top=2cm,bottom=3.5cm]{geometry}
+
+%----------------------------------------------------------------------
+%				Title Page
+%----------------------------------------------------------------------
+%\title{CS383: Software Engineering}
+%\subtitle{HW1: Use Cases\\Spring 2014}
+%\author{CS383 A Team} % Include everyone's name?
+%\date{}
+
+%----------------------------------------------------------------------
+%				Additional Settings
+%----------------------------------------------------------------------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+
+
+
+%----------------------------------------------------------------------
+%				Use Case Document Start
+%----------------------------------------------------------------------
+\begin{document}
+
+% Initializations
+%\NumTabs{2} % This is for creating a two column use case scenario
+%\maketitle
+%\tableofcontents % Eventually uncomment this
+
+%\chapter{Diplomacy}
+        \section{Diplomacy}
+                \subsection{Influencing Neutrals}
+                \begin{usecase}
+                  \addtitle{Author: } {Cameron Simon}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Influence Neutrals}
+                  \additemizedfield{Preconditions}{
+                    \item Neutral's Diplomacy marker must be within one hex of a lettered hex(a players hex) on the Diplomacy track. 
+                  }
+                  \addfield{Summary}{When a neutral is influenced by a player that player can move freely through that neutrals territory.}                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Computer recognizes neutral is being influenced by player.
+                        \item Player prompted to see if they want to move through neutral territory.
+                        \item Player moves through the neutrals territory as they wish.
+                        \item If neutrals diplomacy marker is moved should prompt player to move out of neutral territory unless they want to enter "Invading Neutral" state.
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Diplomacy map with new neutral locations is displayed.}                  
+              
+                 \end{usecase}
+                 
+                \subsection{Invading Neutrals}
+                \begin{usecase}
+                  \addtitle{Author: } {Cameron Simon}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Invade Neutrals}
+                  \additemizedfield{Preconditions}{
+                    \item User places his/her Army units, Monsters, or Vortices inside territories owned by a Neutral. 
+                  }
+                  \addfield{Summary}{Decide who neutrals in question are going to make alliances with.}                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Computer checks position of Neutral's Diplomacy marker on Diplomacy Track.
+                        \item If marker is closest to a lettered hex, Computer places Neutral on side it was leaning toward.
+                        \item If marker equidistant from two or more opposing, non-invading players, computer displays die roll and players roll (highest wins control). Computer places neutral in winning players hex.
+                        \item If marker equidistant from invading player's hex and one or more other player's hex, it will immediately ally with some non-invading players as in step 3. Computer places neutral in winning players hex.
+                        \item If marker closest to invading Player's hex it is immediately placed in Neutral central hex by computer.
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Diplomacy map with new neutral locations is displayed.}                  
+              
+                 \end{usecase}
+                 
+                \subsection{Human Sacrifice}
+                \begin{usecase}
+                  \addtitle{Author: } {Cameron Simon}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Try to gain Influence over Neutrals}
+                  \additemizedfield{Preconditions}{
+                    \item Player moves a unit or Character adjacent to a unit or character controlled by the Neutral to whom he wishes to sacrifice. 
+                  }
+                  \addfield{Summary}{Neutral's Diplomacy marker is moved one hex by the sacrificing Player. }                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Player chooses option of human sacrifice.
+                        \item During the Alliance Determination Phase, the unit or Character is removed from play by the computer.
+                        \item Computer moves Neutral's diplomacy marker one hex.
+                        \item Player may sacrifice as many units/characters as they wish but computer will NOT move diplomacy marker any more for that game turn.
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Diplomacy map with new diplomacy locations.}                  
+              
+                 \end{usecase}
+                 
+                \subsection{Spawn Emissaries}
+                \begin{usecase}
+                  \addtitle{Author: } {Cameron Simon}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Creation of emissarries.}
+                  \additemizedfield{Preconditions}{
+                    \item Character must have diplomatic rating greater than zero.
+                  }
+                  \addfield{Summary}{Up to two emissaries created for character that exist only for one purpose. }                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Computer recognizes game is in Friendly Movement Phase.
+                        \item Computer prompts user to see if they want to create emissaries.
+                        \item User responds yes or no.
+                        \item User selects how many they want to create (1 or 2).
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Specified number of emissaries on game board. (Do we need rules for emissary movement and  deletion in this use case?)}                  
+              
+                 \end{usecase}
+                 
+                \subsection{Diplomacy}
+                \begin{usecase}
+                  \addtitle{Author: } {Cameron Simon}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Establish new diplomacy lines on table.}
+                  \additemizedfield{Preconditions}{
+                    \item Game must be in Diplomacy Inter-Phase state and a player must have a Character of Emissary in the Capital hex of a Neutral Power. 
+                  }
+                  \addfield{Summary}{Establish new diplomacy lines based on game specifications.}                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Computer cross references the race of the player's character or emissary and the race of the neutral power on the table to yield a single number (negative or positive).
+                        \item Player rolls two dice and has that number added to the number found in step 1.
+                        \item Computer references the Diplomacy Results table with number found above (result will be positive, negative, or an 'x').
+                        \item Based on output from step 3 and the rule specification for those outputs, the computer places the pieces in their new locations on the diplomacy track.
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Display updated map with new marker location on diplomacy map.}                  
+              
+                 \end{usecase}
+                 
+                \subsection{Alliance Selection}
+                \begin{usecase}
+                  \addtitle{Author: } {Cameron Simon}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Form alliances with other players.}
+                  \additemizedfield{Preconditions}{
+                    \item Game must be in Player-Order Determination Inter-Phase. 
+                  }
+                  \addfield{Summary}{Players choose who they want to be allied with for the current game turn.}                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Each player is prompted to see if they want to form alliances.
+                        \item If player says yes, then they select the player they want to ally with.
+                        \item Computer checks to see if players selected each other to be allies. (Ex: If player A selects to ally with player B, Player B must also select to ally with player A to form the alliance)
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Displays current player alliances.}                  
+              
+                 \end{usecase}
+                                                                                                      
+ \end{document}

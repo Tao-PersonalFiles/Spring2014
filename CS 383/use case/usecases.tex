@@ -1,0 +1,888 @@
+\documentclass[12pt,letterpaper]{scrreprt}
+
+%----------------------------------------------------------------------
+%				Required Packages
+%----------------------------------------------------------------------
+\usepackage{usecases}
+\usepackage{enumitem}
+%\usepackage{paralist}
+%\usepackage{tabto}
+\usepackage[top=2cm,bottom=3.5cm]{geometry}
+
+%----------------------------------------------------------------------
+%				Title Page
+%----------------------------------------------------------------------
+\title{CS383: Software Engineering}
+\subtitle{HW1: Use Cases\\Spring 2014}
+\author{Matt, Tao, John, Cameron, Gabe, David} % Include last names?
+\date{}
+
+%----------------------------------------------------------------------
+%				Additional Settings
+%----------------------------------------------------------------------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+
+
+
+%----------------------------------------------------------------------
+%				Playtest Document Starts
+%----------------------------------------------------------------------
+\begin{document}
+
+% Initializations
+%\NumTabs{2} % This is for creating a two column use case scenario
+\maketitle
+\tableofcontents % Eventually uncomment this
+
+\chapter{Playtest}
+%
+%
+%
+\section{Results from the playtest}
+\paragraph{(Author: John Goettsche \& David Klingenberg)}
+\paragraph{ Annoying the features of the game (John):}
+	\begin{itemize}
+		\item pain in the ass to set up and find units
+		\item a lot of time checking tables
+		\item pieces get bumped out of position a lot
+		\item pace was slow
+	\end{itemize}
+	
+\paragraph{How will manual elements be translated? (David)}
+	\begin{itemize}
+		\item The map would have to become zoomable and scrolling enabled to accommodate the limited real estate of the computer screen.
+		\item Physical elements such as the cards and cardboard unit markers would have to be translated into icons
+		\item The dice would have to represent by a random number generator. 
+		\item Most of the rules would be automated
+		\item Most housekeeping functions, such as advancing the solar cycle, would also be automated
+		\item Lore items would be stored in a searchable library.
+	\end{itemize}
+
+\paragraph{What parts have to change? (John)}
+	\begin{itemize}
+		\item Scenarios can be set up by the computer (optional)
+		\item Neutrals can be set up by the computer (optional)
+		\item Combat and other random events and their results will be determination by the computer
+		\item Phases will be tracted by the computer
+		\item General housekeeping will be automated
+	\end{itemize}
+	
+\paragraph{What parts of the manual game can be retained as-is? (David)}
+	\begin{itemize}
+		\item The appearance of the map, unit layout, artwork, history, and other lore items could be preserved as is.
+		\item The general flow of the game and the rules would be maintained as is.
+		\item The primary difference is who is handling housekeeping chores and administering the rules.  
+	\end{itemize}
+
+%----------------------------------------------------------------------
+%				Use Case Document Starts
+%----------------------------------------------------------------------
+\chapter{Use Cases}
+%
+%--------Main Menu section: David Klingenberg------------
+%
+\section{Main Menu}
+\paragraph{(Author: David Klingenberg)}
+            \subsection{Pregame}
+                \begin{usecase}
+                  \addtitle{Pregame Main Menu:}{Initiate a game state.}
+                  \addfield{Summary}{A player initiates the initial state of the game.}
+                  \additemizedfield{Actors}{
+                    \item Human player
+                  }
+                  \additemizedfield{Preconditions}{
+                    \item The game is not in a active game state. 
+                  }
+                  \additemizedfield{Primary Sequence:}{
+                    \item Player chooses one of the following:
+                      \begin{enumerate}
+                        \item New game
+                        \item Resume game
+                        \item Exit game
+                        \item Game options
+                      \end{enumerate}
+                  }
+              	  \additemizedfield{Alternative}{
+					  \item Canceled game menu.
+					}   
+                 \end{usecase}
+                 
+ 
+            \subsection{Active Game-play}
+                \begin{usecase}
+                  \addtitle{Game-play Main Menu:}{Alter or save game state.}
+                  \addfield{Summary}{A player is  at least in the initial state of the game or play has progressed beyond the initial state.}
+                  \additemizedfield{Actors}{
+                    \item Human player
+                  }
+                  \additemizedfield{Preconditions}{
+                    \item The game has been initialized to the beginning of play or the game is in progress.                  }
+                  \additemizedfield{Primary Sequence:}{
+                    \item Player chooses one of the following:
+                      \begin{enumerate}
+                        \item New game
+                        \item Resume game
+                        \item Save game
+                        \item Exit game
+                        \item Game options
+                      \end{enumerate}
+                  }
+				  \additemizedfield{Alternative}{
+					  \item Canceled game menu.
+					}  		              
+                 \end{usecase}                 
+                 
+                 
+
+                
+			\subsection{Resume Game}
+				\begin{usecase}      
+					\addtitle{Resume game:}{Resume a saved state.}       
+                	\addfield{Summary}{The player restores a previously saved state.}
+                	\additemizedfield{Actors}{
+						\item Human player
+						}
+					\additemizedfield{Primary Sequence:}{
+					\item
+					  \begin{enumerate}
+						\item Select the name of the saved state.
+						\item Initiate load.	  
+					  \end{enumerate}
+					}
+					\additemizedfield{Alternative}{
+					  \item Resume game is canceled.
+					}  					  						
+				\end{usecase}	
+				
+			\subsection{Save Game}
+				\begin{usecase}
+				  \addtitle{Save game:}{Preserving a game state.}
+				  \addfield{Summary}{The player saves the state of the game to resume it at a later time.}
+				  \additemizedfield{Actors}{
+				    \item Human player
+				  }
+				  \additemizedfield{Preconditions}{
+				    \item A scenario is underway.
+				  }
+				    
+				  \additemizedfield{Primary Sequence:}{
+				    \item
+				      \begin{enumerate}
+				        \item Name the state to be saved.
+				        \item Initiate save.
+				      \end{enumerate}
+				  }
+				  \additemizedfield{Alternative}{
+					  \item Save game is canceled.
+					} 
+				\end{usecase}   
+
+\section{Scenario Selection}
+\paragraph{(Author: David Klingenberg)}
+	        \subsection{Scenario Selection}
+                \begin{usecase}
+                  \addtitle{New game:}{Choosing a scenario.}
+                  \addfield{Summary}{The player chooses a scenario.}
+                  \additemizedfield{Actors}{
+                        \item Human player
+                  }
+                  \additemizedfield{Preconditions}{
+                        \item Scenario selection has been chosen from the main menu.
+                        \item Players have agreed on a scenario.
+                        }
+                  \additemizedfield{Primary Sequence:}{
+                        \item The player selects from the following scenarios.
+                              \begin{enumerate}
+                                    \item War of the League of Arrival, 1100 BF
+                                    \item The War of the Black Dwarrows, 366 AF
+                                    \item The Rise of the Dark Lord, 473 AF
+									\item The War of the Great Sword, 502 AF
+									\item The Orcish Revolution, 794 AF
+									\item The War of X, 799 AF
+									\item The 1st Dwarro–Orcish War, 846 AF
+									\item Gundarchuksson's Weird, 845 AF
+									\item The 2nd Dwarro-Orcish war, 846 AF
+									\item Northern Kingdoms, 867 AF
+									\item Imperial Expansion, 877 AF
+									\item The Destruction of the ORC, 922 AF
+									\item The Conquest of the South, 934 AF
+									\item The 3rd War of the League of Arrival, 974 AF
+                              \end{enumerate}
+                  }
+                  \additemizedfield{Alternative}{
+                        \item Scenario selection is canceled.
+                  }
+                \end{usecase}
+                					
+			\subsection{Race Selection}
+				\begin{usecase}
+				  \addtitle{New Game:}{Choosing a race.}
+				  \addfield{Summary}{A player chooses a desired race to represent during the scenario.}
+				  \additemizedfield{Actors}{
+				    \item One of (N) human players allowed in the scenario. 
+				  }
+				  \additemizedfield{Preconditions}{
+				    \item One of the 14 scenarios has been selected.
+				  }
+				\additemizedfield{Primary Sequence:}{
+				  \item The current player selects a race from the list of races allowed by the scenario.
+				  \item Next player initiates use case ``Race selection" or else use case ``unit placement" is initialized.
+				}
+				
+				\additemizedfield{Alternative}{
+				  \item The current player returns the game to use case ``Scenario Selection".
+				}
+				\end{usecase}
+				
+			\subsection{Unit placement}
+				\begin{usecase}
+				  \addtitle{New game:}{Unit placement}
+				  \addfield{Summary}{A player places his units one at a time into a legal hex.}
+				  \additemizedfield{Actors}{
+				    \item One of (N) human players allowed in the scenario.
+				  }
+				  \additemizedfield{Preconditions}{
+				    \item The player representing the race to be deployed is in active control.
+				  }
+				  \additemizedfield{Primary Sequence:}{
+				    \item Unit Placement
+				    \begin{enumerate}
+				      \item The player initiates the use case ``select unit".
+				      \item The player initiates the use case ``select hex".
+				      \item If the player still has units to place or relocate, they are returned to step one.
+				    \end{enumerate}
+				    
+				    \item Next player initiates use case ``Unit Placement" or the game begins.
+				  }
+				  \additemizedfield{Alternative}{
+				    \item The current player returns the game to use case ``Scenario Selection".
+				  }
+				  
+				 \end{usecase}  
+
+%----------------------------------------------------------------------
+%					Random Events: John Goettsche
+%----------------------------------------------------------------------
+\section{Random Events}
+\paragraph{(Author: John Goettsche)}
+	\subsection{Display Die Roll}
+		\begin{usecase}
+			\addtitle{Random Events}{Dispay Die Roll}
+			\addfield{Summary}{Displays the result of a die roll}
+			\additemizedfield{Actors}{
+				\item Players		
+			}
+			\additemizedfield{Preconditions}{
+				\item A die roll is required for a user command
+			}
+			\additemizedfield{Primary Sequence}{
+				\item user selects a command that requires a die roll
+				\item Computer selects a random number from 1 to 6
+				\item Computer displays message box with selected value
+				\item User clicks OK button
+				\item Computer closes message box
+			}
+			\additemizedfield{Alternatives}{
+				\item Computer requires more than one die roll, then the process is performed the number of times it is requested
+			}
+			\additemizedfield{Postconditions}{
+				\item a random number from 1 to 6
+			}
+		\end{usecase}	
+		
+	\subsection{Display Player Order}
+		\begin{usecase}
+			\addtitle{Random Events}{Display Player Order}
+			\addfield{Summary}{display the order of play}
+			\additemizedfield{Actors}{
+				\item Players	
+			}
+			\additemizedfield{Preconditions}{
+				\item is currently the Player-Order Determination Inter-Phase
+			}
+			\additemizedfield{Primary Sequence}{
+				\item Computer determines the order of play
+				\item Computer displays a dialog box with the order of play
+				\item User clicks the OK button
+				\item Computer closes dialog box
+			}
+			\additemizedfield{Postconditions}{
+				\item a message box informing the user of the order of play
+			}
+		\end{usecase}			
+		
+	\subsection{Display Random Events}
+		\begin{usecase}
+			\addtitle{Random Events}{Display Random Events}
+			\addfield{Summary}{displays a dialog box describing a random event}
+			\additemizedfield{Actors}{
+				\item Players
+			}
+			\additemizedfield{Preconditions}{
+				\item is currently the Random Event Determination Inter-Phase
+			}
+			\additemizedfield{Primary Sequence}{
+				\item Computer selects a random event
+				\item Computer displays a dialog box describing the random event.
+				\item User selects the OK button
+				\item Computer closes dialog box
+			}
+			\additemizedfield{Postconditions}{
+				\item a dialog box describing a random event
+			}
+		\end{usecase}	
+
+		
+	\subsection{Display Random Movement}
+		\begin{usecase}
+			\addtitle{Random Events}{Display Random Movement}
+			\addfield{Summary}{move all the vortices, uncontrolled killer penguins, or other randomly-moving units or characters which are required to move in this phase}
+			\additemizedfield{Preconditions}{
+				\item
+			}
+			\additemizedfield{Primary Sequence}{
+				\item Computer centers on the view on a unit to be moved
+				\item Computer moves the unit
+			}
+			\additemizedfield{Postconditions}{
+				\item each move is displayed on the screen
+			}
+		\end{usecase}		
+	
+	\subsection{Rally Demoralized Units}
+		\begin{usecase}
+			\addtitle{Random Events}{Rally Demoralized Units}
+			\addfield{Goals}{User rallies demoralized units.}
+			\additemizedfield{Actors}{
+				\item Players
+			}
+			\additemizedfield{Preconditions}{
+				\item is currently a players Combat Phase
+			}
+			\addfield{Summary}{User attempts to rally units}
+			\additemizedfield{Primary Sequence}{
+				\item user selects a unit to rally (see Unit Selection)
+				\item Computer determines if the rally was 
+				\item Computer displays the die roll (see Display Die Roll)
+				\item Computer displays the unit in its new status (demoralized or not 
+			}
+			\additemizedfield{Postconditions}{
+				\item a potential change in status for demoralized unit
+			}
+		\end{usecase}		
+		
+	\subsection{Display Unit}
+		\begin{usecase}
+			\addtitle{Random Events}{Display Unit}
+			\addfield{Goals}{Display unit information}
+			\additemizedfield{Actors}{
+				\item Players
+			}
+			\additemizedfield{Preconditions}{
+				\item User turn
+			}
+			\addfield{Summary}{display a message box showing information about a selected unit}
+			\additemizedfield{Primary Sequence}{
+				\item User selects a unit
+				\item Computer displays a message box containing all the relavant information on the unit
+				\item User selects the OK button
+				\item Computer closes the message box
+			}
+			\additemizedfield{Postconditions}{
+				\item a dialog box displaying the unit information
+			}
+		\end{usecase}				
+		
+		
+%========================================================
+%	Selection Section - Gabe Pearhill
+%========================================================                         
+\section{Selection}
+\paragraph{(Author: Gabe Pearhill)}
+            \subsection{Unit Selection}
+                \begin{usecase}
+                  \addtitle{Select Unit(s)}{Select one or more units}
+                  \addfield{Summary}{Player clicks a unit on the game board.}
+                  \additemizedfield{Actors}{
+                    \item Player
+                  }
+                  \additemizedfield{Preconditions}{
+                    \item Phase requiring unit selection.
+                  }
+                  \additemizedfield{Steps}{
+                    \item Once a phase requiring unit selection begins, the computer highlights all available units. 
+                    \item The user clicks one or more units.
+                    \item Computer saves the selection state.
+                  }
+                  \end{usecase}
+                
+                 
+            \subsection{Hexagon Selection}
+                \begin{usecase}
+                  \addtitle{Select Hexagon}{Record the players hexagon selection.}
+                  \addfield{Summary}{The basic action of selecting a hexagon, be it for magic, movement, or attacking.}
+                  \additemizedfield{Actors}{
+                        \item Player
+                  }
+                  \additemizedfield{Steps}{
+                                    \item Player clicks on a hex.
+                                    \item Computer records the hex selection.
+                  }
+                \end{usecase}
+
+%========================================
+%	Movement Section - Gabe Pearhill
+%========================================
+\section{Movement}
+\paragraph{(Author: Gabe Pearhill)}
+            \subsection{Move a Unit}
+                \begin{usecase}
+                  \addtitle{Move Unit(s)}{Move unit(s) across the map!}
+                  \addfield{Summary}{During the movement phase the player selects and moves units.}
+                  \additemizedfield{Actors}{
+                    \item Player
+                  }
+                  \additemizedfield{Preconditions}{
+                    \item Movement Phase
+                  }
+                  \additemizedfield{Steps}{
+                    \item Select unit(s). (See Unit Selection)
+                    \item Computer highlights hexagons within range of the selected units.
+                    \item Player selects an eligible hexagon.
+                    \item Computer checks if tile has special attributes (a portal for example) and takes action appropriately.
+                  }
+                  \end{usecase}
+                
+                 
+            \subsection{Using a Portal}
+                \begin{usecase}
+                  \addtitle{Teleportation}{Give the player the choice to use a portal hexagon.}
+                  \addfield{Summary}{If a unit moves on top of a portal, and the player chooses to use it, the computer must move the selected units to another portal location on the map.}
+                  \additemizedfield{Actors}{
+                        \item Player
+                  }
+                  \additemizedfield{Steps}{
+                                    \item Player moves on top of a portal hexagon.
+                                    \item Player is provided a dialog giving them the option to use the portal.
+                                    \item If the player chooses to use the portal the player must then choose to teleport his units individually or as a group.
+                                    \item Perform appropriate teleportation.
+                                    \item Should an enemy unit occupy an output portal, the teleported  units should be retreated by one tile.
+                  }
+                \end{usecase}
+%==================================================
+%				Magic: Tao Zhang
+%==================================================
+\section{Magic}
+\paragraph{(Author: Tao Zhang)}
+            \subsection{Spell Segment}
+                \begin{usecase}
+                  \addtitle{Magic I}{Spell Segment}
+                  \additemizedfield{Actors}{
+                    \item Phasing player
+                    \item Computer
+                  }
+                  \addfield{Summary}{Phasing player cast spells}
+                  \additemizedfield{Preconditions}{
+                    \item End of Phasing Player's Movement Phase
+                  }
+                  \addscenario{Steps}{
+                  	\item Phasing player select spells 
+                  	\item Computer perform spells
+                  }
+                \end{usecase}
+                
+                \subsection{CounterSpell Segment}
+                \begin{usecase}
+                  \addtitle{Magic II}{CounterSpell Segment}
+                  \additemizedfield{Actors}{
+                  	\item Non-phasing Player
+                  	\item Computer
+                  }
+                  \addfield{Summary}{Non-phasing players case counterspells}
+                  \additemizedfield{Preconditions}{
+                  	\item End of phasing player spell segment
+                  }
+                  \addscenario{Steps}{
+                  	\item non-phasing players select counterspells in the player-order of this turn
+                  	\item Computer perform counterspells of all non-phasing players selected
+                  }
+                \end{usecase}
+                
+                \subsection{Spell Selection}
+                \begin{usecase}
+                  \addtitle{Magic III}{Spell Selection}
+                  \additemizedfield{Actors}{
+                  	\item Player
+                  }
+                  \addfield{Summary}{Players select spells to cast}
+                  \additemizedfield{Preconditions}{
+                  	\item During the movement Phase
+                  	\item During the Spell Segment
+                  	\item During the CounterSpell Segment
+                  	\item During the Combat Phase
+                  }
+                  \addscenario{Steps}{
+                  	\item Select a character who has magic PL
+                  	\item Select a spell
+                  	\item Click "Cast Spell" button
+                  	\item Repeat steps to cast enough spells
+                  }
+                  \additemizedfield{Alternatives}{
+                  	\item Click "End Spell Segment" button to end spell selection phase
+                  }
+                \end{usecase}
+                
+                \subsection{Spell Selection Helper}
+                \begin{usecase}
+                  \addtitle{Magic IV}{Spell Selection Helper}
+                  \additemizedfield{Actors}{
+                  	\item Computer
+                  }
+                  \addfield{Summary}{Computer select all available spells for each character and show them to players}
+                  \additemizedfield{Preconditions}{
+                  	\item Player start spell selection
+                  }
+                  \addscenario{Steps}{
+                  	\item Make a list of all current characters who are able to cast spells
+                  	\item For each characters on the list, make another list of spells that character has ability to cast.
+                  }
+                  \additemizedfield{Postconditions}{
+                  	\item Display a list names of spells on the screen when player select the character
+                  }
+                \end{usecase}
+                
+                \subsection{Spell Cast}
+                \begin{usecase}
+                  \addtitle{Magic V}{Spell Cast}
+                  \additemizedfield{Actors}{
+                  	\item Computer
+                  }
+                  \addfield{Summary}{Computer performs spell casting}
+                  \additemizedfield{Preconditions}{
+                  	\item Player assign a character to cast a spell
+                  }
+                  \addscenario{Steps}{
+                  	\item Roll a die (Random Number) to determing spell casting succeed or not
+                  	\item Refresh information
+                  	\item Second roll taken to determine whether the character die or survive
+                  	\item Refresh information
+                  }
+                  \additemizedfield{Alternatives}{
+                  	\item If succeed, perform the spell and cost manna points
+                  	\item If fail, nothing
+                  	\item If die, anouncement and remove the information of that character
+                  	\item If survive, nothing
+                  }
+                \end{usecase}
+                
+                \subsection{ Manna Regeneration}
+                \begin{usecase}
+                  \addtitle{Magic VI}{Manna Regeneration}
+                  \additemizedfield{Actors}{
+                  	\item Computer
+                  }
+                  \addfield{Summary}{Regenerate Manna points for each Spell-casting characters}
+                  \additemizedfield{Preconditions}{
+                  	\item End of Diplomacy Inter-phase
+                  }
+                  \addscenario{Steps}{
+                  	\item Make a list of all current characters who need implement manna regeneration phase
+                  	\item Calculate and add the mana points that each character gained based on different kind of conditions and cases
+                  	\item Computer refresh the screen to display new manna information
+                  }
+                  \additemizedfield{Postconditinos}{
+                  	\item Dialog box: "Start Manna regeneration inter-phase" 
+                  	\item Sleep for a while 
+                  	\item Dialog box: "Manna regeneration phase done!"
+                  }
+                \end{usecase}
+                
+%==================================================
+%				Combat: Matthew Brown
+%==================================================  
+\section{Combat}
+\paragraph{(Author: Matthew Brown)}
+	\subsection{Attack Hex}
+		\begin{usecase}
+			\addtitle{Combat I:}{Attack Hex}
+			\addfield{Goal}{To attack a unit}
+			\additemizedfield{Actors}{
+				\item Phasing Player
+			}
+			\additemizedfield{Preconditions}{
+				\item The current user is in his or her combat phase
+			}
+			\addfield{Summary}{The current user has to select an eligible unit then select an eligible hex to attack with the selected unit. The computer then gives the results of the attack and gives all users their possible outcomes and actions to analyse.}
+			\additemizedfield{Related Use Cases}{
+				\item Select Unit
+				\item Select Hex
+				\item Dice Rolling
+			}
+			\additemizedfield{Primary Sequence}{
+				\item User chooses an eligible unit with the select use case
+				\item User chooses an eligible hex with the hex select use case
+				\item Computer calculates the combat results and displays valid options
+				\item User chooses a valid option
+				\item Computer calculates the result of the option and updates the visual effect of the option
+			}
+		\end{usecase}	
+		
+	\subsection{Retreating}
+		\begin{usecase}
+			\addtitle{Combat II:}{Retreating}
+			\addfield{Goal}{Retreat from a attack}
+			\additemizedfield{Actors}{
+				\item User
+			}
+			\additemizedfield{Preconditions}{
+				\item Enemy player attack one of your units
+			}
+			\addfield{Summary}{The current user can choose to retreat from an attack from an enemy unit. This demoralizes the players units but allows them to be used in a later turn}
+			\additemizedfield{Related Use Cases}{
+				\item Select Hex
+			}
+			\additemizedfield{Primary Sequence}{
+				\item Computer displays a dialogue box stating the option to retreat
+				\item User selects the option to retreat
+				\item User selects the hex to retreat to using the Select Hex use case
+				\item Computer updates the unit location and demoralizes the units
+			}
+			\additemizedfield{Alternatives}{
+				\item Player decides to not retreat in Section 2
+			}
+		\end{usecase}	
+		
+	\subsection{Advance after combat}
+		\begin{usecase}
+			\addtitle{Combat III:}{Advance after combat}
+			\addfield{Goal}{Pursue retreating units}
+			\additemizedfield{Actors}{
+				\item User(s)
+			}
+			\additemizedfield{Preconditions}{
+				\item Units retreat from attacking units
+			}
+			\addfield{Summary}{When a player attacks, an opposing player may be able to retreat their units. If this retreat occurs then the attacking player may be able to choose to pursue the retreating units}
+			\additemizedfield{Primary Sequence}{
+				\item pposing player uses the Retreating use case
+				\item Computer displays a dialogue box stating the option to purse retreating units
+				\item User selects their preferred option
+				\item Computer displays results of the user's selection
+			}
+		\end{usecase}	
+		
+	\subsection{Capturing}
+		\begin{usecase}
+			\addtitle{Combat IV:}{Capturing}
+			\addfield{Goal}{Capture an enemy character}
+			\additemizedfield{Actors}{
+				\item User
+			}
+			\additemizedfield{Preconditions}{
+				\item User in either movement phase or Advance after combat usage case
+			}
+			\addfield{Summary}{If a user's unit is in moving, whether through the movement usage case or the advance after combat phase, and finishes movement on an enemy's character then that character has been captured}
+			\additemizedfield{Primary Sequence}{
+				\item User chooses a hex during their movement phase or advance after combat usage case
+				\item The user chooses a hex with an enemy character
+				\item The computer then updates the graphics for a captured unit
+			}
+			\additemizedfield{Alternatives}{
+				\item Player does not move to a hex with an enemy character
+			}
+		\end{usecase}	
+		
+	\subsection{Escaping}
+		\begin{usecase}
+			\addtitle{Combat V:}{Escaping}
+			\addfield{Goal}{Have opponent units abandon captured Character}
+			\additemizedfield{Actors}{
+				\item User
+			}
+			\additemizedfield{Preconditions}{
+				\item Have a captured character
+			}
+			\addfield{Summary}{Once a character is captured the capturing units must remain with the captured character while escorting him/her to the capital of the players race}
+			\additemizedfield{Primary Sequence}{
+				\item User moves an escorting unit away from a captured character 
+				\item Character automatically escapes
+				\item Computer updates the map to show the escaped character 
+			}
+		\end{usecase}	
+		
+	\subsection{Leadership Rating}
+		\begin{usecase}
+			\addtitle{Combat VI:}{Leadership Rating}
+			\addfield{Goal}{Have a character escape with use of his Leadership Rating}
+			\additemizedfield{Actors}{
+				\item User
+			}
+			\additemizedfield{Preconditions}{
+				\item Game is at the end of any Manna Regeneration phase and is not in the same turn as the turn the character was captured}
+			\addfield{Summary}{A character may have a chance to escape after the game turn he/she was captured. The odds of escaping depend on the leadership rating of the character}
+			\additemizedfield{Primary Sequence}{
+				\item Computer displays dialogue box with option for escape
+				\item User chooses the option to escape
+				\item Computer calculates whether the character escapes based of the Leadership Rating
+				\item Computer updates the graphics to show the escaped character and informs user of result through dialogue box
+				\item User clicks "OK"
+			}
+			\additemizedfield{Alternatives}{
+				\item Character does not escape
+			}
+		\end{usecase}	
+
+%=======================================================
+%				Diplomacy: Cameron Simon
+%=======================================================
+\section{Diplomacy}
+\paragraph{(Author: Cameron Simon)}
+            \subsection{Influencing Neutrals}
+                \begin{usecase}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Influence Neutrals}
+                  \additemizedfield{Preconditions}{
+                    \item Neutral's Diplomacy marker must be within one hex of a lettered hex(a players hex) on the Diplomacy track. 
+                  }
+                  \addfield{Summary}{When a neutral is influenced by a player that player can move freely through that neutrals territory.}                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Computer recognizes neutral is being influenced by player.
+                        \item Player prompted to see if they want to move through neutral territory.
+                        \item Player moves through the neutrals territory as they wish.
+                        \item If neutrals diplomacy marker is moved should prompt player to move out of neutral territory unless they want to enter "Invading Neutral" state.
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Diplomacy map with new neutral locations is displayed.}                  
+              
+                 \end{usecase}
+                 
+            \subsection{Invading Neutrals}
+                \begin{usecase}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Invade Neutrals}
+                  \additemizedfield{Preconditions}{
+                    \item User places his/her Army units, Monsters, or Vortices inside territories owned by a Neutral. 
+                  }
+                  \addfield{Summary}{Decide who neutrals in question are going to make alliances with.}                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Computer checks position of Neutral's Diplomacy marker on Diplomacy Track.
+                        \item If marker is closest to a lettered hex, Computer places Neutral on side it was leaning toward.
+                        \item If marker equidistant from two or more opposing, non-invading players, computer displays die roll and players roll (highest wins control). Computer places neutral in winning players hex.
+                        \item If marker equidistant from invading player's hex and one or more other player's hex, it will immediately ally with some non-invading players as in step 3. Computer places neutral in winning players hex.
+                        \item If marker closest to invading Player's hex it is immediately placed in Neutral central hex by computer.
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Diplomacy map with new neutral locations is displayed.}                  
+              
+                 \end{usecase}
+                 
+            \subsection{Human Sacrifice}
+                \begin{usecase}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Try to gain Influence over Neutrals}
+                  \additemizedfield{Preconditions}{
+                    \item Player moves a unit or Character adjacent to a unit or character controlled by the Neutral to whom he wishes to sacrifice. 
+                  }
+                  \addfield{Summary}{Neutral's Diplomacy marker is moved one hex by the sacrificing Player. }                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Player chooses option of human sacrifice.
+                        \item During the Alliance Determination Phase, the unit or Character is removed from play by the computer.
+                        \item Computer moves Neutral's diplomacy marker one hex.
+                        \item Player may sacrifice as many units/characters as they wish but computer will NOT move diplomacy marker any more for that game turn.
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Diplomacy map with new diplomacy locations.}                  
+              
+                 \end{usecase}
+                 
+            \subsection{Spawn Emissaries}
+                \begin{usecase}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Creation of emissarries.}
+                  \additemizedfield{Preconditions}{
+                    \item Character must have diplomatic rating greater than zero.
+                  }
+                  \addfield{Summary}{Up to two emissaries created for character that exist only for one purpose. }                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Computer recognizes game is in Friendly Movement Phase.
+                        \item Computer prompts user to see if they want to create emissaries.
+                        \item User responds yes or no.
+                        \item User selects how many they want to create (1 or 2).
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Specified number of emissaries on game board. (Do we need rules for emissary movement and  deletion in this use case?)}                  
+              
+                 \end{usecase}
+                 
+                \subsection{Diplomacy}
+                \begin{usecase}
+                  \addtitle{Author: } {Cameron Simon}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Establish new diplomacy lines on table.}
+                  \additemizedfield{Preconditions}{
+                    \item Game must be in Diplomacy Inter-Phase state and a player must have a Character of Emissary in the Capital hex of a Neutral Power. 
+                  }
+                  \addfield{Summary}{Establish new diplomacy lines based on game specifications.}                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Computer cross references the race of the player's character or emissary and the race of the neutral power on the table to yield a single number (negative or positive).
+                        \item Player rolls two dice and has that number added to the number found in step 1.
+                        \item Computer references the Diplomacy Results table with number found above (result will be positive, negative, or an 'x').
+                        \item Based on output from step 3 and the rule specification for those outputs, the computer places the pieces in their new locations on the diplomacy track.
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Display updated map with new marker location on diplomacy map.}                  
+              
+                 \end{usecase}
+                 
+            \subsection{Alliance Selection}
+                \begin{usecase}
+                  \additemizedfield{Actors}{
+                    \item User
+                    \item Computer
+                  }
+                  \addfield{Goals: }{Form alliances with other players.}
+                  \additemizedfield{Preconditions}{
+                    \item Game must be in Player-Order Determination Inter-Phase. 
+                  }
+                  \addfield{Summary}{Players choose who they want to be allied with for the current game turn.}                  
+                  \additemizedfield{Primary Sequence:}{
+                    \item Steps:
+                      \begin{enumerate}
+                        \item Each player is prompted to see if they want to form alliances.
+                        \item If player says yes, then they select the player they want to ally with.
+                        \item Computer checks to see if players selected each other to be allies. (Ex: If player A selects to ally with player B, Player B must also select to ally with player A to form the alliance)
+                      \end{enumerate}
+                  }
+                  \addfield{Produces: }{Displays current player alliances.}                  
+              
+                 \end{usecase}
+                 
+                 
+\end{document}

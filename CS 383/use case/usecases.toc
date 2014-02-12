@@ -1,0 +1,59 @@
+\contentsline {chapter}{\numberline {1}Playtest}{4}
+\contentsline {section}{\numberline {1.1}Results from the playtest}{4}
+\contentsline {paragraph}{\nonumberline (Author: John Goettsche \& David Klingenberg)}{4}
+\contentsline {paragraph}{\nonumberline Annoying the features of the game (John):}{4}
+\contentsline {paragraph}{\nonumberline How will manual elements be translated? (David)}{4}
+\contentsline {paragraph}{\nonumberline What parts have to change? (John)}{4}
+\contentsline {paragraph}{\nonumberline What parts of the manual game can be retained as-is? (David)}{5}
+\contentsline {chapter}{\numberline {2}Use Cases}{6}
+\contentsline {section}{\numberline {2.1}Main Menu}{6}
+\contentsline {paragraph}{\nonumberline (Author: David Klingenberg)}{6}
+\contentsline {subsection}{\numberline {2.1.1}Pregame}{6}
+\contentsline {subsection}{\numberline {2.1.2}Active Game-play}{6}
+\contentsline {subsection}{\numberline {2.1.3}Resume Game}{7}
+\contentsline {subsection}{\numberline {2.1.4}Save Game}{7}
+\contentsline {section}{\numberline {2.2}Scenario Selection}{8}
+\contentsline {paragraph}{\nonumberline (Author: David Klingenberg)}{8}
+\contentsline {subsection}{\numberline {2.2.1}Scenario Selection}{8}
+\contentsline {subsection}{\numberline {2.2.2}Race Selection}{9}
+\contentsline {subsection}{\numberline {2.2.3}Unit placement}{10}
+\contentsline {section}{\numberline {2.3}Random Events}{11}
+\contentsline {paragraph}{\nonumberline (Author: John Goettsche)}{11}
+\contentsline {subsection}{\numberline {2.3.1}Display Die Roll}{11}
+\contentsline {subsection}{\numberline {2.3.2}Display Player Order}{11}
+\contentsline {subsection}{\numberline {2.3.3}Display Random Events}{12}
+\contentsline {subsection}{\numberline {2.3.4}Display Random Movement}{13}
+\contentsline {subsection}{\numberline {2.3.5}Rally Demoralized Units}{13}
+\contentsline {subsection}{\numberline {2.3.6}Display Unit}{14}
+\contentsline {section}{\numberline {2.4}Selection}{15}
+\contentsline {paragraph}{\nonumberline (Author: Gabe Pearhill)}{15}
+\contentsline {subsection}{\numberline {2.4.1}Unit Selection}{15}
+\contentsline {subsection}{\numberline {2.4.2}Hexagon Selection}{15}
+\contentsline {section}{\numberline {2.5}Movement}{15}
+\contentsline {paragraph}{\nonumberline (Author: Gabe Pearhill)}{15}
+\contentsline {subsection}{\numberline {2.5.1}Move a Unit}{16}
+\contentsline {subsection}{\numberline {2.5.2}Using a Portal}{16}
+\contentsline {section}{\numberline {2.6}Magic}{17}
+\contentsline {paragraph}{\nonumberline (Author: Tao Zhang)}{17}
+\contentsline {subsection}{\numberline {2.6.1}Spell Segment}{17}
+\contentsline {subsection}{\numberline {2.6.2}CounterSpell Segment}{17}
+\contentsline {subsection}{\numberline {2.6.3}Spell Selection}{18}
+\contentsline {subsection}{\numberline {2.6.4}Spell Selection Helper}{19}
+\contentsline {subsection}{\numberline {2.6.5}Spell Cast}{19}
+\contentsline {subsection}{\numberline {2.6.6}Manna Regeneration}{20}
+\contentsline {section}{\numberline {2.7}Combat}{21}
+\contentsline {paragraph}{\nonumberline (Author: Matthew Brown)}{21}
+\contentsline {subsection}{\numberline {2.7.1}Attack Hex}{21}
+\contentsline {subsection}{\numberline {2.7.2}Retreating}{22}
+\contentsline {subsection}{\numberline {2.7.3}Advance after combat}{23}
+\contentsline {subsection}{\numberline {2.7.4}Capturing}{23}
+\contentsline {subsection}{\numberline {2.7.5}Escaping}{24}
+\contentsline {subsection}{\numberline {2.7.6}Leadership Rating}{25}
+\contentsline {section}{\numberline {2.8}Diplomacy}{26}
+\contentsline {paragraph}{\nonumberline (Author: Cameron Simon)}{26}
+\contentsline {subsection}{\numberline {2.8.1}Influencing Neutrals}{26}
+\contentsline {subsection}{\numberline {2.8.2}Invading Neutrals}{27}
+\contentsline {subsection}{\numberline {2.8.3}Human Sacrifice}{28}
+\contentsline {subsection}{\numberline {2.8.4}Spawn Emissaries}{29}
+\contentsline {subsection}{\numberline {2.8.5}Diplomacy}{30}
+\contentsline {subsection}{\numberline {2.8.6}Alliance Selection}{31}

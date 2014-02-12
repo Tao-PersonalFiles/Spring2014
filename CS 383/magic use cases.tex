@@ -1,0 +1,182 @@
+\documentclass[12pt,letterpaper]{scrreprt}
+
+%----------------------------------------------------------------------
+%				Required Packages
+%----------------------------------------------------------------------
+\usepackage{usecases}
+\usepackage{enumitem}
+%\usepackage{paralist}
+%\usepackage{tabto}
+\usepackage[top=2cm,bottom=3.5cm]{geometry}
+
+%----------------------------------------------------------------------
+%				Title Page
+%----------------------------------------------------------------------
+\title{CS383: Software Engineering}
+\subtitle{HW1: Use Cases\\Spring 2014}
+\author{CS383 Tao Zhang} % Include everyone's name?
+\date{}
+
+%----------------------------------------------------------------------
+%				Additional Settings
+%----------------------------------------------------------------------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+
+
+
+%----------------------------------------------------------------------
+%				Use Case Document Start
+%----------------------------------------------------------------------
+\begin{document}
+
+% Initializations
+%\NumTabs{2} % This is for creating a two column use case scenario
+\maketitle
+\tableofcontents % Eventually uncomment this
+
+\chapter{Use cases}
+	\section{Magic}
+                \subsection{Magic I: Spell Segment}
+                \begin{usecase}
+                  \addtitle{Magic I}{Spell Segment}
+                  \additemizedfield{Actors}{
+                    \item Phasing player
+                    \item Computer
+                  }
+                  \addfield{Summary}{Phasing player cast spells}
+                  \additemizedfield{Preconditions}{
+                    \item End of Phasing Player's Movement Phase
+                  }
+                  \addscenario{Steps}{
+                  	\item Phasing player select spells 
+                  	\item Computer perform spells
+                  }
+                \end{usecase}
+                
+                \subsection{Magic II: CounterSpell Segment}
+                \begin{usecase}
+                  \addtitle{Magic II}{CounterSpell Segment}
+                  \additemizedfield{Actors}{
+                  	\item Non-phasing Player
+                  	\item Computer
+                  }
+                  \addfield{Summary}{Non-phasing players case counterspells}
+                  \additemizedfield{Preconditions}{
+                  	\item End of phasing player spell segment
+                  }
+                  \addscenario{Steps}{
+                  	\item non-phasing players select counterspells in the player-order of this turn
+                  	\item Computer perform counterspells of all non-phasing players selected
+                  }
+                \end{usecase}
+                
+                \subsection{Magic III: Spell Selection}
+                \begin{usecase}
+                  \addtitle{Magic III}{Spell Selection}
+                  \additemizedfield{Actors}{
+                  	\item Player
+                  }
+                  \addfield{Summary}{Players select spells to cast}
+                  \additemizedfield{Preconditions}{
+                  	\item During the movement Phase
+                  	\item During the Spell Segment
+                  	\item During the CounterSpell Segment
+                  	\item During the Combat Phase
+                  }
+                  \addscenario{Steps}{
+                  	\item Select a character who has magic PL
+                  	\item Select a spell
+                  	\item Click "Cast Spell" button
+                  	\item Repeat steps to cast enough spells
+                  }
+                  \additemizedfield{Alternatives}{
+                  	\item Click "End Spell Segment" button to end spell selection phase
+                  }
+                \end{usecase}
+                
+                \subsection{Magic IV: Spell Selection Helper}
+                \begin{usecase}
+                  \addtitle{Magic IV}{Spell Selection Helper}
+                  \additemizedfield{Actors}{
+                  	\item Computer
+                  }
+                  \addfield{Summary}{Computer select all available spells for each character and show them to players}
+                  \additemizedfield{Preconditions}{
+                  	\item Player start spell selection
+                  }
+                  \addscenario{Steps}{
+                  	\item Make a list of all current characters who are able to cast spells
+                  	\item For each characters on the list, make another list of spells that character has ability to cast.
+                  }
+                  \additemizedfield{Postconditions}{
+                  	\item Display a list names of spells on the screen when player select the character
+                  }
+                \end{usecase}
+                
+                \subsection{Magic V: Spell Cast}
+                \begin{usecase}
+                  \addtitle{Magic V}{Spell Cast}
+                  \additemizedfield{Actors}{
+                  	\item Computer
+                  }
+                  \addfield{Summary}{Computer performs spell casting}
+                  \additemizedfield{Preconditions}{
+                  	\item Player assign a character to cast a spell
+                  }
+                  \addscenario{Steps}{
+                  	\item Roll a die (Random Number) to determing spell casting succeed or not
+                  	\item Refresh information
+                  	\item Second roll taken to determine whether the character die or survive
+                  	\item Refresh information
+                  }
+                  \additemizedfield{Alternatives}{
+                  	\item If succeed, perform the spell and cost manna points
+                  	\item If fail, nothing
+                  	\item If die, anouncement and remove the information of that character
+                  	\item If survive, nothing
+                  }
+                \end{usecase}
+                
+                \subsection{Magic VI: Manna Regeneration}
+                \begin{usecase}
+                  \addtitle{Magic VI}{Manna Regeneration}
+                  \additemizedfield{Actors}{
+                  	\item Computer
+                  }
+                  \addfield{Summary}{Regenerate Manna points for each Spell-casting characters}
+                  \additemizedfield{Preconditions}{
+                  	\item End of Diplomacy Inter-phase
+                  }
+                  \addscenario{Steps}{
+                  	\item Make a list of all current characters who need implement manna regeneration phase
+                  	\item Calculate and add the mana points that each character gained based on different kind of conditions and cases
+                  	\item Computer refresh the screen to display new manna information
+                  }
+                  \additemizedfield{Postconditinos}{
+                  	\item Dialog box: "Start Manna regeneration inter-phase" 
+                  	\item Sleep for a while 
+                  	\item Dialog box: "Manna regeneration phase done!"
+                  }
+                \end{usecase}
+                
+	\section{Technical/Misc}       
+				\subsection{Technical/MiscI: Players' Turns} 
+				\begin{usecase}
+                  \addtitle{Technical/MiscI}{Players' Turns}
+                  \additemizedfield{Actors}{
+                  	\item Players, computer
+                  }
+                  \addfield{Summary}{Perform the change of player turns}
+                  \additemizedfield{Preconditions}{
+                  	\item End of player-order determination inter-phase
+                  }
+                  \addscenario{Steps}{
+                  	\item Computer anounce which player to start turn
+                  	\item Anounced player start turn
+                  	\item Phasing player click "End of turn"
+                  	\item Computer anounce next player based on the player-order
+                  }
+                \end{usecase}      
+\end{document}
