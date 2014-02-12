@@ -1,0 +1,19 @@
+\relax 
+\@writefile{toc}{\contentsline {section}{\numberline {1}Description of Algorithms}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Hill Climbing (HC)}{1}}
+\@writefile{toc}{\contentsline {paragraph}{The hill climbing algorithm is basicly a local search algorithm to find the optimization solution. In my code, I have the main function which will generate a random solution to the function. Then start doing hillclimbing to get the best number.}{1}}
+\@writefile{toc}{\contentsline {paragraph}{In the HC algorithm function, I will generate 60 neighbors for the previous solution, which plus or minus a interval of $0.01, 0.001 or ...$ for each $x_i$. As the function showed blow, it will keep running the loop until we get the best answer, and return to the main function.}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Simulated Annealing (SA)}{2}}
+\@writefile{toc}{\contentsline {paragraph}{The simulated annealing algorithm will do the global search to find the optimization solution. In my code, the main function is similar to hillclimbing, generate a random solution and put it into the annealing function to run a certain times to get the best solution.}{2}}
+\@writefile{toc}{\contentsline {paragraph}{In the SA algorithm, we have 100/i running times. Each time we get a randomNeighbor, compare with the best value. If it's better, replace it to best, otherwise keep looping or we have a probability to change our position (solution) in order to do a global search }{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Results}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Hill Climbing for Sphere}{3}}
+\@writefile{toc}{\contentsline {paragraph}{As the data listed in the table above, I did get the correct best value for sphere function}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Hill Climbing for Schwefel}{3}}
+\@writefile{toc}{\contentsline {paragraph}{The HC algorithm can't reach the best evaluation for Schwefel function as it is a local search.}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Simulated Annealing for Sphere}{3}}
+\@writefile{toc}{\contentsline {paragraph}{My results doesn't have the correct best value. However, after analyzing the data, it could be found that as the running times keep going higher, the result is getting better and better. In short, I assume that I will get the correct best value if I have running times of $10^10$ for this algorithm. But it already took me 18 mins to run $10^9$ times, I don't want to waste hours running $10^{10}$ times.}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Simulated Annealing for Schwefel}{4}}
+\@writefile{toc}{\contentsline {paragraph}{The same as SA for Sphere, in limited running times, my coding still can't reach the best solution.}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Conclusion}{4}}
+\@writefile{toc}{\contentsline {paragraph}{My hill climbing algorithm should succeed to finish the task, while the simulated annealing is not. After generating the data for SA, I believe there are some problems on the part of "generating a random neighbor" and also the part of "$P(e, enext, T) > random(0 - 1)$". Therefore, I may keep doing some research on how to generate a better neighbor and on the comparison of probability.}{4}}
