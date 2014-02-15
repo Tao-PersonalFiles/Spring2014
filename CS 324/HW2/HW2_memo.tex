@@ -1,0 +1,46 @@
+\documentclass[a4paper,12pt]{texMemo}
+
+\usepackage[english]{babel}
+\usepackage{graphicx, blindtext}
+
+
+%----------------------------------------------------------------------------------------
+%	MEMO INFORMATION
+%----------------------------------------------------------------------------------------
+\memoto{	Mr. Bolden}
+\memofrom{	Tao Zhang}
+\memosubject{	Programming Assignment 2}
+\memodate{	\today}
+
+
+\begin{document}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	MEMO CONTENT
+%----------------------------------------------------------------------------------------
+
+\paragraph{This memo shows the process and results of programming assignment 2 on NetBeans IDE.}
+
+\paragraph{I spent some time understanding the differences among frame, viewport, and window by drawing diagrams with coordinates. When turned to design, I decided that I need set all the size and positions of them:  }
+\begin{itemize}
+	\item Set a fixed size frame
+	\item Set the viewport by reading the starting position (xS, yS), which is left-bot of viewport, on frame with the width and height.
+	\item Set the window by reading the starting position (xW, yW), which is left-bot of window, on the Axes with the width and height.
+\end{itemize}
+
+\paragraph{Then I need to write the function to transfer them:}
+\begin{itemize}
+	\item Window to Viewport: This function will performs basic 2D scaling transformation.
+	\item Viewport to Frame: This function will performs basic mapping transformation. It is little tricky, since the direction of their y-axis are opposite. So the x coordinate on frame is just the sum of xS(starting point) and xV(coordinate on Viewport), and the y coordinate on frame is yS - yV.
+	\item MoveTo: This function combines both WindowToViewport and ViewportToFrame, which means it transfer the point from window coordinates to frame coordinate. It needs to read the coordinates from window.
+\end{itemize}
+
+\paragraph{In order to plot the graph: }
+\begin{itemize}
+	\item DrawTo: input the next cooridnate. store the last coordinate, then move to the next cooridnate by MoveTo function. Finally, draw a line between these two coordinates by .drawLine(), only if the coordinates are inside of the viewport.
+	\item  Followed by the lecture notes, use loop to draw the curves.
+\end{itemize}
+
+\paragraph{Everything runs ok, and the output is good to go. Due to the lack of experience in Java, the code is not organized very well.}
+\end{document}
