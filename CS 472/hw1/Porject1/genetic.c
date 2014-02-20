@@ -13,18 +13,20 @@
 #include <sys/stat.h>
 #include <string.h>
 
-#define INTERVAL 0.01	// difference we change in mutation 
-#define P_RANGE 5.12	// maximun in range
-#define N_RANGE	-5.12	// minimun in range
+#define INTERVAL 0.001	// difference we change in mutation 
+#define P_RANGE 2.048	// maximun in range
+#define N_RANGE	-2.048	// minimun in range
 
-#define POP 1000 	// define the population as 1000
+#define POP 100		// define the population as 1000
 #define X_I 30		// define the number of values for each solution
 #define GOOD 0 		// define for winner
 #define POOR 1 		// define for loser
 
 //#define
 
-double evaluate(double x[X_I])	// fitness function of Sphere
+/*
+// fitness function of Sphere
+double evaluate(double x[X_I])	
 {
 	double z = 0;
 	double tmp;
@@ -36,6 +38,15 @@ double evaluate(double x[X_I])	// fitness function of Sphere
 	}
     
 	return z;
+}
+*/
+double evaluate(double x[X_I])
+{
+	double z = 0;
+	int i;
+	for(i = 0; i < X_I - 1; i++) {
+		z += 100*pow(x[i+1]-pow(x[i],2) , 2) + pow(x[i] - 1, 2);
+	}
 }
 
 int selection(int good_poor, double fitness[POP])
@@ -59,6 +70,8 @@ int selection(int good_poor, double fitness[POP])
     
 	return winner;
 }
+
+// void crossover_permutation
 
 void mutate(double child[X_I])
 {
@@ -96,13 +109,14 @@ double GeneticAlgorithm(double resultA[X_I])
 
  	int best = -1;
  	double bestEval = 9999;
+ 	double AVG_fitness = 9999;
     
  	int i;
  	int j;
     // produce a population
  	for(i = 0; i < POP; i++){
  		for(j = 0; j < X_I; j++){
- 			population[i][j] = (double)(rand()%((int)((P_RANGE - N_RANGE)*100))) / 100.00;
+ 			population[i][j] = (double)(rand()%((int)((P_RANGE - N_RANGE)*1000))) / 1000.00;
  		}
  		fitness[i] = evaluate(population[i]);	// calc all fitness
  		if(fitness[i] < bestEval){
@@ -113,7 +127,9 @@ double GeneticAlgorithm(double resultA[X_I])
 
  	printf("First Best Fitness: %f\n\n", bestEval);
     
- 	//double AVG_fitness = getSum(fitness) / POP;
+ 	AVG_fitness = getSum(fitness) / POP;
+ 	printf("First AVG_fitness: %f\n\n", AVG_fitness);
+
  	int count = 0;
  	while(count < POP*100){
 		father = selection(GOOD, fitness);
@@ -123,8 +139,7 @@ double GeneticAlgorithm(double resultA[X_I])
 		}
         
 		//cossover to get children
-		memcpy(children[0], population[father],sizeof(double)*30);
-		memcpy(children[1], population[mother],sizeof(double)*30);
+		crossover(population[father],population[mother],children);
         
 		//mutation children
 		mutate(children[0]);
@@ -142,7 +157,13 @@ double GeneticAlgorithm(double resultA[X_I])
 		fitness[loser1] = evaluate(children[0]);
 		memcpy(population[loser2], children[1],sizeof(double)*30);
 		fitness[loser2] = evaluate(children[1]);
-		count++;
+
+		if(count % 100 == 0 ){
+			AVG_fitness = getSum(fitness) / POP;
+ 			printf("AVG_fitness[%d]: %f\n\n", count, AVG_fitness);
+		}
+		
+ 		count++;
  	}
 	//printf("Father[%d]: %lf\n", father, fitness[father]);
 	//printf("Mother[%d]: %lf\n", mother, fitness[mother]);
@@ -155,6 +176,9 @@ double GeneticAlgorithm(double resultA[X_I])
  			best = i;
  		}
  	}
+
+ 	AVG_fitness = getSum(fitness) / POP;
+ 	printf("Final AVG_fitness: %f\n\n", AVG_fitness);
     
  	memcpy(resultA,population[best],sizeof(double)*X_I);
     
@@ -168,11 +192,11 @@ int main()
  	double resultA[X_I];
  	
  	result = GeneticAlgorithm(resultA);
-    
+    /*
  	int i;
  	for(i = 0; i < X_I; i++){
  		printf("%d: %f\n", i, resultA[i]);
- 	}
+ 	}*/
     
     printf("Best Eval: %f\n", result);
     
