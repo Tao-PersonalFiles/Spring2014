@@ -1,0 +1,23 @@
+\relax 
+\@writefile{toc}{\contentsline {section}{\numberline {1}Description for Genetic Algorithm}{2}}
+\@writefile{toc}{\contentsline {paragraph}{Generally, my Genetic Algorithm used Steady-State type that: }{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Fitness function: just math, no need to explain}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Generate initial random solutions}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Crossover}{4}}
+\@writefile{toc}{\contentsline {paragraph}{Once we get the parents, we will genearte two children by crossover. I did 4 crossover methods, listed below:}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Mutation}{5}}
+\@writefile{toc}{\contentsline {paragraph}{Mutate the children by ``creep". For each vecter in child, we have 50percent chance to mutate the value by +/- a small value (0.001 for Rosenbrock; 0.01 for Sphere, Rastrigin; 0.1 for Ackley; 1 for Schwefel, Griewangk).}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}GeneticAlgorithem}{6}}
+\@writefile{toc}{\contentsline {paragraph}{The major algorithm part. It will finally return the best fitness, also pass the reference of the best individual (solution) so far.}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.6}Selection}{6}}
+\@writefile{toc}{\contentsline {paragraph}{This is a tournament selection function which select a winner/loser (depend on the index) from a sample of N random individuals (N is also a random number). Finally the function returns a int which is the index of that individual among population array.}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Results}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Sphere}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Rosenbrock}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Rastrigin}{8}}
+\@writefile{toc}{\contentsline {paragraph}{My genetic algorithm doesn't work for Rastrigin function. The best result I get will stay (little change) at some point, even I add more running times. But the fitness function I write should be correct. I have no idea about it.}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Schwefel}{8}}
+\@writefile{toc}{\contentsline {paragraph}{For this function, I get the same trouble as Rastrigin function.}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Ackley}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Griewangk}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Conclusion}{9}}

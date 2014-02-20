@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.27)  20 FEB 2014 00:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.27)  20 FEB 2014 14:05
 entering extended mode
 **project1-report.tex
 
-("C:\Users\张涛\Documents\GitHub\Spring2014\CS 472\hw1\Porject1\project1-repo
-rt.tex"
+("C:\Users\张涛\Documents\GitHub\Spring2014\CS 472\hw1\Porject1\report\projec
+t1-report.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -140,7 +140,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen115
 \Gin@req@width=\dimen116
 )
-("C:\Users\张涛\Documents\GitHub\Spring2014\CS 472\hw1\Porject1\c.sty"
+("C:\Users\张涛\Documents\GitHub\Spring2014\CS 472\hw1\Porject1\report\c.sty"
 ("W:\LaTex\MiKTeX 2.9\tex\latex\listings\listings.sty"
 \lst@mode=\count100
 \lst@gtempboxa=\box28
@@ -192,8 +192,8 @@ File: lstlang1.sty 2013/08/26 1.5b listings language file
 ("W:\LaTex\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 ))
-("C:\Users\张涛\Documents\GitHub\Spring2014\CS 472\hw1\Porject1\project1-repo
-rt.aux")
+("C:\Users\张涛\Documents\GitHub\Spring2014\CS 472\hw1\Porject1\report\projec
+t1-report.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
@@ -238,23 +238,50 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {C:/Users/张涛/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
- [2]
-("C:\Users\张涛\Documents\GitHub\Spring2014\CS 472\hw1\Porject1\project1-repo
-rt.aux") ) 
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 36.
+
+("W:\LaTex\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 36.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 48.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 51.
+
+("W:\LaTex\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 52.
+ [2] [3]
+LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10> not available
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 148.
+ [4] [5] [6] [7]
+[8] [9]
+("C:\Users\张涛\Documents\GitHub\Spring2014\CS 472\hw1\Porject1\report\projec
+t1-report.aux") ) 
 Here is how much of TeX's memory you used:
- 3791 strings out of 493921
- 49256 string characters out of 3150487
- 136354 words of memory out of 3000000
- 7059 multiletter control sequences out of 15000+200000
- 14503 words of font info for 36 fonts, out of 3000000 for 9000
+ 4053 strings out of 493921
+ 52239 string characters out of 3150487
+ 263354 words of memory out of 3000000
+ 7299 multiletter control sequences out of 15000+200000
+ 26389 words of font info for 67 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 37i,6n,58p,531b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
-{W:/LaTex/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<W:/LaTex/MiKTeX
- 2.9/fonts/type1/urw/times/utmb8a.pfb><W:/LaTex/MiKTeX 2.9/fonts/type1/urw/time
-s/utmr8a.pfb>
-Output written on project1-report.pdf (2 pages, 24981 bytes).
+ 37i,6n,58p,345b,1549s stack positions out of 5000i,500n,10000p,200000b,50000s
+{W:/LaTex/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<W:/LaTex
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><W:/LaTex/MiKTeX 2.9/font
+s/type1/urw/courier/ucrb8a.pfb><W:/LaTex/MiKTeX 2.9/fonts/type1/urw/courier/ucr
+r8a.pfb><W:/LaTex/MiKTeX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><W:/LaTex/MiKT
+eX 2.9/fonts/type1/urw/times/utmb8a.pfb><W:/LaTex/MiKTeX 2.9/fonts/type1/urw/ti
+mes/utmr8a.pfb>
+Output written on project1-report.pdf (9 pages, 98833 bytes).
 PDF statistics:
- 18 PDF objects out of 1000 (max. 8388607)
+ 57 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
