@@ -1,6 +1,0 @@
-Conjure Zombie Infantry,N,A,1 per 2 GT,in hex only
-Force Wall,N,A,2 per hexside,7 hexes
-Magic Blow,Y,P,1,4 hexes(PCD)
-Strength,N,P,(3 minimum),2 hexes
-Teleportation Protection,N,A,2,in hex only
-WeakNess,Y,P,(3 Minumum),6 hexes(PCD)
