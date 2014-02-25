@@ -28,3 +28,19 @@ New group meeting, only 3 shows up
 Decide to have another meeting on monday
 Update the NetBeans IDE and java SE
 Create Responsibility on GitHub, and want to work hw2 on it.
+
+
+2/15
+Made my login page and main menu. The buttons and text fields are there, got the background from online.
+
+2/16
+Only Jay and I showed up for the meeting. Reviewed the class ideas for each other. Jay gave me some good suggestions.
+Decided to email others and make another meeting tomorrow
+
+2/17
+Everyone showed up. Reviewed everyone's class diagram. Cliffry gonna combine them tomorrow.
+I edited the spell class diagram after review. the class diagram may be too simple, still need more details.
+
+2/18 
+Finish writing the descriptions for spell class diagram
+Finish writing the java function for Magic Search table: it is actually that read an integer (1-7) for Magic Power Level, and return and print all the spells for that Power Level. Also, I created 7 .txt files as data file, which each file includes all spells at that Power Level in army game.

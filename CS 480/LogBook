@@ -1,0 +1,75 @@
+Logbook
+
+Tao Zhang
+
+CS481
+
+1/21
+Turned in personal bid
+
+1/25
+Class meeting, get back the result of groups
+Get the link of our project from jordan
+Download the files from github
+installed the Android studio
+
+
+1/31
+Meet with Jordan before group meeting, asked him to teach me how to run the project on Android studio
+Group meeting at 10:00
+talked about what the project was done last semester
+
+2/1 
+Meet with client Mr. Aziz.
+Showed us the main menu for the game on phone, and some small details of the game.
+Get a cnew the game KickShot
+Like the facebook page.
+
+2/5
+Group Meeting
+learned how to play the games
+jordon showed us his work done from last semester, which has already transfered onto andriod paltform
+
+THE APP
+Main menu: has "play game" & "exit game"
+background:
+the app has the board as backgroud. 
+play: touch the screen, begin to roll dies and move the ball force to oneside until the defender rolls a double. once the ball reaches the end of one side. the defender rolls die to decide if he catch the ball.
+Several cards will be drawed during the play.
+After go through the game, I decided to work on that shows the draw card in the middle of the board instead of a new background with the card
+That's what I have
+
+2/11
+Finally have time to get real start on the project.
+Figured out how to open the emulator and import/run the project on emulator.
+The emulator runs very slow on my Mac OS. 
+
+Gonna run the project on my windows desktop, seems got some trouble.
+
+2/17 
+Still busy, finished most jobs of other courses. 
+Still had the trouble on windows. Can't run the kickshot.
+Waste a lot of time trying to figure out the problem, but failed
+
+2/22
+Emailed Jordan to get some help to fix the problem of android studio on my windows.
+One thing is that the Gradle project sync failed.
+When I tried to compile the project, it saids Gradle version 1.8 is required, current version is 1.9
+Since really unfamiliar with Android studio, gonna do other works and wait for Jordan's responce.
+
+
+2/23
+A free weekend that could work on it.
+Then tried to follow the tutorial and learn the basic staff.
+It works well for my first app.
+Waiting for the response from Jordan, but seems like he's busy. And send me a link about the gradle, followed the instruction and changed the commands in specific file. Still doesn't work. 
+Well, funny thing happened. More and more issues came out, and I can't run my first app. Even re-install studio.
+Finally, went back on my Mac. Everything works great (I mean, that's the same project, why windows has so many issues...)
+Got my new Google Nexus7 tablet, successfully run the kickshot and MyFirstApp on it through mac. 
+Just waste a lot of time on WINDOWS!
+
+2/24
+Spent most of the day learning the tutorial, e.g. Building a Simple User Interface; Starting Another Activity; Action Bar.
+
+2/25 
+As I still haven't finish my first task. Tried to search some graphic related tutorial, and learing Creating Custom Views.
