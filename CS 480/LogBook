@@ -73,3 +73,16 @@ Spent most of the day learning the tutorial, e.g. Building a Simple User Interfa
 
 2/25 
 As I still haven't finish my first task. Tried to search some graphic related tutorial, and learing Creating Custom Views.
+
+2/26
+Spent most of my day tracking the code and search sources to make the image to display on the original background instead of open a new background.
+Get some better understanding of ImageView on Android
+Finally, the action card can be shown on the background, but can't clear it when on touch.
+
+3/1
+Spent some time taking a look at the basic concept about onTouch and onClick. 
+
+3/2
+Did more research on examples of "onClick(View view)". Succeed to remove the action image when click on it.
+
+Clone the updated version from github. Get problems on Gradle again. Hum...seems like I really need to learn something about Gradle. Decide to do some research later this week.
