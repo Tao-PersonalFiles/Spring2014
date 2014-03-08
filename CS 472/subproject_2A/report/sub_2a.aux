@@ -1,0 +1,24 @@
+\relax 
+\@writefile{toc}{\contentsline {section}{\numberline {1}Algorithm Description}{2}}
+\@writefile{toc}{\contentsline {paragraph}{So far, my Genetic Program has 4 classes: }{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Individual Description}{3}}
+\@writefile{toc}{\contentsline {paragraph}{The Individual class is a tree class, and I have these functions:}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Generate full random expression}{3}}
+\@writefile{toc}{\contentsline {paragraph}{The generate function will read a max depth input and generate a full tree. Each node has the link to their parent.}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Erace}{4}}
+\@writefile{toc}{\contentsline {paragraph}{Function that erace the whole individual.}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Copy}{4}}
+\@writefile{toc}{\contentsline {paragraph}{The copy function will copy the whole individual to another individual. We just need to change the start position ``n" and ``source" of copyNode() so that we can copy a subtree of one individual to the subroot of another individual}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Fitness}{5}}
+\@writefile{toc}{\contentsline {paragraph}{Recursive calculation according to the type of each node. When the type comes division, if the divisor is 0, I defined the result as 0.}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Size}{6}}
+\@writefile{toc}{\contentsline {paragraph}{I keep the ``terms" and ``non\_terms" as public int}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Print}{6}}
+\@writefile{toc}{\contentsline {paragraph}{This function will print all the termimals and non terminals in math order.}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}A single individual}{7}}
+\@writefile{toc}{\contentsline {paragraph}{Here are the results that test the generate, erace, fitness and size calculation, copy, and print.}{7}}
+\@writefile{toc}{\contentsline {paragraph}{It seems pretty good!}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Generation sample}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{9}}
+\@writefile{toc}{\contentsline {paragraph}{Generally, the GP works well. However, I can still do some work to make it looks neat and easier for others to understand.}{9}}

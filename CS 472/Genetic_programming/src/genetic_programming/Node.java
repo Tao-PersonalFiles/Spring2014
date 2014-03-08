@@ -18,10 +18,8 @@ public class Node {
         int type;   // 0 = +; 1 = -; 2 = *; 3 = /; 4 = X; 5 = const
         double const_value;
         
-        public void Node(/*int t, double c*/){
+        public void Node(){
             left = null;
             right = null;
-            //type = t;
-            //const_value = c;
         }
 }

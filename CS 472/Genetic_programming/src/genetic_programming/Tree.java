@@ -15,76 +15,97 @@ import java.util.Random;
 public class Tree {
     
     // root node pointer. Be null for empty tree;
-    private Node root;
+    public Node root;
     
     public int terms;
-    public double non_terms;
+    public int non_terms;
     
     // creates an empty binary tree
     public void Tree(){
         root = null;
-        
-        terms = 0;
-        non_terms = 0;
     }
     
-    public void generate(int depth, int max){
+    public void generate(int max){
         Node n = new Node();
-        root = n;
-        full(depth, max, n);
+        root = n;   // point root to new start node
+        full(0, max, n);
     }
     
+    // creates full trees 
     public void full(int depth, int max, Node parent){
-        
         Random randomGenerator = new Random();
         Node p_copy = parent;
-        if(depth >= max){
+        if(depth >= max){   // 4 for X, 5 for const_value
             parent.type = 4 + randomGenerator.nextInt(2);
-        }else{
+        }else{  // 0 = +, 1 = -, 2 = *, 3 = /
             parent.type = randomGenerator.nextInt(4);
+                // generate left leaf
             Node l = new Node();
             parent.left = l;
             l.parent = p_copy;
             full(depth+1,max,l);
-            
+                //generate right leaf
             Node r = new Node();
             parent.right = r;
             r.parent = p_copy;
             full(depth+1,max,r);
         }
         
-        if(parent.type == 5){
+        if(parent.type == 5){ // random const_value 0~9
             parent.const_value = randomGenerator.nextInt(10);
         }
     }
     
     public void erase(){
-        delete(root);
+        deleteNode(root);   // point to root and start delete
+        root = null;
     }
     
-    public void delete(Node n){
+    public void deleteNode(Node n){
+            /* if non_terminal, keep tracing the leaves
+             * until we delete terminals
+             */
         if(n.type < 4){
+            if(n.left != null)
+                deleteNode(n.left);
             
+            if(n.right != null)
+                deleteNode(n.right);
         }
+            // delete each node
+        n.left = null; 
+        n.right = null;
+        n.parent = null;
     }
     
     public void copy(Node source){
-        Node source_copy = new Node();
-        source_copy.type = source.type;
-        source_copy.const_value = source.const_value;
-        if(source_copy.type < 4){
+        Node n = new Node();
+        root = n;
+        copyNode(n,source);
+    }
+    
+    public void copyNode(Node self, Node source){        
+        self.type = source.type;
+        self.const_value = source.const_value;
+        if(source.type < 4){
             if(source.left != null){
-                copy(source.left);
-            }else{
-                source.left = null;
+                Node l = new Node();
+                self.left = l;
+                copyNode(l, source.left);
             }
             
             if(source.right != null){
-                copy(source.right);
-            }else{
-                source.right = null;
+                Node r = new Node();
+                self.right = r;
+                copyNode(r, source.right);
             }
         }
+    }
+    
+    public double fitness(double X){
+        double z;
+        z = evaluate(X, root);
+        return z;
     }
     
     public double evaluate(double X, Node node){
@@ -122,39 +143,62 @@ public class Tree {
         return -1;
     }
     
-    public void calc_size(Node n){
+    public void calc_size(){
+        terms = 0;
+        non_terms = 0;              
+        count(root);
+    }
+    
+    public void count(Node n){
         if(n.type >= 4){
             terms++;
         }else {
             non_terms++;
-            calc_size(n.left);
-            calc_size(n.right);
+            count(n.left);
+            count(n.right);
         }
     }
     
     public void printTree(){
-        printNode(root);
+        if(root == null)
+            System.out.println("The tree is emtpy");
+        else{
+            printNode(root);
+            System.out.println(" = ?");
+        }
     }
     
     public void printNode(Node n){
-        if(n.type == 4){
-            System.out.println("X");
-        }else if(n.type == 5){
-            System.out.println(n.const_value);
-        }else if(n.type < 4){
+        if(n.left != null){
             printNode(n.left);
-            switch(n.type){
-                case 0:
-                    System.out.println(" + ");
-                case 1:
-                    System.out.println(" - ");
-                case 2:
-                    System.out.println(" * ");
-                case 3: 
-                    System.out.println(" / ");
-                default:
-                    System.err.println("Error: unknown node type");
-            }
+        }
+        
+        switch(n.type){
+            case 0:
+                System.out.printf(" + ");
+                break;
+            case 1:
+                System.out.printf(" - ");
+                break;
+            case 2:
+                System.out.printf(" * ");
+                break;
+            case 3: 
+                System.out.printf(" / ");
+                break;
+            case 4:
+                System.out.printf("X");
+                break;
+            case 5:
+                System.out.printf("%.2f", n.const_value);
+                break;
+            default:
+                System.err.println("Error: unknown node type");
+                break;
+        }
+        
+        
+        if(n.right != null){
             printNode(n.right);
         }
     }
