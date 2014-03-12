@@ -53,7 +53,7 @@ public class Spell {
         selectF.addWindowListener(new WindowAdapter() {
            @Override
            public void windowClosing(WindowEvent windowEvent){
-                System.exit(0);
+                //System.exit(0);
            }        
         }); 
         
@@ -80,7 +80,9 @@ public class Spell {
                 spell_window.addWindowListener( new WindowAdapter() {
                     @Override
                     public void windowClosing( WindowEvent e )
-                    {  System.exit(0); }
+                    {  //System.exit(0); 
+                        
+                    }
                 });
         
                 spell_window.setSize(sframe_width, sframe_height);
