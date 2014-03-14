@@ -32,6 +32,7 @@ public class CS324_HW4 {
         //t.testMatrix();
         //t.testCamera();
         //t.testModeling();
+        //t.testViewport();
         t.setFrame();
     }
     
@@ -74,7 +75,38 @@ public class CS324_HW4 {
     }
     
     public void testModeling(){
+        CameraTransform ct = new CameraTransform(1,0,1,30,45,0,20);
+        double [][] t = ct.CAMERA;
         
+        Viewport v = new Viewport();
+        v.SetViewport(100,400,300,300);
+        v.SetWindow(-5, -5, 5, 5);
+        
+        Modeling model = new Modeling();
+        double [][] p = {{1,1,1},{1,1,-1},{1,-1,1},{1,-1,-1},{-1,1,1},{-1,1,-1},{-1,-1,1},{-1,-1,-1}};
+        int i;
+        for(i = 0; i < p.length; i++){
+            model.Map3D(p[i], ct.CAMERA);
+            System.out.println("Model: "+model.xW + " " + model.yW);
+            
+        }
+        
+    }
+    
+    public void testViewport(){
+        JFrame f = new JFrame();
+        
+        //  Exit application when the window is closed
+        f.addWindowListener( new WindowAdapter() {
+            @Override
+            public void windowClosing( WindowEvent e )
+            {  System.exit(0); }
+            }
+        );
+        
+        f.setSize( frameWidth, frameHeight );
+        f.getContentPane().add( new TestViewport(frameWidth,frameHeight) );
+        f.setVisible( true );
     }
     
     public void setFrame(){
@@ -89,7 +121,7 @@ public class CS324_HW4 {
         );
         
         f.setSize( frameWidth, frameHeight );
-        f.getContentPane().add( new Frame(frameWidth,frameHeight) );
+        f.getContentPane().add( new Drawing(frameWidth,frameHeight) );
         f.setVisible( true );
     }
     

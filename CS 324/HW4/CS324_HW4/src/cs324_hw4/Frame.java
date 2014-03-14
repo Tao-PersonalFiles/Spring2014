@@ -44,12 +44,39 @@ public class Frame extends JComponent{
         drawRubik(g);
     }
     
+    public void testViewport(){
+        
+    }
+    
     public void drawInfo(Graphics g){
         // Write down My name and class at second quadrant
         g.drawString("Tao Zhang", 20, 20);
         g.drawString("CS 324", 20,40);
         g.drawString("Programming Assignment #2", 20, 60);
         g.drawString("Feb 14th, 2014", 20, 80);
+    }
+    
+    public void drawAxis(Graphics g){
+        double [] z_p = {0,0,100};
+        double [] z_n = {0,0,-100};
+        model.Map3D(z_p, ct.CAMERA);
+        v.MoveTo(model.xW, model.yW);
+        model.Map3D(z_n, fM);
+        v.DrawTo(g, model.xW, model.yW);
+        
+        double [] y_p = {0,100,0};
+        double [] y_n = {0,-100,0};
+        model.Map3D(y_p, ct.CAMERA);
+        v.MoveTo(model.xW, model.yW);
+        model.Map3D(y_n, fM);
+        v.DrawTo(g, model.xW, model.yW);
+        
+        double [] x_p = {100,0,0};
+        double [] x_n = {-100,0,0};
+        model.Map3D(x_p, ct.CAMERA);
+        v.MoveTo(model.xW, model.yW);
+        model.Map3D(x_n, fM);
+        v.DrawTo(g, model.xW, model.yW);
         
     }
     
@@ -57,93 +84,106 @@ public class Frame extends JComponent{
         double x,y;
         // set Viewport
         
-        v.SetViewport(100,frameHeight-200,frameWidth -200,100);
+        v.SetViewport(100,400,250,250);
         v.SetWindow(-1.25, -1.25, 1.25, 1.25);
         // set Camera Transform matrix
-        ct.DefineCameraTransform(0,0,0,45,45,45,100);
+        ct.DefineCameraTransform(0,0,0,30,0,15,10);
         
         double [] p = new double [3];
         // start draw function
         double i,j;
-        for(i = -1.25; i < 1.25; i+=0.1){
+        for(i = -1.25; i < 1.25; i+=0.2){
             p[0] = i; //x
             p[1] = 1.25; //y
-            p[2] = Math.pow(i, 2)+Math.pow(1.25,2)-Math.pow(i, 3)-8*i*Math.pow(1.25, 4); //z
-            model.Move3D(p, ct.CAMERA);
+            p[2] = f(i, 1.25); //z
+            model.Map3D(p, ct.CAMERA);
             x = model.xW;
             y = model.yW;
             v.MoveTo(x, y);
-            for(j = -1.25; j < 1.25; j+= 0.1){
+            for(j = -1.25; j < 1.25; j+= 0.2){
                 p[0] = i; //x
                 p[1] = j; //y
-                p[2] = Math.pow(i, 2)+Math.pow(j,2)-Math.pow(i, 3)-8*i*Math.pow(j, 4); //z
+                p[2] = f(i,j); //z
 
-                model.Draw3D(p, fM, ct.CAMERA);
+                model.Map3D(p, ct.CAMERA);
                 v.DrawTo(g, model.xW, model.yW);
             }
         }
         
-        for(j = -1.25; j < 1.25; j+=0.1){
+        
+        
+        for(j = -1.25; j < 1.25; j+=0.2){
             p[0] = 1.25; //x
             p[1] = j; //y
-            p[2] = Math.pow(1.25, 2)+Math.pow(j,2)-Math.pow(1.25, 3)-8*1.25*Math.pow(j, 4); //z
-            model.Move3D(p, ct.CAMERA);
+            p[2] = f(1.25,j); //z
+            model.Map3D(p, ct.CAMERA);
             x = model.xW;
             y = model.yW;
             v.MoveTo(x, y);
-            for(i = -1.25; i < 1.25; i+= 0.1){
+            for(i = -1.25; i < 1.25; i+= 0.2){
                 p[0] = i; //x
                 p[1] = j; //y
-                p[2] = Math.pow(i, 2)+Math.pow(j,2)-Math.pow(i, 3)-8*i*Math.pow(j, 4); //z
+                p[2] = f(i,j); //z
 
-                model.Draw3D(p, fM, ct.CAMERA);
+                model.Map3D(p, ct.CAMERA);
                 v.DrawTo(g, model.xW, model.yW);
             }
         }
         
         
     }
+    
+    public double f(double x, double y){
+            return ( Math.pow(x, 2)+Math.pow(y,2)-Math.pow(x, 3)-8*x*Math.pow(y, 4) );
+        }
     
     public void drawRubik(Graphics g){
         // set Viewport
-        v.SetViewport(100,frameHeight-200,frameWidth -200,100);
-        v.SetWindow(-10, -10, 10, 10);
+        v.SetViewport(100,400,100,100);
+        v.SetWindow(-5, -5, 5, 5);
         // set Camera Transform matrix
-        ct.DefineCameraTransform(0,0,0,0,0,0,10);
+        ct.DefineCameraTransform(0,0,0,30,45,60,20);
+        
+       // drawAxis(g);
         
         // front
-        double [][] square = {
-            {-1,-1,1},
-            {-1,1,1},
-            {1,1,1},
-            {1,-1,1}
+        double [][][] cube = {
+            {{-1,-1,1}, {-1,1,1}, {1,1,1}, {1,-1,1}},  // front
+            {{-1,-1,1}, {-1,-1,-1}, {1,-1,-1}, {1,-1,1}}, // bot
+            {{-1,1,-1}, {-1,1,1}, {1,1,1}, {1,1,-1}},  // up
+            {{-1,1,1}, {-1,1,-1}, {-1,-1,-1}, {-1,-1,1}},    // left
+            {{1,1,1},{1,-1,1},{1,-1,-1},{1,1,-1}},  // right
+            {{1,1,-1},{1,-1,-1},{-1,-1,-1},{-1,1,-1}}   // back 
         };
         
-        drawSquare(square,g);
+        drawCube(cube,g);
         
-        //  bottom
-        double [][] M = m.makeMatrix(4, 4);
-        double [][] cT = m.makeMatrix(4, 4);
-        CameraTransform.tfCode x_r = CameraTransform.tfCode.X_ROT;
-        ct.DefineElementaryTransform(M,x_r,90);
-        m.MultiplyMatrix(M, ct.CAMERA, cT);
-        //draw
         
         
     }
     
+    public void drawCube(
+            double [][][] cube, Graphics g)
+    {
+        int i;
+        for(i = 0; i < cube.length; i++){
+            drawSquare(cube[i],g);
+        }
+    }
+    
     public void drawSquare(
-            double [][] square, Graphics g
-            ){
-        model.Move3D(square[0], ct.CAMERA);
-        v.MoveTo(model.xW, model.yW);
+            double [][] square, Graphics g)
+    {
+        double [] xy;
+        xy = model.Map3D(square[0], ct.CAMERA);
+        v.MoveTo(xy[0], xy[1]);
         int i,j;
         for(i = 1; i < 4; i++){
-            model.Draw3D(square[i], fM, ct.CAMERA);
-            v.DrawTo(g, model.xW, model.yW);     
+            xy = model.Map3D(square[i], ct.CAMERA);
+            v.DrawTo(g, xy[0], xy[1]);     
         }
-        model.Draw3D(square[0], fM, ct.CAMERA);
-        v.DrawTo(g, model.xW, model.yW);
+        xy = model.Map3D(square[0], ct.CAMERA);
+        v.DrawTo(g, xy[0], xy[1]);
     }
     
     public void drawHallway(){

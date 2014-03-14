@@ -20,7 +20,8 @@ public final class CameraTransform {
     public enum tfCode{
         X_TRANS, Y_TRANS, Z_TRANS,
         X_ROT, Y_ROT, Z_ROT,
-        PERSPECTIVE
+        PERSPECTIVE,
+        ORIGIN
     }
     
     public CameraTransform(){
@@ -34,6 +35,14 @@ public final class CameraTransform {
     {
         CAMERA = m.makeMatrix(4, 4);
         DefineCameraTransform(fX, fY, fZ, theta, phi, alpha, r);
+    }
+    
+    public void getCameraTransform(double [][] cM){
+        m.copyMatrix(CAMERA, cM);
+    }
+    
+    public void setCameraTransform(double [][] cT){
+        m.copyMatrix(cT, CAMERA);
     }
     
     /* 
@@ -119,6 +128,12 @@ public final class CameraTransform {
                 M[2][2] = 1;
                 M[3][3] = 1;
                 M[2][3] = -1/tfValue;
+                break;
+            case ORIGIN:
+                M[0][0] = 1;
+                M[1][1] = 1;
+                M[2][2] = 1;
+                M[3][3] = 1;
                 break;
             default:
                 System.err.println("Error: unknown transform code");

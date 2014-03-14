@@ -16,45 +16,43 @@ public class Modeling {
     
     Matrix m = new Matrix();
     
+    
     double xW;
     double yW;
     
     public Modeling(){
-        
+        xW = 0;
+        yW = 0;
     }
     
-    public void Move3D(
+    public double[] Map3D(
             double [] p,
             double [][] cT)
     {
-        double [] tp1 = new double[3];   // x', y', z'
-        ApplyTransform(p, cT, tp1);
+        double [] tp = new double[3];   // x', y', z'
+        ApplyTransform(p, cT, tp);
         // Project onto xy plane
-        xW = tp1[0];
-        yW = tp1[1];
+        double [] xy_point = {tp[0],tp[1]};
         
-        //viewport.MoveTo(xW, yW);
-        //xF = viewport.xF;
-        //yF = viewport.yF;
+        //System.out.printf("%.2f, %.2f, %.2f%n", tp1[0], tp1[1],tp1[2]);
+        
+        return xy_point;
     }
     
-    public void Draw3D(
+    public double[] Trans3D(
             double [] p,
             double [][] aT,
             double [][] cT)
     {
-        double [] tp1 = new double[3];   // x', y', z'
+        double [] tp1 = new double[3];  // x', y', z'
         double [] tp2 = new double[3];  // x'', y'', z''
         ApplyTransform(p, aT, tp1);
         ApplyTransform(tp1, cT, tp2);
 
-            // Project onto xy plane
-        xW = tp2[0];
-        yW = tp2[1];
+         // Project onto xy plane
+        double [] xy_point = {tp2[0],tp2[1]};
         
-        //viewport.MoveTo(xW, yW);
-        
-        
+        return xy_point;
     }
     
     public void ApplyTransform(
@@ -73,16 +71,17 @@ public class Modeling {
         // Multiply vector to active transform
         double [][] tv; // transformed vector
         tv = m.makeMatrix(1, 4);
-        int i;
-        for( i = 0; i < tv.length;i++){
-            tv[0][i] = 0;
-        }
         
         m.MultiplyMatrix(v, aT, tv);
         
+        int i;
+         
         // transform to point
+        
         for(i = 0; i< 3; i++){
             tp[i] = tv[0][i]/tv[0][3];
+            //System.out.printf("%.2f, ", tp[i]);
         }
+        //System.out.println(tv[0][i]);
     }
 }
