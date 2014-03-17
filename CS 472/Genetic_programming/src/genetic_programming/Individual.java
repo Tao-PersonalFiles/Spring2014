@@ -19,10 +19,14 @@ public class Individual{
     public int terms;
     public int non_terms;
     
+    public int count;
+    
+    Random randomGenerator = new Random();
+    
+    
     // creates an empty binary tree
-    public void Individual(int max){
-        root = null;
-        generate(max);
+    public Individual(){
+        root = new Node();
     }
     
     public boolean isEmpty(){
@@ -30,14 +34,11 @@ public class Individual{
     }
     
     public void generate(int max){
-        Node n = new Node();
-        root = n;   // point root to new start node
-        full(0, max, n);
+        full(0, max, root);
     }
     
     // creates full trees 
     public void full(int depth, int max, Node parent){
-        Random randomGenerator = new Random();
         Node p_copy = parent;
         if(depth >= max){   // 4 for X, 5 for const_value
             parent.type = 4 + randomGenerator.nextInt(2);
@@ -88,16 +89,20 @@ public class Individual{
         copyNode(n,source);
     }
     
-    public void copyNode(Node self, Node source){        
+    public void copyNode(Node self, Node source){   
+        
         self.type = source.type;
-        self.const_value = source.const_value;
+        if(source.type == 5){
+            self.const_value = source.const_value;
+        }
+        
         if(source.type < 4){
             if(source.left != null){
                 Node l = new Node();
                 self.left = l;
                 copyNode(l, source.left);
             }
-            
+             
             if(source.right != null){
                 Node r = new Node();
                 self.right = r;
@@ -201,11 +206,52 @@ public class Individual{
                 break;
         }
         
-        
         if(n.right != null){
             printNode(n.right);
         }
     }
     
+    // ====================================
+    //      mutation
+    // ====================================
+    public void Mutation(){
+        int r = randomGenerator.nextInt(terms+non_terms);
+        
+        Node sub;
+        resetCount();
+        sub = TrackRoot(root, r);
+        //delete the left and right sub trees
+        if(sub.left != null){
+            deleteNode(sub.left);
+        }
+        if(sub.right != null){
+            deleteNode(sub.right);
+        }
+        
+        int max = randomGenerator.nextInt(5);
+            // regenerate the subtree with another random max depth full
+        full(0, max, sub);
+    }
+    
+    public void resetCount(){
+        count = 0;
+    }
+    
+    public Node TrackRoot(Node sub, int r){
+        count++;
+        
+        Node r_node = new Node();
+        
+        if(count == r + 1){
+            r_node = sub;
+        }else if (count < r + 1 && sub.left != null){
+            r_node = TrackRoot(sub.left,r);
+            
+            if(count < r + 1 && sub.right != null){
+                r_node = TrackRoot(sub.right,r);
+            }
+        }
+        return r_node;
+    }
 }
 

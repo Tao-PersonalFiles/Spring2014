@@ -17,6 +17,46 @@ public class Genetic_programming {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Genetic_programming gp = new Genetic_programming();
+        //gp.testMutation();
+        gp.testCrossover();
+        
+    }
+    
+    public void testGeneration(){
+        Generation g = new Generation();
+        g.Generation(5);
+        System.out.printf("BestFit: %.4f%n", g.bestFit());
+        System.out.printf("AvgFit: %.4f%n", g.avgFit());
+        System.out.printf("Avg Term Size: %.2f%n", g.avgTsize());
+        System.out.printf("Avg Non-term size: %.2f%n", g.avgNsize());
+    }
+    
+    public void testMutation(){
+        Individual i = new Individual();
+        i.generate(5);
+        i.calc_size();
+        i.printTree();
+        
+        //i.deleteNode(i.root.left);
+        
+        i.Mutation();
+        i.printTree();
+    }
+    
+    public void testCrossover(){
+        Generation g = new Generation();
+        g.Generation(5);
+        g.pop[1].printTree();
+        g.pop[4].printTree();
+        g.crossover(1, 4);
+        System.out.println("After crossover");
+        g.pop[1].printTree();
+        g.pop[4].printTree();
+    }
+    
+    public void testIndividual(){
         /*
         Individual t = new Individual();
         t.generate(3);
@@ -42,13 +82,6 @@ public class Genetic_programming {
         c.calc_size();
         System.out.printf("Terms: %d, Non-Terms: %d%n",t.terms, t.non_terms);
         */
-        
-        Generation g = new Generation();
-        g.Generation(5, 1);
-        System.out.printf("BestFit: %.4f%n", g.bestFit());
-        System.out.printf("AvgFit: %.4f%n", g.avgFit());
-        System.out.printf("Avg Term Size: %.2f%n", g.avgTsize());
-        System.out.printf("Avg Non-term size: %.2f%n", g.avgNsize());
     }
     
 }
