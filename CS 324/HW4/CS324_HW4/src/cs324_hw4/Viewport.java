@@ -98,10 +98,9 @@ public class Viewport {
         double xF_S = xF;
         double yF_S = yF;
         MoveTo(x,y);
-        //if(xV >= xVmin && xV <= xVmax && 
-              //  yV <= yVmax && yV >= yVmin){ // in case not exceed the viewport
-            g.drawLine((int) (xF_S),(int) (yF_S),(int) (xF), (int) (yF));
-       // }
-        //System.out.printf("%.2f, %.2f, %.2f, %.2f%n", xF_S, yF_S, xF, yF);
+        
+        g.drawLine((int) (xF_S),(int) (yF_S),(int) (xF), (int) (yF));
+       
+        
     }
 }

@@ -29,84 +29,8 @@ public class CS324_HW4 {
     public static void main(String[] args) {
         // TODO code application logic here
         CS324_HW4 t = new CS324_HW4();
-        //t.testMatrix();
-        //t.testCamera();
-        //t.testModeling();
-        //t.testViewport();
+        
         t.setFrame();
-    }
-    
-    public void testMatrix(){
-        double [][] m1 = m.makeMatrix(4,4);
-        double [][] m2 = m.makeMatrix(4,4);
-        double [][] m3 = m.makeMatrix(4, 4);
-        double [][] v = m.makeMatrix(1, 4);
-        double [][] tv = m.makeMatrix(1, 4);
-        
-        m1[1][0] = 2;
-        m2[0][1] = 3;
-        m2[2][1] = 4;
-        v[0][0] = 1;
-        v[0][1] = 2;
-        v[0][2] = 3;
-        v[0][3] = 4;
-        
-        m.MultiplyMatrix( m1, m2, m3);
-        m.printMatrix(m1);
-        System.out.println();
-        m.printMatrix(m2);
-        System.out.println();
-        m.printMatrix(m3);
-        
-        System.out.println();
-        m.printMatrix(v);
-        
-        System.out.println(v.length);
-        
-        m.MultiplyMatrix(v, m3, tv);
-        m.printMatrix(tv);
-    }
-    
-    public void testCamera(){
-        CameraTransform ct = new CameraTransform(1,0,1,30,45,0,20);
-        double [][] t = ct.CAMERA;
-        
-        m.printMatrix(t);
-    }
-    
-    public void testModeling(){
-        CameraTransform ct = new CameraTransform(1,0,1,30,45,0,20);
-        double [][] t = ct.CAMERA;
-        
-        Viewport v = new Viewport();
-        v.SetViewport(100,400,300,300);
-        v.SetWindow(-5, -5, 5, 5);
-        
-        Modeling model = new Modeling();
-        double [][] p = {{1,1,1},{1,1,-1},{1,-1,1},{1,-1,-1},{-1,1,1},{-1,1,-1},{-1,-1,1},{-1,-1,-1}};
-        int i;
-        for(i = 0; i < p.length; i++){
-            model.Map3D(p[i], ct.CAMERA);
-            System.out.println("Model: "+model.xW + " " + model.yW);
-            
-        }
-        
-    }
-    
-    public void testViewport(){
-        JFrame f = new JFrame();
-        
-        //  Exit application when the window is closed
-        f.addWindowListener( new WindowAdapter() {
-            @Override
-            public void windowClosing( WindowEvent e )
-            {  System.exit(0); }
-            }
-        );
-        
-        f.setSize( frameWidth, frameHeight );
-        f.getContentPane().add( new TestViewport(frameWidth,frameHeight) );
-        f.setVisible( true );
     }
     
     public void setFrame(){

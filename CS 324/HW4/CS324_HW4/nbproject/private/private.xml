@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/W:/Java/NetBeansProjects/CS324_HW4/src/cs324_hw4/Viewport.java</file>
-            <file>file:/W:/Java/NetBeansProjects/CS324_HW4/src/cs324_hw4/Drawing.java</file>
-            <file>file:/W:/Java/NetBeansProjects/CS324_HW4/src/cs324_hw4/CameraTransform.java</file>
-            <file>file:/W:/Java/NetBeansProjects/CS324_HW4/src/cs324_hw4/TestViewport.java</file>
-            <file>file:/W:/Java/NetBeansProjects/CS324_HW4/src/cs324_hw4/Matrix.java</file>
-            <file>file:/W:/Java/NetBeansProjects/CS324_HW4/src/cs324_hw4/Frame.java</file>
-            <file>file:/W:/Java/NetBeansProjects/CS324_HW4/src/cs324_hw4/CS324_HW4.java</file>
-            <file>file:/W:/Java/NetBeansProjects/CS324_HW4/src/cs324_hw4/Modeling.java</file>
+            <file>file:/Users/TaoZhang/Desktop/Spring2014/CS%20324/HW4/CS324_HW4/src/cs324_hw4/CameraTransform.java</file>
+            <file>file:/Users/TaoZhang/Desktop/Spring2014/CS%20324/HW4/CS324_HW4/src/cs324_hw4/CS324_HW4.java</file>
+            <file>file:/Users/TaoZhang/Desktop/Spring2014/CS%20324/HW4/CS324_HW4/src/cs324_hw4/Drawing.java</file>
+            <file>file:/Users/TaoZhang/Desktop/Spring2014/CS%20324/HW4/CS324_HW4/src/cs324_hw4/Frame.java</file>
         </group>
     </open-files>
 </project-private>

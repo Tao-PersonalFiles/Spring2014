@@ -34,8 +34,6 @@ public class Modeling {
         // Project onto xy plane
         double [] xy_point = {tp[0],tp[1]};
         
-        //System.out.printf("%.2f, %.2f, %.2f%n", tp1[0], tp1[1],tp1[2]);
-        
         return xy_point;
     }
     
@@ -80,8 +78,6 @@ public class Modeling {
         
         for(i = 0; i< 3; i++){
             tp[i] = tv[0][i]/tv[0][3];
-            //System.out.printf("%.2f, ", tp[i]);
         }
-        //System.out.println(tv[0][i]);
     }
 }

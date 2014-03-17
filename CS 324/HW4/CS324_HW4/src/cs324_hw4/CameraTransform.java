@@ -21,6 +21,7 @@ public final class CameraTransform {
         X_TRANS, Y_TRANS, Z_TRANS,
         X_ROT, Y_ROT, Z_ROT,
         PERSPECTIVE,
+        SCALE,
         ORIGIN
     }
     
@@ -128,6 +129,12 @@ public final class CameraTransform {
                 M[2][2] = 1;
                 M[3][3] = 1;
                 M[2][3] = -1/tfValue;
+                break;
+            case SCALE:
+                M[0][0] = tfValue;
+                M[1][1] = tfValue;
+                M[2][2] = tfValue;
+                M[3][3] = 1;
                 break;
             case ORIGIN:
                 M[0][0] = 1;

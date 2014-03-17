@@ -6,6 +6,7 @@
 
 package cs324_hw4;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JComponent;
 
@@ -22,6 +23,14 @@ public class Drawing extends JComponent{
     Matrix matrix = new Matrix();
     Modeling model = new Modeling();
     Viewport v = new Viewport();
+    
+    // define all the enum transform code from CT
+    CameraTransform.tfCode x_t = CameraTransform.tfCode.X_TRANS;
+    CameraTransform.tfCode y_t = CameraTransform.tfCode.Y_TRANS;
+    CameraTransform.tfCode z_t = CameraTransform.tfCode.Z_TRANS;
+    CameraTransform.tfCode y_r = CameraTransform.tfCode.Y_ROT;
+    CameraTransform.tfCode scale = CameraTransform.tfCode.SCALE;
+    CameraTransform.tfCode origin = CameraTransform.tfCode.ORIGIN;
     
     public double [][] CAMERA = matrix.makeMatrix(4, 4);
           
@@ -42,7 +51,7 @@ public class Drawing extends JComponent{
         // Write down My name and class at second quadrant
         g.drawString("Tao Zhang", 20, 20);
         g.drawString("CS 324", 20,40);
-        g.drawString("Programming Assignment #2", 20, 60);
+        g.drawString("Programming Assignment #4", 20, 60);
         g.drawString("Feb 14th, 2014", 20, 80);
     }
     
@@ -74,11 +83,13 @@ public class Drawing extends JComponent{
     //          Draw Functions
     //===================================================================
     public void drawFunction(Graphics g){
-        ct.DefineCameraTransform(0, 0, 0, 0, 0, 0, 20);
-        v.SetViewport(100,400,100,100);
+        ct.DefineCameraTransform(0, 0, 0, 60, 30, 30, 10);
+        v.SetViewport(200,300,100,100);
         v.SetWindow(-1.25, -1.25, 1.25, 1.25);
         
         ct.getCameraTransform(CAMERA);
+        
+        drawAxis(g);
         
         double [] xy;
         double [] p = new double[3];
@@ -123,8 +134,8 @@ public class Drawing extends JComponent{
     //          Draw Rubiks
     //===================================================================
     public void drawRubik(Graphics g){
-        ct.DefineCameraTransform(1, 0, 1, 30, 45, 0, 20);
-        v.SetViewport(100, 400, 100, 100);
+        ct.DefineCameraTransform(0, 0, 0, 40, 30, 0, 20);
+        v.SetViewport(150, 350, 200, 200);
         v.SetWindow(-5, -5, 5, 5);
         
         ct.getCameraTransform(CAMERA);
@@ -146,21 +157,324 @@ public class Drawing extends JComponent{
         
         //active tarnsformation for origin
         double [][] aT = matrix.makeMatrix(4, 4);
-        CameraTransform.tfCode origin = CameraTransform.tfCode.ORIGIN;
+        double [][] M;      // tmp transform
+        double [][] M2;     // tmp transform
+        
+        
+        // middle 9
         ct.DefineElementaryTransform(aT, origin, 1);
-        //matrix.printMatrix(ct.CAMERA);
-        //matrix.printMatrix(CAMERA);
         drawCube(cube,g,aT);
-        //drawSquare(cube[5],g);
         
-        //active transformation for up side
-        CameraTransform.tfCode x_t = CameraTransform.tfCode.X_TRANS;
+        // middle left
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, x_t, -5);
+        drawCube(cube,g,aT);
+        
+        // middle right
+        aT = matrix.makeMatrix(4, 4);   // refresh
         ct.DefineElementaryTransform(aT, x_t, 5);
-        //matrix.MultiplyMatrix(aT, CAMERA, cT);
-        //ct.setCameraTransform(cT);
         drawCube(cube,g,aT);
         
-        //ct.setCameraTransform(cM);
+        // middle up
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, y_t, 5);
+        drawCube(cube,g,aT);
+        
+        // middle bot
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, y_t, -5);
+        drawCube(cube,g,aT);
+        
+        // middle left up
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, x_t, -5);
+        
+        ct.DefineElementaryTransform(M, y_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        drawCube(cube,g,aT);
+        
+        // middle left bot
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, x_t, -5);
+        
+        ct.DefineElementaryTransform(M, y_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        drawCube(cube,g,aT);
+        
+        // middle right up
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, x_t, 5);
+        
+        ct.DefineElementaryTransform(M, y_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        drawCube(cube,g,aT);
+        
+        // middle right bot
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, x_t, 5);
+        
+        ct.DefineElementaryTransform(M, y_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        drawCube(cube,g,aT);
+        
+        g.setColor(Color.red);
+        
+        // middle front
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, 5);
+        
+        drawCube(cube,g,aT);
+        
+        // front - left
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, 5);
+        ct.DefineElementaryTransform(M, x_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        drawCube(cube,g,aT);
+        
+        // front - right
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, 5);
+        ct.DefineElementaryTransform(M, x_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        drawCube(cube,g,aT);
+        
+        // front - up
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, 5);
+        ct.DefineElementaryTransform(M, y_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        drawCube(cube,g,aT);
+        
+        // front - bot
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, 5);
+        ct.DefineElementaryTransform(M, y_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        drawCube(cube,g,aT);
+        
+        // front - left up
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, 5);
+        
+        ct.DefineElementaryTransform(M, x_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(M, y_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+                
+        drawCube(cube,g,aT);
+        
+        // front - left bot
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, 5);
+        
+        ct.DefineElementaryTransform(M, x_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(M, y_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+                
+        drawCube(cube,g,aT);
+        
+        // front - right up
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, 5);
+        
+        ct.DefineElementaryTransform(M, x_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(M, y_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+                
+        drawCube(cube,g,aT);
+        
+        // front - right bot
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, 5);
+        
+        ct.DefineElementaryTransform(M, x_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(M, y_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+                
+        drawCube(cube,g,aT);
+        
+        g.setColor(Color.blue);
+        // middle back
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, -5);
+        drawCube(cube,g,aT);
+        
+        // back - left
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, -5);
+        ct.DefineElementaryTransform(M, x_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        drawCube(cube,g,aT);
+        
+        // ack - right
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, -5);
+        ct.DefineElementaryTransform(M, x_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        drawCube(cube,g,aT);
+        
+        // back - up
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, -5);
+        ct.DefineElementaryTransform(M, y_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        drawCube(cube,g,aT);
+        
+        // back - bot
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, -5);
+        ct.DefineElementaryTransform(M, y_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        drawCube(cube,g,aT);
+        
+        // back - left up
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, -5);
+        
+        ct.DefineElementaryTransform(M, x_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(M, y_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+                
+        drawCube(cube,g,aT);
+        
+        // back - left bot
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, -5);
+        
+        ct.DefineElementaryTransform(M, x_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(M, y_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+                
+        drawCube(cube,g,aT);
+        
+        // back - right up
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, -5);
+        
+        ct.DefineElementaryTransform(M, x_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(M, y_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+                
+        drawCube(cube,g,aT);
+        
+        // back - right bot
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, z_t, -5);
+        
+        ct.DefineElementaryTransform(M, x_t, 5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        
+        M = matrix.makeMatrix(4, 4);    // refresh
+        M2 = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(M, y_t, -5);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+                
+        drawCube(cube,g,aT);
+        
     }
     
     public void drawCube(double [][][] cube, Graphics g, double [][] aT)
@@ -196,8 +510,8 @@ public class Drawing extends JComponent{
     //          Draw Hallway
     //===================================================================
     public void drawHallway(Graphics g){
-        ct.DefineCameraTransform(0, 0, 0, 30, 45, 0, 20);
-        v.SetViewport(100, 400, 100, 100);
+        ct.DefineCameraTransform(0, 0, 0, 30, 45, 0, 200);
+        v.SetViewport(0, 500, 500, 500);
         v.SetWindow(-50, -50, 50, 50);
         
         ct.getCameraTransform(CAMERA);
@@ -215,11 +529,42 @@ public class Drawing extends JComponent{
             {0,0,0},{2,0,0},{2,6,0},{0,6,0}
         };
         
-        double [][] aT = matrix.makeMatrix(4, 4);
-        CameraTransform.tfCode origin = CameraTransform.tfCode.ORIGIN;
+        double [][] aT = matrix.makeMatrix(4, 4);   // the active transformation
+        double [][] M = matrix.makeMatrix(4, 4);    // tmp transform
+        double [][] M2 = matrix.makeMatrix(4, 4);   // tmp transform
         ct.DefineElementaryTransform(aT, origin, 1);
         
+            // draw the main hallway
         drawCube(hallway, g, aT);
+        
+        // draw the little groove 
+        double [][][] cube = {
+            {{-1,-1,1}, {-1,1,1}, {1,1,1}, {1,-1,1}},  // front
+            {{-1,-1,1}, {-1,-1,-1}, {1,-1,-1}, {1,-1,1}}, // bot
+            {{-1,1,-1}, {-1,1,1}, {1,1,1}, {1,1,-1}},  // up
+            {{-1,1,1}, {-1,1,-1}, {-1,-1,-1}, {-1,-1,1}},    // left
+            {{1,1,1},{1,-1,1},{1,-1,-1},{1,1,-1}},  // right
+            {{1,1,-1},{1,-1,-1},{-1,-1,-1},{-1,1,-1}}   // back 
+        };
+        
+        
+        
+        
+        
+        //drawCube(cube, g, aT);
+        
+        //draw all the doors
+        ct.DefineElementaryTransform(aT, x_t, 6);
+        drawSquare(door, g, aT);
+        
+        aT = matrix.makeMatrix(4, 4);   // refresh
+        ct.DefineElementaryTransform(aT, origin, 1);
+        ct.DefineElementaryTransform(M, y_r, -90);
+        matrix.MultiplyMatrix(aT, M, M2);
+        matrix.copyMatrix(M2, aT);
+        drawSquare(door, g, aT);
+        
+        
         
     }
     
