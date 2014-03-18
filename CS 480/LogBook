@@ -86,3 +86,23 @@ Spent some time taking a look at the basic concept about onTouch and onClick.
 Did more research on examples of "onClick(View view)". Succeed to remove the action image when click on it.
 
 Clone the updated version from github. Get problems on Gradle again. Hum...seems like I really need to learn something about Gradle. Decide to do some research later this week.
+
+3/4
+Wiki day. Since Jordan has the page from last semester, I just create an account and Jordan put down my name there and link to my account.
+Also, asked Robert about the Gradle question, and he did have the same problem and know how to solve that, which I have to download the gradle file and set the android studio to use local gradle distruction. Also, I have to reset the gradle setting every time I open the project.
+
+Later I found the studio came up one more issue that can't commit one .png file.
+I just repull the KickShot project from GitHub again and fixed it.
+
+3/7
+Transfer the change of action image display from old version. Edit to make the code looks good. Everything works well.
+Get a new request from Jordan to figure out the transparent problem that the balls have black background instead of transparency on board. 
+
+3/9
+Spent hours doing search about transparent issues for android studio. Tried bunch methods, but still can't fixed that. However, learned a lot about the Bitmap methods.
+
+3/10
+Jordan told me he fixed the problem of transparent, which is the .png file issue that he made instead of code issue.
+
+3/11
+Snapshot day. Mr. Aziz came, talked with us about the KickShot so far. I decide to do some work on dice rolling animation during the spring break. 
