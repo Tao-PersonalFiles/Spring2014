@@ -1,0 +1,75 @@
+3/24/2014
+
+1 Hidden surface Processing
+	Brief history
+		*1965 -- Ivan Sutherland's 10 unsolved problems
+		*1972 -- Watkin's algorithm
+		  select appropirate polygon, then clip out around.
+		  Determing which polygon is in front.
+		*1980 -- FKN(Fuchs, Kedem, Naylor) algorithm( aka Painter;s algorithm)
+		  Can be very fast.
+
+  1.1 Painter's Algorithm
+  	Raster Devices. Draw object in back first. If we have two ohjects A and B, A in front of B,
+  	Draw B first, then A. Obscures points of B that are hidden
+
+  Problem: how to determine if A is in front of B?
+    Build a BSP tree(Binary Space partitioning Tree).
+  Consifer a scene made up of objects O1, ..., On(polygons) viewed from a point on the z-axis.
+
+  	1. put O1 at the root of the tree(normal perpendicular to pane of O1)
+  	2. consider O2:
+  		if all points of O2 are behind O1 (i.e., O2 behind O1), make it left child of O1.
+  		if all pints of O2 are in front of O1, make it right child of O1
+  		if neither, clip into two pieces on polygon plane
+
+  Q: if we move the camera off the z-axis, do we need to rebuild the tree?
+  No, subject to a few constraints:
+  	-if the normal vector points toward eyepoint, then draw in-order, if away, go right, check each polygon in tree! Can place anywhere just use dot product at each node. Modified in-order with an if else.
+  	-Only works for static scenes
+  	-best behavior for a full tree- can be very unbalanced
+
+  1.1.2 Z-Buffer algorithm
+  Basic idea is to test the z-depth of each surface to determine the closest (visible) surface.
+    Declare an array z-buffer with an entry for each pixel position initialized to maximum depth.
+
+  for each polygon P
+  	for each pixel (x,y) in P
+  	  Compute z_depth at (x,y)
+  	  if z_depth < z_buffer(x,y) then 
+  	    setPixel(x,y,color)
+  	    z_buffer(x,y) = z_depth
+
+  Coherence is often used to speed up the conputations
+
+  Advatages
+  	- it always works and is simple to implement
+  Disadvantages
+    - may paint the same pixel several times(computing the color of a pixel may be expensive)
+    - large memory requirements (less of an issue now)
+
+ 1.2 Watkin;s algorithm(aka Scanline algorithm)
+    Assume we are given a set of polygons P1, ... , Pn.
+
+    Overview: process the scene one scanline at a time.
+   Work our way down, rendering the polygons as the are encountered by the current scanline.
+
+  1.2.1 polyno diagram
+    inactive list (initially): P1, P2, P3, P4
+    (diagram on notebook)
+
+  1.2.2 watkins' algorithm procedure
+     *Build inactive list:
+      sort all polygons on maximum y, creating a sorted list (the inactive list).
+     *Render polygons, scanline by scanline:
+
+     	for y = ymax to ymin by some dy
+     		- if ymax of polygon at the head of the active list is greater than ymax of current polygon,
+     		  put the polygon into the active list and remove it from the inactive (sorted) list.
+     		- update the active list
+     		- Render the scanline
+     		  (apply lighting (shading))
+
+  1.2.3 active list
+  	 Q: what happens on the active list ?
+  	  each polygon on the active list is associated with a span. a span is the intersection of the polygon and the current scan plane.
