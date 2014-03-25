@@ -4,7 +4,7 @@
 
 1;Teleportation Protection;N;A;2;in hex only;This Spell must be cast during a Friendly Movement Phase;The Spell affects all Charaters and/or units in the caster's hex. If, during the Friendly Movement Phase in which the Charater casts the spell, the units/Charaters on which it is cast move thourgh a Portal, they may not be eliminated. If the die rolled for Portal Transference reveals a number that would normally destroy the Teleporting units/Charaters, the units/Charaters do not Teleport but are not destroyed.
 
-2;Conjure Centauriod Cavalry;N;A;1 per GT;in hex only;None;Not yet
+2;Conjure Centauroid Cavalry;N;A;1 per GT;in hex only;None;Not yet
 
 2;Fear;N;A;3 per unit;7 hexes;Fear may not be cast on an Ally's units, nor may it be cast on an already Demoralized unit. Use of the Spell against a Neutral's unit is considered invasion;Not yet
 
@@ -26,7 +26,7 @@
 
 3;Monsoon;N;A;5;Unlimited;None;Not yet
 
-3;Vortex Suppresion;N;C;2 per Vortex;10 hexes;None;Not yet
+3;Vortex Suppression;N;C;2 per Vortex;10 hexes;None;Not yet
 
 4;Building;N;A;5;5 hexes;None;Not yet
 
@@ -36,7 +36,7 @@
 
 4;Ersatz Winter;N;A;8;Unlimited;None;Not yet
 
-4;Teleportation Control;A;4;in hex only;None;Not yet
+4;Teleportation Control;N;A;4;in hex only;None;Not yet
 
 4;Vortex Creation;N;A;2 per Vortex;5 hexes;No more thant one Vortex may be created in each Vortex hex;Not yet
 
@@ -50,7 +50,7 @@
 
 6;Banish Demon;N*;C;6;4 hexes;None;Not yet
 
-6;Beserkergang;N;A;2 per unit;7 hexes;None;Not yet
+6;Berserkergang;N;A;2 per unit;7 hexes;None;Not yet
 
 6;Bind Demon;N*;A;4 per GT;15 hexes;None;Not yet
 
