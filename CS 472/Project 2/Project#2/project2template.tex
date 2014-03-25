@@ -14,7 +14,7 @@
 
 %%% PAGE DIMENSIONS
 \usepackage{geometry} % to change the page dimensions
-%\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+% \geometry{letterpaper} % or letterpaper (US) or a5paper or....
 % \geometry{margin=2in} % for example, change the margins to 2 inches all round
 % \geometry{landscape} % set up the page for landscape
 %   read geometry.pdf for detailed page layout information
@@ -67,7 +67,7 @@
 \hline
 Algorithm &  Steady-state\\
 \hline
-Population size &\\
+Population size & 1000\\
 \hline
 Selection method & Tournament\\
 \hline
@@ -75,13 +75,13 @@ Crossover method & Swap two random subtrees in two parents\\
 \hline
 Crossover rate & 90\% Non-terminal, 10\% Terminal\\
 \hline
-Mutation method & Regenerate a random subtree\\
+Mutation method & Change the type of one random subnode\\
 \hline
 Operator/non-terminal set & ${+, -, *, /}$\\
 \hline
-Terminal set & 0-9\\
+Terminal set & 0-100, x\\
 \hline
-Fitness function &\\
+Fitness function & $\surd \sum e^2_i$\\
 \hline
 Size control (if any) & \\
 \hline

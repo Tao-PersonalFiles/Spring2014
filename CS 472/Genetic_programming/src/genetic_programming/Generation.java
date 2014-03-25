@@ -20,12 +20,20 @@ public class Generation {
     public int [] t_size;  //sizes for terminals of each individual
     public int [] n_size;  //sizes for non_terms of each individual
     
-    public double X;
+    public double [] X;
+    public double [] Y;
     
     // method to make random values
     Random randomGenerator = new Random();
     
-    public void Generation(int p){
+    public void getdata(double [] x, double [] y){
+        X = new double[x.length];
+        X = x;
+        Y = new double[y.length];
+        Y = y;
+    }
+    
+    public void generate(int p){
         pop_size = p;
         pop = new Individual[pop_size];
         fitness = new double[pop_size];
@@ -34,19 +42,13 @@ public class Generation {
         generatePop();
     }
     
-    public void getInput(double x_in){
-        X = x_in;
-    }
-    
     public void generatePop(){
-        Random r = new Random();
-        int max;
+        int max = 10;   // max depth for each individual
         int i;
         for(i = 0; i < pop_size; i++){
-            max = r.nextInt(5); // random max depth 0~5
             pop[i] = new Individual();
             pop[i].generate(max);
-            fitness[i] = pop[i].fitness(X);
+            fitness[i] = pop[i].fitness(X,Y);
             pop[i].calc_size();
             t_size[i] = pop[i].terms;
             n_size[i] = pop[i].non_terms;
@@ -63,7 +65,7 @@ public class Generation {
         double bestFitness = fitness[0];
         int i;
         for(i = 0; i < pop_size; i++){
-            if(fitness[i] > bestFitness){  // largest is best right now
+            if(fitness[i] < bestFitness){  // largest is best right now
                 best = i;
             }
         }
@@ -100,8 +102,8 @@ public class Generation {
     public void steady_state(){
         int father, mother;
         boolean good = true;
-        Individual son = new Individual();
-        Individual dau = new Individual();
+        Individual son;
+        Individual dau;
         
         int loser1, loser2;
         boolean bad = false;
@@ -115,17 +117,17 @@ public class Generation {
             }
             
             // crossover to get children
+            son = new Individual();
+            dau = new Individual();
             son.copyNode(son.root, pop[father].root);
             dau.copyNode(dau.root, pop[mother].root);
             son.calc_size();
             dau.calc_size();
             crossover(son, dau);
-            System.out.println("son & dau");
                     
             // mutate
             son.Mutation();
             dau.Mutation();
-            
             // find two losers
             loser1 = tournament(bad);
             while((loser2 = tournament(bad)) == loser1){
@@ -145,8 +147,9 @@ public class Generation {
             t_size[loser2] = pop[loser2].terms;
             n_size[loser1] = pop[loser1].non_terms;
             n_size[loser1] = pop[loser1].non_terms;
-            fitness[loser1] = pop[loser1].fitness(X);
-            fitness[loser2] = pop[loser2].fitness(X);
+            fitness[loser1] = pop[loser1].fitness(X, Y);
+            fitness[loser2] = pop[loser2].fitness(X, Y);
+            count++;
         }
     }
     
@@ -159,10 +162,10 @@ public class Generation {
         int N = pop_size/3;
         for(i = 0; i < N; i++){
             tmp = randomGenerator.nextInt(pop_size);
-            if(good == true && fitness[tmp] > winner_fitness){
+            if(good == true && fitness[tmp] < winner_fitness){
                 winner_fitness = fitness[tmp];
                 winner = tmp;
-            }else if(good == false && fitness[tmp] < winner_fitness){
+            }else if(good == false && fitness[tmp] > winner_fitness){
                 winner_fitness = fitness[tmp];
                 winner = tmp;
             }

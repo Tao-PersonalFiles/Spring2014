@@ -111,10 +111,14 @@ public class Individual{
         }
     }
     
-    public double fitness(double X){
-        double z;
-        z = evaluate(X, root);
-        return z;
+    public double fitness(double [] x, double [] y){
+        double e_sum = 0;
+        int i;
+        for(i = 0; i < x.length; i++){
+            e_sum += Math.pow(y[i] - evaluate(x[i], root),2);
+        }
+        
+        return Math.sqrt(e_sum);
     }
     
     public double evaluate(double X, Node node){
@@ -220,6 +224,16 @@ public class Individual{
         Node sub;
         resetCount();
         sub = TrackRoot(root, r);
+        // only mutate the values in this random subnode
+        if(sub.type < 4){   
+            sub.type = randomGenerator.nextInt(4);
+        } else{
+            sub.type = randomGenerator.nextInt(2) + 4;
+            if(sub.type == 5){
+                sub.const_value = randomGenerator.nextInt(10);
+            }
+        }
+        /*
         //delete the left and right sub trees
         if(sub.left != null){
             deleteNode(sub.left);
@@ -233,6 +247,7 @@ public class Individual{
         int max = randomGenerator.nextInt(5);
             // regenerate the subtree with another random max depth full
         full(0, max, sub);
+        */
     }
     
     public void resetCount(){
