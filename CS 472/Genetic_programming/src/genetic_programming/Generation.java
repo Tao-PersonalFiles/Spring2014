@@ -65,7 +65,7 @@ public class Generation {
         double bestFitness = fitness[0];
         int i;
         for(i = 0; i < pop_size; i++){
-            if(fitness[i] < bestFitness){  // largest is best right now
+            if(fitness[i] < bestFitness){  
                 best = i;
             }
         }
@@ -109,7 +109,7 @@ public class Generation {
         boolean bad = false;
         
         int count = 0;
-        while(count < pop_size*100){
+        while(count < pop_size*10){
             father = tournament(good);
             while((mother = tournament(good)) == father){
                 // do nothing
@@ -149,6 +149,13 @@ public class Generation {
             n_size[loser1] = pop[loser1].non_terms;
             fitness[loser1] = pop[loser1].fitness(X, Y);
             fitness[loser2] = pop[loser2].fitness(X, Y);
+            /*
+            if((count < pop_size && count%1 == 0) || count%pop_size == 0){
+                System.out.printf("%5f    %5f%n",avgFit(), fitness[best()]);
+            }
+            if(count == pop_size){
+                System.out.println("After pop_size");
+            }*/
             count++;
         }
     }

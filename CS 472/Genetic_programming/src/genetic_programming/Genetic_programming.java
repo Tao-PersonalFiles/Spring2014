@@ -81,7 +81,7 @@ public class Genetic_programming {
     public void printdata(){
         int j;
         for(j = 0; j < X.length; j++){
-            System.out.printf("%10f     %10f%n", X[j], Y[j]);
+            System.out.printf("%5f%n", Y[j]);
         }
             
     }
@@ -120,7 +120,7 @@ public class Genetic_programming {
     public void testCrossover(){
         Generation g = new Generation();
         g.getdata(X,Y);
-        g.generate(100);
+        g.generate(500);
         g.pop[1].printTree();
         g.pop[4].printTree();
         g.crossover(g.pop[1], g.pop[4]);
@@ -139,27 +139,27 @@ public class Genetic_programming {
     public void testSteadyState(){
         Generation g = new Generation();
         g.getdata(X,Y);
-        g.generate(10);
+        g.generate(100);
+        /*
         System.out.printf("BestFit: %d%n", g.best());
         System.out.printf("BestFit: %f%n", g.fitness[g.best()]);
         System.out.printf("AvgFit: %.4f%n", g.avgFit());
         System.out.printf("Avg Term Size: %.2f%n", g.avgTsize());
         System.out.printf("Avg Non-term size: %.2f%n", g.avgNsize());
-        int i;
-        for(i = 0; i < g.pop_size; i ++){
-           // g.pop[i].printTree();
-        }
-        System.out.println();
+        */
         g.steady_state();
-        for(i = 0; i < g.pop_size; i ++){
-           // g.pop[i].printTree();
+        System.out.printf("%n%n Best evaluations%n");
+        for(i = 0; i < X.length; i++){
+            System.out.printf("%5f%n",g.pop[i].evaluate(X[i], g.pop[i].root));
         }
+        /*
         
         System.out.printf("BestIndex: %d%n", g.best());
         System.out.printf("BestFit: %f%n", g.fitness[g.best()]);
         System.out.printf("AvgFit: %.4f%n", g.avgFit());
         System.out.printf("Avg Term Size: %.2f%n", g.avgTsize());
         System.out.printf("Avg Non-term size: %.2f%n", g.avgNsize());
+        */
     }
     
     public void testIndividual(){

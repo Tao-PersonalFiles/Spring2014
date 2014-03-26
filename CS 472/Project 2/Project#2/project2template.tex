@@ -67,7 +67,7 @@
 \hline
 Algorithm &  Steady-state\\
 \hline
-Population size & 1000\\
+Population size & 100\\
 \hline
 Selection method & Tournament\\
 \hline
@@ -79,7 +79,7 @@ Mutation method & Change the type of one random subnode\\
 \hline
 Operator/non-terminal set & ${+, -, *, /}$\\
 \hline
-Terminal set & 0-100, x\\
+Terminal set & 0-9, x\\
 \hline
 Fitness function & $\surd \sum e^2_i$\\
 \hline
@@ -87,10 +87,35 @@ Size control (if any) & \\
 \hline
 \end{tabular}
 
+
+\newpage
 Graph showing average and best fitnesses evolving over time. 
 
+\includegraphics[scale=.7]{First60.jpg}
+
+\includegraphics[scale=.7]{60to90.jpg}
+
+\includegraphics[scale=.7]{90to1000.jpg}
+
+
+\newpage
 Graph showing test points and best evolved function.
 
+\includegraphics[scale=1]{err.jpg}
+
 \section{Discussion}
+\subsection{Average Fitness}
+\paragraph{So far, the best fitness and avg fitness is going better and better when the running time goes on. I got the best fitness around 70 during my test. }
+\paragraph{As the first graph shown, the average fitness is really high at the very begining, and has a fast drop for first several runs. Then during 60 to 90 running times, the slope becomes small and the fitness still drops a lot. Finally, after 90 running times, the change of fitness is really small. But if I add enough running times, the fitness would be able to be close to 0.}
+\paragraph{There are several average fitnesses went very high (changed a lot), which is shown on the second and third graphs. I think that is caused by mutation and crossover, which is unescapable.}
+
+\subsection{Best Fitness}
+\paragraph{The best fitness is always less than the average fitness, and really changed a little.}
+
+\subsection{Best Evolved Function}
+\paragraph{The graph is looking good I think...}
+
+\subsection{Conclusion}
+\paragraph{Overall, my Genetic Programming works fine. I believe if I add more non-terminal sets, and do some size control, my GP would be better.}
 
 \end{document}
