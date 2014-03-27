@@ -73,3 +73,43 @@
   1.2.3 active list
   	 Q: what happens on the active list ?
   	  each polygon on the active list is associated with a span. a span is the intersection of the polygon and the current scan plane.
+
+     Q: How to determing what is visible?
+      * Run points up to screen (end points of spans).
+        x-values look at points to determine color.
+      * Look between endpoints-choose closest scan line
+      * Must order span endpoints(sort, again)!
+
+  1.2.4
+
+    Scanline coherence:
+    Picture at two adjacent scanlines is almost identical-- ordering left to right
+    -- use a sort that only has one or two interchanges bubble sort(bad first time).
+
+    Note that this algorithm uses three diffrent sorts.
+
+    Listed used in this algorithm:
+        list      | contents
+        scene     | all polygons
+        inactive  | all visible polygons in the scene (Scene culled)
+        active    | polygons to be rendered
+        spans     | current span
+
+    Active list is dynamic, polygons are added and removed from it as the scene is rendered
+    Oder the list of polygons by the maximum y-value of the vertices of the polygon(decreasing order),
+     creating a sorted polygon list (inactive).
+
+
+2 State machine
+
+2.1 Faces in OpenGL
+OpenGl has no notion of inside or outside, It can only distinguish between front and back faces. A face
+is a front face if its vertices are listed in CCW order as seen by the eye.
+
+This can be reversed with glFrontFace(GL_CW). A face is a front face only if its vertices are listed in clockwise (CW) order. The default is glFrontFace(GL_CCW).
+
+For ohjects that enclose some space, all faces that are visible to the eye are front faces and are drawn properly with the correct shading. OpenGL also draws the back faces. but ther are hidden by closer front faces.
+
+3 OpenGl Cube example
+
+4 
