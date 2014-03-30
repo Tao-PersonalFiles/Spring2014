@@ -14,14 +14,12 @@ import implement_spells.spells.PL_5.*;
 import implement_spells.spells.PL_6.*;
 import implement_spells.spells.PL_7.*;
 
-import java.awt.Graphics;
-import javax.swing.JComponent;
 
 /**
  *
  * @author 张涛
  */
-public class CastSpell extends JComponent{
+public class CastSpell{
     
     String Name;
 
@@ -29,10 +27,6 @@ public class CastSpell extends JComponent{
         Name = n;
     }
     
-    @Override
-    public void paintComponent(Graphics g){
-        
-    }
     
     public void call_spell(){
         
@@ -50,8 +44,8 @@ public class CastSpell extends JComponent{
                 break;
             // ======================
             // PL_2
-            case "Mana Transfer":
-                Mana_Transfer m_t = new Mana_Transfer();
+            case "Manna Transfer":
+                Manna_Transfer m_t = new Manna_Transfer();
                 break;
             case "River Crossing":
                 River_Crossing r_c = new River_Crossing();
@@ -148,7 +142,7 @@ public class CastSpell extends JComponent{
                 Wizard_Wheel w_w = new Wizard_Wheel();
                 break;
             default:
-                System.err.println("Error: Unknown spell name: CaseSpell: call_spell");
+                System.err.println("Error: Unknown spell name: CastSpell: call_spell");
         }
     }
     

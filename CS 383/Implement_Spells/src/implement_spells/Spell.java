@@ -7,6 +7,7 @@
 package implement_spells;
 
 import implement_spells.Spell_Details.*;
+import implement_spells.spells.CastSpell;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -72,7 +73,8 @@ public class Spell {
             @Override
             public void actionPerformed(ActionEvent e){
                 //JFrame spell_cast_window = new JFrame(Name);
-                
+                CastSpell cs = new CastSpell(Name);
+                cs.call_spell();
             }
         });
         
@@ -93,82 +95,5 @@ public class Spell {
         spellFrame.setVisible(true);
     }
     
-    /*
-    public void prepareSelectionGUI(){
-        selectF = new JFrame("Selection");
-        selectF.setSize(100,150);
-        //selectF.setLayout(new GridLayout(3,1));
-        selectF.addWindowListener(new WindowAdapter() {
-           @Override
-           public void windowClosing(WindowEvent windowEvent){
-                //System.exit(0);
-           }        
-        }); 
-        
-        controlPanel = new JPanel();
-        controlPanel.setLayout(new GridLayout(3,1));
-        
-        selectF.add(controlPanel);
-        selectF.setVisible(true);
-    }
     
-    public void showButtonDemo(){
-        JButton detailButton = new JButton("Show Details");
-        JButton castButton = new JButton("Cast spell");
-        JButton cancelButton = new JButton("Cancel");
-        
-        detailButton.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                //=========================
-                JFrame spell_detail_window = new JFrame("Spell Details");
-                spell_detail_window.setLayout(new BorderLayout());
-                int sframe_width  = 300;
-                int sframe_height = 500;
-        
-                spell_detail_window.addWindowListener( new WindowAdapter() {
-                    @Override
-                    public void windowClosing( WindowEvent e )
-                    {  //System.exit(0); 
-                        
-                    }
-                });
-                
-                spell_detail_window.setSize(sframe_width, sframe_height);
-                spell_detail_window.getContentPane().add( new Spell_Details(Name) );
-                
-                JPanel selection = new JPanel();
-                selection.setLayout(new FlowLayout());
-                JButton cast_button = new JButton("Cast");
-                selection.add(cast_button);
-                selection.add(new JButton("Cancel"));
-                spell_detail_window.add(selection, BorderLayout.SOUTH);
-                
-                spell_detail_window.setVisible( true );
-                
-            }
-        });
-        
-        castButton.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                //JFrame spell_cast_window = new JFrame(Name);
-                
-            }
-        });
-        
-        cancelButton.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                selectF.dispose();
-            }
-        });
-        
-        controlPanel.add(detailButton);
-        controlPanel.add(castButton);
-        controlPanel.add(cancelButton);
-        
-        selectF.setVisible(true);
-    }
-    */
 }
