@@ -30,7 +30,9 @@ public class Spell {
     int     Level;
     double  ManaCost;
     
-    public JButton spellbutton;
+    double  TotalManaCost;
+    
+    public  JButton spellbutton;
     private JFrame spellFrame;
     private JPanel controlPanel;
     
@@ -75,6 +77,10 @@ public class Spell {
                 //JFrame spell_cast_window = new JFrame(Name);
                 CastSpell cs = new CastSpell(Name);
                 cs.call_spell();
+<<<<<<< HEAD
+=======
+                TotalManaCost = cs.getTotalCostMana();
+>>>>>>> FETCH_HEAD
             }
         });
         
@@ -95,5 +101,13 @@ public class Spell {
         spellFrame.setVisible(true);
     }
     
+<<<<<<< HEAD
     
+=======
+    public double returnTotalManaCost(){
+        return TotalManaCost;
+    }
+    
+    
+>>>>>>> FETCH_HEAD
 }

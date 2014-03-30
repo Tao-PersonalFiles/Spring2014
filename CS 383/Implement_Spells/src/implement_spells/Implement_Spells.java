@@ -67,7 +67,9 @@ public final class Implement_Spells {
         //is.getCharacter();
         int pl;
         pl = is.PL;
-        is.getSpellBook(pl);
+        int mp;
+        mp = is.MagicPotential;
+        is.getSpellBook(pl, mp);
         //is.prepareGUI();
     }
     
@@ -91,59 +93,40 @@ public final class Implement_Spells {
           PLZero = new JLabel("This Character can't cast any spells");
           MainSpellListPanel.add(PLZero);
       }else{
-          if(PL >= 1){
               PLOnePanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 1");
               PLOnePanel.setBorder(title);
               PLOnePanel.setLayout(new GridLayout(PL1_count,1));
-              MainSpellListPanel.add(PLOnePanel); 
           
               PLTwoPanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 2");
               PLTwoPanel.setBorder(title);
               PLTwoPanel.setLayout(new GridLayout(PL2_count,1));
-              MainSpellListPanel.add(PLTwoPanel);
-          }
           
-          if(PL >= 2){
               PLThreePanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 3");
               PLThreePanel.setBorder(title);
               PLThreePanel.setLayout(new GridLayout(PL3_count,1));
-              MainSpellListPanel.add(PLThreePanel);
-          }
-          
-          if(PL >= 3){
+              
               PLFourPanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 4");
               PLFourPanel.setBorder(title);
               PLFourPanel.setLayout(new GridLayout(PL4_count,1));
-              MainSpellListPanel.add(PLFourPanel);
-          }
-          
-          if(PL >= 4){
+              
               PLFivePanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 5");
               PLFivePanel.setBorder(title);
               PLFivePanel.setLayout(new GridLayout(PL5_count,1));
-              MainSpellListPanel.add(PLFivePanel);
-          }
-          
-          if(PL >= 5){
+              
               PLSixPanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 6");
               PLSixPanel.setBorder(title);
               PLSixPanel.setLayout(new GridLayout(PL6_count,1));
-              MainSpellListPanel.add(PLSixPanel);
-          }
-          
-          if(PL >= 6){
+              
               PLSevenPanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 7");
               PLSevenPanel.setBorder(title);
               PLSevenPanel.setLayout(new GridLayout(PL7_count,1));
-              MainSpellListPanel.add(PLSevenPanel);
-          }
       }
       scrollpanel = new JScrollPane();
       scrollpanel.setViewportView(MainSpellListPanel);
@@ -152,15 +135,20 @@ public final class Implement_Spells {
     }
     
     public void getCharacter(){
+<<<<<<< HEAD
         PL = 1;
         MagicPotential = 10;
+=======
+        PL = 4;
+        MagicPotential = 5;
+>>>>>>> FETCH_HEAD
     }
     
-    public void getSpellBook(int pl){
+    public void getSpellBook(int pl, int mp){
         // get the spell book for this character
         Spell_Book sb = new Spell_Book();
         Spell[] myspells;
-        myspells = sb.MySpells(pl);
+        myspells = sb.MySpells(pl,mp);
         
         // initial spell counters
         PL1_count = 0;
@@ -207,10 +195,12 @@ public final class Implement_Spells {
                     System.err.println("Error: Unknow spell power level");
             }
         }
+        System.out.println(PL1_count);
         
         // reset all the panels' size
         // make sure if the panel have any spells 
         if(PL1_count > 0){
+<<<<<<< HEAD
             PLOnePanel.setPreferredSize(new Dimension(200, PL1_count*25));
         }
         
@@ -232,9 +222,48 @@ public final class Implement_Spells {
         if(PL7_count > 0){
             PLSevenPanel.setPreferredSize(new Dimension(200, PL7_count*45));  
         }  
+=======
+            PLOnePanel.setPreferredSize(new Dimension(200, (PL1_count+1)*25));
+            MainSpellListPanel.add(PLOnePanel); 
+        }
+        
+        if(PL2_count > 0){
+            PLTwoPanel.setPreferredSize(new Dimension(200, (PL2_count+1)*25));
+            MainSpellListPanel.add(PLTwoPanel);
+        }
+        if(PL3_count > 0){
+            PLThreePanel.setPreferredSize(new Dimension(200, (PL3_count+1)*25));
+            MainSpellListPanel.add(PLThreePanel);
+        }
+        if(PL4_count > 0){
+            PLFourPanel.setPreferredSize(new Dimension(200, (PL4_count+1)*25));
+            MainSpellListPanel.add(PLFourPanel);
+        }
+        if(PL5_count > 0){
+            PLFivePanel.setPreferredSize(new Dimension(200, (PL5_count+1)*25)); 
+            MainSpellListPanel.add(PLFivePanel);
+        }
+        if(PL6_count > 0){
+            PLSixPanel.setPreferredSize(new Dimension(200, (PL6_count+1)*25)); 
+            MainSpellListPanel.add(PLSixPanel);
+        }
+        if(PL7_count > 0){
+            PLSevenPanel.setPreferredSize(new Dimension(200,(PL7_count+1)*25));
+            MainSpellListPanel.add(PLSevenPanel);
+        }  
+        if(PL1_count == 0 && PL2_count == 0 && PL3_count == 0 && PL4_count == 0 &&
+                PL5_count == 0 && PL6_count == 0 && PL7_count == 0 ){
+            JLabel nonespell = new JLabel("You can't cast anyspell so far!");
+            MainSpellListPanel.add(nonespell);
+        }
+>>>>>>> FETCH_HEAD
         
         // refresh the visible main frame
         mainFrame.setVisible(true); 
+    }
+    
+    public void CostManna(){
+        
     }
     
 }

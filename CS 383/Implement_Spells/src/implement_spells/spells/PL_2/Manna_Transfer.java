@@ -60,6 +60,18 @@ public final class Manna_Transfer {
         // increase the target's magic potential
     }
     
+<<<<<<< HEAD
+=======
+    public boolean successCast(){
+        return true;
+    }
+    
+    public int CostManna(){
+        
+        return 0;
+    }
+    
+>>>>>>> FETCH_HEAD
     public void refresh(){
         // communicate the spell effects to other players
         

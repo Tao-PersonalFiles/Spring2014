@@ -146,4 +146,8 @@ public class CastSpell{
         }
     }
     
+    public double getTotalCostMana(){
+        return 0;
+    }
+    
 }
