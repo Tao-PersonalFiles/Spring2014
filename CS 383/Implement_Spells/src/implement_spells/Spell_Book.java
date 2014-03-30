@@ -55,7 +55,7 @@ public class Spell_Book {
         list[31] = new Spell("Wizard Wheel", 7, 6);
     }
     
-    public Spell[] MySpells(int pl){
+    public Spell[] MySpells(int pl, int mp){
     //public Spell[] MySpells(Character x) {
         Spell[] myList;
         int nSpells = 0;
@@ -66,7 +66,7 @@ public class Spell_Book {
         } else {
             for(int i = 0; i < 32; i++) {
                 //if( list[i].Level <= x.MagicPL+1 && list[i].ManaCost <= x.MannaLevel) {
-                if(list[i].Level <= pl+1){
+                if(list[i].Level <= pl+1 && list[i].ManaCost <= mp){
                     nSpells++;
                 }
             }
@@ -74,7 +74,7 @@ public class Spell_Book {
             int j = 0;
             for(int i = 0; i < 32; i++) {
                 //if( list[i].Level <= x.MagicPL+1 && list[i].ManaCost <= x.MannaLevel) {
-                if(list[i].Level <= pl+1){
+                if(list[i].Level <= pl+1 && list[i].ManaCost <= mp){
                     myList[j] = list[i];
                     j++;
                 }
