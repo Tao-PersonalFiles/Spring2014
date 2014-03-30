@@ -135,13 +135,8 @@ public final class Implement_Spells {
     }
     
     public void getCharacter(){
-<<<<<<< HEAD
-        PL = 1;
-        MagicPotential = 10;
-=======
         PL = 4;
         MagicPotential = 5;
->>>>>>> FETCH_HEAD
     }
     
     public void getSpellBook(int pl, int mp){
@@ -200,29 +195,6 @@ public final class Implement_Spells {
         // reset all the panels' size
         // make sure if the panel have any spells 
         if(PL1_count > 0){
-<<<<<<< HEAD
-            PLOnePanel.setPreferredSize(new Dimension(200, PL1_count*25));
-        }
-        
-        if(PL2_count > 0){
-            PLTwoPanel.setPreferredSize(new Dimension(200, PL2_count*25));
-        }
-        if(PL3_count > 0){
-            PLThreePanel.setPreferredSize(new Dimension(200, PL3_count*25));
-        }
-        if(PL4_count > 0){
-            PLFourPanel.setPreferredSize(new Dimension(200, PL4_count*25));
-        }
-        if(PL5_count > 0){
-            PLFivePanel.setPreferredSize(new Dimension(200, PL5_count*25)); 
-        }
-        if(PL6_count > 0){
-            PLSixPanel.setPreferredSize(new Dimension(200, PL6_count*25)); 
-        }
-        if(PL7_count > 0){
-            PLSevenPanel.setPreferredSize(new Dimension(200, PL7_count*45));  
-        }  
-=======
             PLOnePanel.setPreferredSize(new Dimension(200, (PL1_count+1)*25));
             MainSpellListPanel.add(PLOnePanel); 
         }
@@ -256,7 +228,6 @@ public final class Implement_Spells {
             JLabel nonespell = new JLabel("You can't cast anyspell so far!");
             MainSpellListPanel.add(nonespell);
         }
->>>>>>> FETCH_HEAD
         
         // refresh the visible main frame
         mainFrame.setVisible(true); 
