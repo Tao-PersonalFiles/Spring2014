@@ -6,6 +6,8 @@
 
 package implement_spells;
 
+import character.Character;
+
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
@@ -22,7 +24,7 @@ import javax.swing.border.TitledBorder;
  *
  * @author 张涛
  */
-public final class Implement_Spells {
+public final class Implement_Spells{
 
     private JFrame mainFrame;
     private JScrollPane scrollpanel;
@@ -42,8 +44,10 @@ public final class Implement_Spells {
     private JPanel MainSpellListPanel;
     private JLabel statusLabel;
     
+    Character character;
     public int PL;
     public int MagicPotential;
+    public double CurrentManna;
     
     // counter to count how many spells each power level this character can cast
     public int PL1_count;
@@ -54,8 +58,9 @@ public final class Implement_Spells {
     public int PL6_count;
     public int PL7_count;
     
-    public Implement_Spells(){
-        getCharacter();
+    public Implement_Spells(Character c){
+        //getCharacter();
+        character = c;
         prepareGUI();
     }
     /**
@@ -63,18 +68,17 @@ public final class Implement_Spells {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Implement_Spells is = new Implement_Spells();
+        //Implement_Spells is = new Implement_Spells();
         //is.getCharacter();
-        int pl;
-        pl = is.PL;
-        int mp;
-        mp = is.MagicPotential;
-        is.getSpellBook(pl, mp);
+        //is.getSpellBook(pl, mp);
         //is.prepareGUI();
+        Character ch = new Character("Tao", 3, 3);
+        ch.CastSpell(ch);
+        System.out.println("Character CurrentManna: "+ ch.CurrentManna);
     }
     
     public void prepareGUI(){
-      mainFrame = new JFrame("Spells");
+      mainFrame = new JFrame(character.Name);
       mainFrame.setSize(frame_width,frame_height);
       //mainFrame.setLayout(new GridLayout(2, 3));
       mainFrame.addWindowListener(new WindowAdapter() {
@@ -89,44 +93,44 @@ public final class Implement_Spells {
       MainSpellListPanel.setLayout(new BoxLayout(MainSpellListPanel,BoxLayout.Y_AXIS));
       TitledBorder title;
       
-      if(PL == 0 && MagicPotential == 0){
+      if(character.MagicPL == 0 && character.CurrentManna == 0){
           PLZero = new JLabel("This Character can't cast any spells");
           MainSpellListPanel.add(PLZero);
       }else{
               PLOnePanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 1");
               PLOnePanel.setBorder(title);
-              PLOnePanel.setLayout(new GridLayout(PL1_count,1));
+              
           
               PLTwoPanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 2");
               PLTwoPanel.setBorder(title);
-              PLTwoPanel.setLayout(new GridLayout(PL2_count,1));
+              
           
               PLThreePanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 3");
               PLThreePanel.setBorder(title);
-              PLThreePanel.setLayout(new GridLayout(PL3_count,1));
+              
               
               PLFourPanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 4");
               PLFourPanel.setBorder(title);
-              PLFourPanel.setLayout(new GridLayout(PL4_count,1));
+              
               
               PLFivePanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 5");
               PLFivePanel.setBorder(title);
-              PLFivePanel.setLayout(new GridLayout(PL5_count,1));
+              
               
               PLSixPanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 6");
               PLSixPanel.setBorder(title);
-              PLSixPanel.setLayout(new GridLayout(PL6_count,1));
+              
               
               PLSevenPanel = new JPanel();
               title = BorderFactory.createTitledBorder("Power Level 7");
               PLSevenPanel.setBorder(title);
-              PLSevenPanel.setLayout(new GridLayout(PL7_count,1));
+              
       }
       scrollpanel = new JScrollPane();
       scrollpanel.setViewportView(MainSpellListPanel);
@@ -134,16 +138,11 @@ public final class Implement_Spells {
       mainFrame.setVisible(true); 
     }
     
-    public void getCharacter(){
-        PL = 4;
-        MagicPotential = 5;
-    }
-    
-    public void getSpellBook(int pl, int mp){
+    public void getSpellBook(){
         // get the spell book for this character
-        Spell_Book sb = new Spell_Book();
+        Spell_Book sb = new Spell_Book(mainFrame, character);
         Spell[] myspells;
-        myspells = sb.MySpells(pl,mp);
+        myspells = sb.MySpells(character);
         
         // initial spell counters
         PL1_count = 0;
@@ -190,37 +189,43 @@ public final class Implement_Spells {
                     System.err.println("Error: Unknow spell power level");
             }
         }
-        System.out.println(PL1_count);
         
         // reset all the panels' size
         // make sure if the panel have any spells 
         if(PL1_count > 0){
             PLOnePanel.setPreferredSize(new Dimension(200, (PL1_count+1)*25));
+            PLOnePanel.setLayout(new GridLayout(PL1_count,1));
             MainSpellListPanel.add(PLOnePanel); 
         }
         
         if(PL2_count > 0){
             PLTwoPanel.setPreferredSize(new Dimension(200, (PL2_count+1)*25));
+            PLTwoPanel.setLayout(new GridLayout(PL2_count,1));
             MainSpellListPanel.add(PLTwoPanel);
         }
         if(PL3_count > 0){
             PLThreePanel.setPreferredSize(new Dimension(200, (PL3_count+1)*25));
+            PLThreePanel.setLayout(new GridLayout(PL3_count,1));
             MainSpellListPanel.add(PLThreePanel);
         }
         if(PL4_count > 0){
             PLFourPanel.setPreferredSize(new Dimension(200, (PL4_count+1)*25));
+            PLFourPanel.setLayout(new GridLayout(PL4_count,1));
             MainSpellListPanel.add(PLFourPanel);
         }
         if(PL5_count > 0){
             PLFivePanel.setPreferredSize(new Dimension(200, (PL5_count+1)*25)); 
+            PLFivePanel.setLayout(new GridLayout(PL5_count,1));
             MainSpellListPanel.add(PLFivePanel);
         }
         if(PL6_count > 0){
             PLSixPanel.setPreferredSize(new Dimension(200, (PL6_count+1)*25)); 
+            PLSixPanel.setLayout(new GridLayout(PL6_count,1));
             MainSpellListPanel.add(PLSixPanel);
         }
         if(PL7_count > 0){
             PLSevenPanel.setPreferredSize(new Dimension(200,(PL7_count+1)*25));
+            PLSevenPanel.setLayout(new GridLayout(PL7_count,1));
             MainSpellListPanel.add(PLSevenPanel);
         }  
         if(PL1_count == 0 && PL2_count == 0 && PL3_count == 0 && PL4_count == 0 &&
@@ -231,10 +236,6 @@ public final class Implement_Spells {
         
         // refresh the visible main frame
         mainFrame.setVisible(true); 
-    }
-    
-    public void CostManna(){
-        
     }
     
 }
