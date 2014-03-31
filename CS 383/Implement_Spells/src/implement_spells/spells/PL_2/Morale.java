@@ -43,7 +43,7 @@ public final class Morale {
     
     public void prepareGUI(){
         frame = new JFrame("Morale");
-        frame.setSize(500,400);
+        frame.setSize(600,500);
         frame.setLayout(new BorderLayout());
         frame.addWindowListener( new WindowAdapter() {
             @Override
@@ -75,6 +75,7 @@ public final class Morale {
                 
                 // later, this method gonna return bool value and let character
                 // class know if he want to cast a new spell
+                System.exit(0);
             }
         });
         
@@ -83,19 +84,21 @@ public final class Morale {
         selection.add(ok_button);
         selection.add(again_button);
         
-        ImageIcon morale_image = new ImageIcon("Morale");
+        ImageIcon morale_image = new ImageIcon("Morale.jpg");
         JPanel image_panel = new JPanel();
         JLabel image_lable = new JLabel("",morale_image, JLabel.CENTER);
         
         image_panel.add(image_lable);
         frame.add(image_panel, BorderLayout.CENTER);
         frame.add(selection, BorderLayout.SOUTH);
-        //frame.add(notice);
+        frame.add(notice, BorderLayout.NORTH);
         frame.setVisible(true);
     }   
     
     public void getTarget(){
         // this function is used to get the target to cast spell
+        
+        // set the target hex 
     }
     
     public boolean checkLimits(){
