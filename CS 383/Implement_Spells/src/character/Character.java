@@ -7,6 +7,15 @@
 package character;
 
 import implement_spells.Implement_Spells;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -19,14 +28,30 @@ public class Character {
     public int     MagicPotential;
     public double  CurrentManna;
     
-    Character(){}
+    public int  CurrentHex;
     
-    public Character(String a, int b, int c) {
+    public Character(){
+        //GetInfo gi = new GetInfo();
+        //gi.getCharacter();
+        //Name = gi.printName();
+        //MagicPL = gi.printPL();
+        //CurrentManna = gi.printCM();
+        //MagicPotential = 20;
+        
+        //CurrentHex = 1007;
+    }
+    
+    
+    public Character(String a, int b, double c, int h) {
         Name        = a;
         MagicPL     = b;
-        MagicPotential  = c;
-        CurrentManna = (double)MagicPotential;
+        //MagicPotential  = c;
+        CurrentManna = c; //(double)MagicPotential;
+        
+        CurrentHex = h;
     }
+    
+    
     
     public void CastSpell(Character c){
         Implement_Spells is = new Implement_Spells(c);

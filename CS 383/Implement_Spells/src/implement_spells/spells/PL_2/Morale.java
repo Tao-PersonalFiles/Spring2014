@@ -7,6 +7,7 @@
 package implement_spells.spells.PL_2;
 
 import character.Character;
+import character.GetInfo;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -14,17 +15,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -38,7 +34,9 @@ public final class Morale {
     
     public Morale(Character c){
         character = c;
-        prepareGUI();
+        
+        getTarget();
+        
     }
     
     public void prepareGUI(){
@@ -99,10 +97,61 @@ public final class Morale {
         // this function is used to get the target to cast spell
         
         // set the target hex 
+        
+        final JFrame target_info = new JFrame("Target Info");
+        target_info.setSize(300,200);
+        
+        target_info.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) { 
+                System.exit(0);
+            }
+
+        });
+        
+        target_info.setLayout(null);
+        target_info.setLocation(10,50);
+        
+        JLabel target_name = new JLabel("Target name: ");
+        target_name.setBounds(10, 20, 150, 20);
+        target_info.add(target_name);
+        // Textfield character name
+        final JTextField target_name_field = new JTextField();
+        target_name_field.setBounds(200, 20, 100, 20);
+        target_info.add(target_name_field);
+        
+        // Hex info
+        JLabel target_hex = new JLabel("Target Hex number:");
+        target_hex.setBounds(10,60,150,20);
+        target_info.add(target_hex);
+        // Textfield character hex
+        final JTextField target_hex_field = new JTextField();
+        target_hex_field.setBounds(200, 60, 100, 20);
+        target_info.add(target_hex_field);
+        
+        JButton get_t = new JButton("Get");
+        get_t.setBounds(150, 100, 50, 20);
+        target_info.add(get_t);
+        
+        get_t.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String target_n = target_name_field.getText();
+                
+                int target_h = Integer.parseInt(target_hex_field.getText());
+                
+                target_info.dispose();
+                
+                performSpellEffects();
+            }
+        });
+        
+        target_info.setVisible(true);
     }
     
     public boolean checkLimits(){
-        boolean limit = false;
+        boolean limit = true;
         
         //if( fit all the limits ){
           //  limit = true;
@@ -122,7 +171,7 @@ public final class Morale {
             // char or unit info, 
             // then we can just go into that file and change the data
             // then we read the file again for refresh the game data
-            
+            prepareGUI();
             
         }else{
             // show warning that it desn't fit all the limitations

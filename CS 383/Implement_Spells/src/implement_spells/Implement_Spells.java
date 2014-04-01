@@ -7,6 +7,7 @@
 package implement_spells;
 
 import character.Character;
+import character.GetInfo;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -72,9 +73,13 @@ public final class Implement_Spells{
         //is.getCharacter();
         //is.getSpellBook(pl, mp);
         //is.prepareGUI();
-        Character ch = new Character("Tao", 3, 3);
-        ch.CastSpell(ch);
-        System.out.println("Character CurrentManna: "+ ch.CurrentManna);
+        
+        //Character ch = new Character("Tao", 3, 3);
+        //ch.CastSpell(ch);
+        //System.out.println("Character CurrentManna: "+ ch.CurrentManna);
+    
+        GetInfo gi = new GetInfo();
+        gi.getCharacter();
     }
     
     public void prepareGUI(){
