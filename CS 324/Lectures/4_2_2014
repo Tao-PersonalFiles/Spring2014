@@ -1,0 +1,69 @@
+1. Rendering--quick review
+Numerous rendering techniques:
+	* Wire-frame/Hidden Line
+	* Hidden Surface
+		- z-buffer(polygon)
+		- Scan line()
+		- Ray tracing
+	* Shadows
+	* Texturing
+
+2 Lighting
+For realistic image, we must understand a bit about lighting. Specifically, how various shading models work.
+  An object that is illuminated reflects defferent amounts of light depending on its surface properties, i.e., flat or glossy, metallic, etc.
+
+2.1 Shading
+	* Flat
+	* Smooth
+		- Gouraud
+		- Phong
+	Faces toward the light source appear brighter than those facing away from the light.
+
+2.1.1 Flat shading
+A calculation of how much light is scattered from a singel point on a face is made to specify the appearance of the face. This method is simple, but not very realistic
+  Flat shading shows the underlying polygon in many cases.
+
+2.1.2 Smooth Shading
+Couraud shading uses an interpolation scheme to calculate how much light is scattered from a face of an object. The variation in levels is much smoother that Flat shading and the edges of polygons disappear--making the surface appear smooth, rather than faceted
+
+2.1.3 Specular Lighting
+Highlights can be added to make objects look shiny. This is accompilshed by adding specular light components. Objects that are shinier appear to be made of plastic.
+
+2.2 Shadows
+Generally very complicated. Fairly easy in OpenGL
+
+2.3 Textures
+Later(maybe).
+
+2.4 Shading Models
+Light models can be very complicated and are usually very computationally intensive.
+ A shading model specifies how much light is scattered or relected (or transmitted) from a surface. Examine some simple shading models, focusing on achromatic light, which has brightness, but no color.chromatic light is only a shade of gray and is described by a single value.
+  Shading models used in graphics frequently are dependent upon two types of light sources that illuminate objects: point light sources and ambient light.
+   * some is absorbed by the surface.
+   * Some is reflected from the surface.
+   * Some is transmitted into the surface.
+
+2.4.1 Reflection
+Diffuse Scattering
+  Occurs when some of the incident light penetrates the surface and is reflected uniformly in all directions. The scattered light interacts strongly with the surface, so its color is affected by the material of the surface.
+
+  Specular Reflections
+    Are more mirror-like and are highly directional--incident light does not penetrate the object, but directly reflected from its outer surface.
+
+2.4.2 Geometry of Reflected light
+To compute the diffuse and specular components of light, we need to find three vectors. The three principal vectors required to find the amount of light that reaches the eye from a point P.
+	1. The normal vector n to the surface P.
+	2. The vector v from P to the viewer's eye.
+	3. The vector s from P to the light source
+The angles between the vectors form the basis for computing light intensities and are normally calculated using world coordinates.
+
+	
+2.4.3 Diffuse light component
+Lambert's law
+	Id = Is Pd s*n / |s|*|n|
+Is is the intensity of the light source
+Id is the intensity of the diffused light
+Pd is the diffuse reflection coefficient
+
+	if the face is aimed away from the eye, the dot product is negative, so Id is set to zero.
+	Id = Is Pd max(0, s*n/|s|*|n|)
