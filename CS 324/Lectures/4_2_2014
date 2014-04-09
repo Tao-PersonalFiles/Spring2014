@@ -67,3 +67,77 @@ Pd is the diffuse reflection coefficient
 
 	if the face is aimed away from the eye, the dot product is negative, so Id is set to zero.
 	Id = Is Pd max(0, s*n/|s|*|n|)
+
+
+2.4.4 SPecular Reflection
+		I_sp = I_s p_s (r*v/|r|*|v|)^f
+	p_s is the specular reflection coefficient,
+	r is the reflection, and 
+	f is the power law coefficient
+	  If can be expensive to compute the specular term, since 
+	it requires finding the vector r and normalizing it.
+
+
+2.4.5 Ambient light
+Ambient light -- uniform background glow. The ambient light source is not situated at any particular place,
+and it spreads in all directions uniformly. The source is assigned an intensity I_a. 
+Each face in the model is assigned a value for its ambient reflection coefficient p_a
+
+2.4.6 Combining Light Contributinos
+The sun of the three light contributions -- ambient, diffusem and specular -- form the total amount of light I that reaches the eye from point P
+	I = I_a*p_a + I_d*p_d X lambert+ I_sp*p_s X phong^f
+		lambert = max(0, s*n/|s|*|n|)
+		phong = max(0,h*n/|h|*|n|)
+
+2.4.7 Color
+(公式怎么那么累，笔记本)
+Light sources have three "type" of color:
+1. ambient (I_ar, I_ag, I_ab)
+2. diffuse (I_dr, I_dg, I_db) 
+3. specular(I_spr, I_spg, I_spb)
+The requres nine refections coefficients
+	ambient:	p_ar, p_ag, p_ab
+	diffuse     p_dr ...
+	specular:	p_sr ...
+
+	The ambient and diffuse reflection coefficients are based on the color of the surface
+
+2.4.9 Shading and the Graphics pipeline
+	When is shading performed?
+	How is it done?
+
+	The vertices of a mesh are sent down the pipeline along with their associated ormals, and all shading calculations are done on the vertices
+	(diagram on note book)
+
+2.5 Light Sources in OpenGL
+OpenGL allows you to define up to eight sources which are referred to by the names GL_LIGHT0, _LIGHT1, etc.
+
+GLfloat lightPosition[] = {3.0, 6.0, 5.0, 1.0};
+
+glLightfv( GL_LIGHT0, GL_POSITION, lightPosition );
+
+glEnable( GL_LIGHTING );		// ** enable light**
+glEnable( GL_LGITH0 );			// ** enabel source**
+
+2.5.1 Light Source Position
+A light source may be "in the scene" or remote (at some infinite position). This is controlled by the last parameter, for example:
+	local:	(x,y,z,1)
+	remote: (x,y,z,0)
+
+2.5.2 Specifying Light Propertices
+GLfloat amb()[] = {0.2, 0.4, 0.6, 1.0};
+GLfloat fiff()[] = {0.2, 0.4, 0.6, 1.0};
+GLfloat spec()[]= {0.2, 0.4, 0.6, 1.0};
+
+glLightfv(GL_LIGHT0, GL_AMBIENT, amb());
+glLightfv(GL_LIGHT0, GL_DIFFUSE, diff());
+glLightfv(GL_LIGHT0, GL_SPECULAR, spec());
+
+
+2.5.3 Default Light Propertices
+The default light properties in OpenGL are defined as:
+Ambient (0,0,0,1) dimmest possible -black				
+Diffuse (1,1,1,1) brightest possible - white
+Specular(1,1,1,1) brightest possible - white
+Note these are local 
+
