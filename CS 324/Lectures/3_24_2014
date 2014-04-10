@@ -54,7 +54,7 @@
     Overview: process the scene one scanline at a time.
    Work our way down, rendering the polygons as the are encountered by the current scanline.
 
-  1.2.1 polyno diagram
+  1.2.1 polygon diagram
     inactive list (initially): P1, P2, P3, P4
     (diagram on notebook)
 

@@ -1,0 +1,17 @@
+4/9/2014
+
+1. Materials
+
+Mateirals properties can be specified using the function glMaterial.
+Example:
+GLfloat diff[] = {0.8, 0.2, 0.0, 1.0};
+glMaterialfv( GL_FRONT, GL_DIFFUSE, diff );
+
+The second parameter of glMaterialfv() can take the following values: 
+						Sets ... reflection coefficients
+GL_AMBIENT				the ambient
+GL_DIFFUSE				the diffuse
+GL_SPECULAR				the specular
+GL_AMBIENT_AND_DIFFUSE	both the ambient and the diffuse to the same values
+GL_EMISSION				the emissive color of the surface
+
