@@ -1,0 +1,37 @@
+CS480 presentation
+
+Goals for this semester:
+1. add animations to let users make more sense about what they get when playing,
+like the intercept animation tells you who intercept the ball and will turn the ball to otherside
+
+Also it makes the game look nice and more professional
+
+2. Finish the app
+basicly, we want to finish the junior level and publish it to the google store.
+We need to add the sounds, 
+add the new layout that Aziz gave us at the beginning of the semester
+and fix specific details/issues
+
+	-dice are the right size on different tablet
+
+	-ball is located at the right position, 12 fields of the board the ball need to be in the center of the field
+
+	-scoring
+
+	-find any small pieces that can make it nicer and more professional
+
+
+Where are we now:
+1. card and goal animation we get from VTD group
+
+2. We only have goal sound, when we goal 
+
+3. So we added the main menu layout, player level layout, 
+we got icons linked to facebook, twitter
+
+4. user experience is just playing junoir to learn the basic operations
+also, we got link to some cool video for user to learn the game
+
+
+
+
