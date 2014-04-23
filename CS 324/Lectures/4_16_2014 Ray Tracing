@@ -1,0 +1,81 @@
+1.Ray Tracing
+
+History: Early 1980's
+
+Ray-tracing combines the following features into a single method:
+ -Hidden surface removal
+ -Illumination due to direct illumination (also local illumination)
+ -Illumination due to reflection and refraction from other objects (global illumination)
+ -The computation of shadows
+
+1.1 Diagram
+Rays cast from the eye point through each pixel in the image
+
+1.2 Simple Algorithm
+Intersect eye ray with all objects in scene
+	Find closest object
+		Show Object color
+	No intersection?
+		Show background color
+
+1.3 Slightly More Detailed Algorithm
+Define objects andlight sources in the scene
+Setup camera
+
+for each row index
+	for each column index
+		Build a ray
+		Find intersection of the ray with objects in the scene
+		Determine the closest intersection
+		Find the color of the light returning to the eye
+		Color the pixel
+
+1.4 Pseudocode for Ray Tracing
+For each pixel (i,j)
+{
+	eye ray e = ray through pixel
+	color of pixel (i,j) = Trace (e, scene)
+}
+
+Trace( Ray e, Scene scene)
+{
+	p = Closest intersection of e with scene
+	Shade( p )
+}
+
+1.5 More Detailed Pseudocode for Trace ()
+Trace ( Ray eyeray, Scene scene )
+{
+	ohject = intersect (eyeray, scene)
+	if(object is found)
+	{
+		shade(p,N,scene,e)
+	}else
+	 	return background color
+}
+
+1.6 Pseuedocode for shade()
+Shade( pt, Noramal, scene, eyeray)
+{
+	for each light
+	{
+			// check if pt is in shadow wrt light
+		shadowObj = intersect(shadowray, scene)
+		if(shadowed(shadowObj)) visibility = 0.0
+		color += (diffuse+specular) * visibility
+	}
+
+	if(object is reflective)
+	{
+		Trace( reflected ray)
+	}
+}
+
+Shadows
+	-Project from the intersection point to each light source
+	-point of intersection in shadow if the shadow ray is blocked
+Reflections
+	-Porject rays along the direction of reflection ( reflected rays ) 
+Refractions
+	-Project rays along the direction of refraction ( refracted rays )
+

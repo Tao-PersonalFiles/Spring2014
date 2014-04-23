@@ -1,0 +1,59 @@
+1 Volume Rendering
+What is volume rendering?
+Simple answer: method of displaying volumetric data as a two-dimensional image.
+
+Volume rendering applications:
+	- Medical imaging (data from magnetic resonance image (MRI), etc.)
+	- Fluid dynamics
+	- Machine design
+	- Meteorology
+	- Molecular modeling
+Volume rendering operates on three-dimensional data, processes it and transforms it into a simple 2-dimensional image.
+
+1.1 Basics
+Volume rendering uses:
+	-lighting functions
+	- Alpha blending from computer graphics, and 
+	- Point processing from image processing to classify its data.
+Digital images consist of a 2-dimensional array of data elements representing color or light intensity. The data elements are referred to as pixels (picture elements).
+Similarly, a volume can be represented with a three dimentional array of values. These values are called voxels (volume elements)
+
+1.1.1 Voxels
+Two definitions for voxels in the literature:
+	1. a small cube with some small size
+	2. a point without a size in three-dimensional space
+
+1.2 Rendering Methods
+	- Rendering voxel in binary partitioned space
+	- Marching cubes
+	- Ray casting
+
+1.2.1 Voxels in Binary partitionaed space
+Values are calculated for the entire voxel. This can produce a "bolcky" image. Also lacks dynamics range in the computed surface normals, which produces images with relatively poor shading.
+
+1.2.2 marching Cubes
+Marching cubes solves the shading problem, but causes some others. Its biggest disadvantage is that it requires a binary decision be made on the position of the intermediate surface that is extracted and rendered. Extracting the intermeiate structure can cause false positives (artifacts that do ot exist) and false negatives(discarding small or poorly defined features).
+
+	Effect of a false positive or false negative?
+
+1.2.3 Ray casting
+Somewhat similar to ray tracing. Basic goal is to allow the best use of the 3-dimensional data and not attempt to impose any geometric structure on it.
+Volume ray casting is typically broken into four steps:
+	1. Ray Casting 
+	2. Sampling
+	3. Shading
+	4. Compositing
+
+1.3 Sampling and Quantizing
+Sampling is the process of measuring a physical property at some specific location. The property may be light intensity, hue, density, temperature, velocity, acceleration, etc. The locations are usually, but not always, confined to a specific regular spacing on a rectangular grid. The spacing of the samples is referred ot as the spatial resolution.
+Quantizing is the process of converting a sample into digital form. The number of bits used to store the converted sample is called the intensity resolution. The higher the number of bits, the higher the intensity resolutions.
+
+2. Acquisition Techniques
+	- Magnetic Resonance Image (MRI)
+	- Ultrasound
+	- Computer Tomography (CT)
+	- Scanners
+
+3. Volume Rendering Pipeline
+	Segmentation -> Gradient Computation-> Resampling-> Calssification -> Shading -> Compositing
+
