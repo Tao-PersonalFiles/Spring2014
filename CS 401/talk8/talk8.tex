@@ -9,12 +9,17 @@
 \topmargin=-.5in
 
 \begin{document}
-\paragraph{Tao Zhang\\Efficient Graph Matching Algorithms for QueryingBiological Networks and their Application to Web Service Composition\\Dr. Hasan Jamil\\April 14th, 2014}
+\paragraph{Tao Zhang\\Efficient Graph Matching Algortihms for QueryingBiological Networks and their Application to Web Service Composition\\Dr. Hasan Jamil\\April 14th, 2014}
 
 \paragraph{Summary}
 
 \begin{itemize}
-\item 
-
+\item Dr. Hasan Jamil presented that traditional models do not support graph representation, that RDBMS is flat and XML is a whole graph. They need to find some form of unit represantion that: Units can be processed one at a time in memory; Units can be stored and indexed; The global view of graphs can be recreated from the units.\\
+\\
+ Biological networks such as pathways and protein-protein interactions are naturally modeled using graphs. Searching for exact network is possible using identifiers or graph attribute match; however, a query graph is generally used to find matches that closely resemble the network. Such matching is fundamentally different from isomorphic matching of both attributed and non-attributed graphs. 
+\item In the mathematical discipline of graph theory, a matching or independent edge set in a graph is a set of edges without common vertices. It may also be an entire graph consisting of edges without common vertices. Dr. Hasan Jamil introduced us a new approach to attributed graph matching using sub graph isomorphism with optimization opportunities.
+\item Their research NetQL is still ongoing. It performs well on unattributed graphs that is XML based implementation, the In-memory algorithm is being implemented, and approximate matching is ongoing. AtoM is highly scalable and paraleeizable: Optimization is not currently possible but being investigated; MapReduce implementation underway.
 \end{itemize}
+
+
 \end{document}
