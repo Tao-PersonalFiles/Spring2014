@@ -57,3 +57,36 @@ Quantizing is the process of converting a sample into digital form. The number o
 3. Volume Rendering Pipeline
 	Segmentation -> Gradient Computation-> Resampling-> Calssification -> Shading -> Compositing
 
+3.1 Graphics Rendering Pipeline
+
+3.2 Classification
+Classification associates an opacity with each vocel. Two values associated with each voxel:
+	-C(x) a shade calculated from a reflection model using the local gradient.
+	-a(x) an opacity derived from tissue type of known CT values.
+
+3.3 Compositing
+Compositing combines the values of C(x) and a(x) into a single value to provide a final pixel intensity.
+
+4 Visualization Software
+	- AVS(Advanced Visual System/Application Visualization System)
+	- IBM Data Explorer (OpenDX)
+	- IRIS Explorer (SGI, noew NAG(Numberical Algorithms Group))
+	- VTK ( The Visualization ToolKit)
+
+4.1 VTK
+http://www.vtk.org
+
+Cool: free;
+		C++ source code 
+		easy to create apps
+		Tcl/Tk interface
+
+		Integrated
+		Portable
+		Object-oriented
+
+notcool:
+	Not very fast
+	C++
+	Very large
+	Lots of disk space

@@ -20,7 +20,7 @@ For realistic image, we must understand a bit about lighting. Specifically, how 
 	Faces toward the light source appear brighter than those facing away from the light.
 
 2.1.1 Flat shading
-A calculation of how much light is scattered from a singel point on a face is made to specify the appearance of the face. This method is simple, but not very realistic
+A calculation of how much light is scattered from a single point on a face is made to specify the appearance of the face. This method is simple, but not very realistic
   Flat shading shows the underlying polygon in many cases.
 
 2.1.2 Smooth Shading
@@ -84,7 +84,7 @@ and it spreads in all directions uniformly. The source is assigned an intensity 
 Each face in the model is assigned a value for its ambient reflection coefficient p_a
 
 2.4.6 Combining Light Contributinos
-The sun of the three light contributions -- ambient, diffusem and specular -- form the total amount of light I that reaches the eye from point P
+The sun of the three light contributions -- ambient, diffuse and specular -- form the total amount of light I that reaches the eye from point P
 	I = I_a*p_a + I_d*p_d X lambert+ I_sp*p_s X phong^f
 		lambert = max(0, s*n/|s|*|n|)
 		phong = max(0,h*n/|h|*|n|)
@@ -126,7 +126,7 @@ A light source may be "in the scene" or remote (at some infinite position). This
 
 2.5.2 Specifying Light Propertices
 GLfloat amb()[] = {0.2, 0.4, 0.6, 1.0};
-GLfloat fiff()[] = {0.2, 0.4, 0.6, 1.0};
+GLfloat diff()[] = {0.2, 0.4, 0.6, 1.0};
 GLfloat spec()[]= {0.2, 0.4, 0.6, 1.0};
 
 glLightfv(GL_LIGHT0, GL_AMBIENT, amb());

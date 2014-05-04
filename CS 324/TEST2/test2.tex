@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+
+%adjustments
+\parskip=.9ex
+\textwidth=6in
+\textheight=9in
+\oddsidemargin=-0in
+\topmargin=-0.75in
+
+\begin{document}
+
+\title{Summary of "An Improved Illumination Model for Shaded Display"}
+
+\author{Tao Zhang\\
+CS 324}
+
+\maketitle
+
+%=========================================
+
+\section{Overview}
+\paragraph{The illumination model is used to generate the color/light of an object’s surface at a given point on that surface. The article presents a new shading model that uses global information to calculate intensities that the traditional models can't deal with.}
+
+\section{Key points}
+\paragraph{Conventional Models uses Lamber's consine law as the simplest visible surface algorithms for shaders. Phong's Model is a more sophisticated model, but it has a drawback that has a big side effect on the quality of specular reflections. Another method that modeling an object's environment and mapping it onto a sphere of infinite radius was developed to partially solve the problem from Phong's model. }
+
+\paragraph{Compared to the traditional model, the improved model added the diffuse component, which includes S, the intensity of light incident from the reflection direction, $k_t$, the transmission coefficient, and T, the intensity of light from the refraction direction. }
+
+
+\paragraph{A tree of rays is used to make the illumination visible to the viewer.}
+
+\section{New terminology/equation Encountered}
+\paragraph{}
+
+\section{Conclusion}
+\paragraph{I get a big trouble now...}
+\end{document}

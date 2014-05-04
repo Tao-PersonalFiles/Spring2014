@@ -1,0 +1,164 @@
+1 Texture Mapping
+Catmull, Blinn & Newell， ’71
+
+Problem:
+	Need small details, but can't afford(提供) more polygons
+Basic idea:
+	Take a picture and paste it onto a model like wall paper or gift wrapping
+
+Definitions:
+Texture - the image pasted on to the model
+Texels 	- pixels in the image being pasted are called texels.
+		Texels are addressed in 2D with (u,v) coordinates (or sometimes (s,t))
+Mapp 	- the manner in which the texture is pasted on to the model
+
+Overview
+Map a (u,v) coordinate pair onto each model vertex.
+Then, interpolate(插入) as we have with depth, color, and normals.
+
+Bad news - problem with interpolated approximations can be very severe
+Good news - Hardware is available for this process, so it's fast.
+
+Major Problems
+	1. Defining a mapping
+	2. Filling the polygon
+	3. Finding the color for the pixel
+
+1.1 First major problem: defining a mapping
+How to figure out which u,v goes on a vertex?
+(u,v) = F(x,y,z), what is F?
+
+	-Easiest solution: it's given
+	 Model comes with texure with texture coordinates attached to vertices ( Must also identify texture for each face )
+	-Next easiest solution: all models have simple shapes. Build everything from cubes, spheres, cylinders, etc. Maps for these are easy to define.
+	-Next best approximation: two-stage mapping Bier, Sloan, 1986
+	 Define a first stage map, (u,v)->T(x,y,z) maps a well known shape (cube, sphere) to texture
+	 Now define a second stage map, T(x,y,z)->O(x,y,z) Place objects at same center.
+
+Many options:
+	1。 Follow surface normal from model
+	2. Reverse normal from intermediate shape
+	3. Draw a line from common center through vertex, find new point
+	4. Follow reflection from eye (environment mapping)
+	This is a hard problem, largely unsolved.
+
+New approach: subdivision surfaces
+	Defines all objects with subdivision of triangles from a simple base mesh using barycentric (triangle) coordinates, have 2D parameterization of surface.
+
+1.2 second major problem: Filling the polygon
+Or, what is the (u,v) between the vertices? Interactive solution: linear interpolation
+Big problem, map may not be linear
+example:ｘ screen vs u texture mapping 
+SLow but accurate solution
+	
+	if map function is known
+		back project pixel location from image to 3D
+		follow map from 3D to (u,v)
+
+1.3 Third major problem: Finding the color for the pixel
+Simple solution
+Simply sample the color value at (u,v)
+Problem: what if (u,v) are not integers?
+Bilinear interpolation
+
+Problem: Aliasing
+Pixels do not necessarily map to one texel
+In face, result is not even a polygon--edges curve 
+Multiple texels are covered by one pixel
+If we take just one sample, we get aliasing
+E.g checerboard, b/w is basically random
+
+Slightly less complex Solution:
+Average the texels covered by the pixel
+Can approximated the shape of the reverse projected pixel
+Just figure out where the corners lie
+Use straight edges between
+
+Problem: This is realy slow, no longer interactive
+
+1.4 MIP mapping
+More complex solution 
+Lance Williams, 1982 MIP mapping
+	Multim in parvo: many things in a small place.
+	Basic approach: perform approximate filtering ahead of time.
+
+During rendering
+	Figure out the size of the pixel in texture space
+	Use the prefiltered texels to approximate appropriate filter
+
+Details
+Prefiltering
+Constructe a texture pyramid
+	- At base goes original texture
+	- Next level up: four texels averaged to one
+	- Until one texel for whole texture
+This implies number of pixels in both dimensions is 2^n. This only takes 25% more memory.
+
+Size of pixel in texture space
+	- Reverse project the corners of each pixel onto the pixel
+	- Use a quadrilateral to connect the result, calculated area
+
+Calculate color from pyramid
+	- Find the level in which texels are just larger than the pixel area
+	- Find the level in which texels are just smaller thatn the pixel area
+	- Perform trilinear interpolation
+	- Project the pixel center to the texture space
+
+In each level
+ 	Find the four (4) texels that surround pixel center 
+ 	Do bilinear interpolation to get one value
+ 	Use projected area to interpolate between resulting two values
+
+ Result
+ Checkboard background looks gray, instead of random speckles
+
+ Critique:
+ +: Fast
+ +: No speckling, visually "okey"
+ -: FIltering is approximate, detail overblurred
+
+ Recall the Major Problems
+ 1. Defining a mapping
+ 2. Filling the polygon
+ 3. Filling the color for the pixel
+
+ 1.5 OpenGL implementation
+ Basic principles are the same
+
+ On first problem
+
+ Second problem
+ Does linear interpolation
+ If you go outside range[0,1] in u or v:
+ 	can clamp: floor function to 0 or 1
+ 	can repeat: all values are modulo 1
+
+ On third problem
+ Can define minimization and maximization filters
+ minimization 	when multiple texels map to output pixel
+ nearest 		essentially use round to find closest texel
+ linear			average the four surrounding texels
+ maximization	when a texel maps to multiple output texels: same
+
+ Decal: texture an polygon colors are weighted by a fourth texture component A
+ Output color = poly color * A + tex color*(1-A)
+ Often used for irregularly shaped teuxtures, A = 1 around boundary
+
+ Modulate: texture color is modulated by polygon color 
+ Output color = poly color * tex color
+ Often used with white polys to render "lit" textures 
+
+ Blend: color is combo of poly color with a constant color,
+ weighted by tex color
+ Output color = poly color * tex color + constant color * (1 tex color)
+ Often used for billboarding, irregularly shaped polygons with high freqency outlines
+
+1.6 Advanced Methods
+- Multipass texturing
+- Polygon and texture color can be combined, so
+	We can add polugons and multiple textures.
+	This enables reflections ,shadows etc.
+- Perspective correct interpolation
+  Equal distances in 3D are not equal distances in screen space! The solutino is "hyperbolic interpolation"
+- 3D Texturing
+  Texture is volume -- a stack of images. Soloves the first problem with materials like: wood, stone
