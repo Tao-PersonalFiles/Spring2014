@@ -1,0 +1,45 @@
+1 OpenGL ES
+One of a set of APIs created by the Khronos Group. Since OpenGL ES is a C-based API, extremely portable and widely supported.
+
+www.khronos.org
+
+1.1 Definition 
+ - OpenGL API is very large and complex, and the goal of the OpenGL ES working group was to create an API suitable for constrained devices
+ - Removing redundancy
+ - New features to address specific constraints of handheld and embedded
+ - disigners ...
+
+1.2 Release History
+
+1.3 New in OpenGL ES 3.0
+-Texturing
+-shaders
+-Geometry
+-Buffer Objects
+-Framebuffer
+
+1.3.1 Texturing
+
+1.3.2 Shaders
+
+1.3.3 Geometry
+-Transform feedback
+-boolean occlusion queries
+-instanced rendering
+-Promitive restart
+-new vertex formats
+
+1.3.4 Buffer Objects
+-uniform buffer objects
+-vertex array objects
+-...
+
+1.3.5 FrameBuffer
+
+1.4 EGL
+an interface between Khronos rendering APIs
+handles graphics context management, surface/buffer binding, rendering synchronization, and enables.
+
+commands require a rendering context and a drawing surface
+	- The OpenGL ES API does not mention how a rendering context is created or 
+
