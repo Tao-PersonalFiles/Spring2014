@@ -107,5 +107,64 @@ Jordan told me he fixed the problem of transparent, which is the .png file issue
 3/11
 Snapshot day. Mr. Aziz came, talked with us about the KickShot so far. I decide to do some work on dice rolling animation during the spring break. 
 
+3/15
+Take little time searching a good dice rolling recource fron online. But can't find a really good one so far.
+
+3/19
+Spring Break hard to study, only take some time to go trhough the Animation tutorial
+
+3/24
+Keep finding dice rolling animation .gif resources, but have to say the dice rolling on those free webpage is really weried.
+
+3/29
+Last time try to find any good dice rolling animation online. Totally give up to find the animation, instead I will try to make my own 3D dice rolling animation.
+
+4/1
+Find a turorial to make dice model and a really simple dice rolling animation which only pivot steering. 
+
+Follow the tutorial, download and install the 3D animation tool -- 3ds Max.
+
+4/2
+Follow the tutorial found yesterday, take a while to become familiar with the tool.
+
+4/5
+Take couple hours to build the dice model.
+
+The dice is made as a ChamferBox Object Type. I set the parameters for length, width, height to 40.0, and fillet to 4.0 which make the edage smooth and kind sphere.
+
+Set 3 segaments for length, width, and height so that I can do polygon on those segments and make spots as dice number.
+
+Enable the Box Editable Polygon, Inset those segments and then Extrude selected segments to make hollow spots as dice number.
+
+Then, use material Editor to make the color, dice model as stadard white and spots as red. Then the dice model is done.
+(Most of these staff here was talked in Graphics class. Really interesting to know)
+
+4/8
+Find some other tutorials about making dice rolling animations, try to become familiar with the animation editor, but seems like it would be hard.
+
+4/10 
+Preparing the presentation for Design Review meeting. 
+
+4/13
+Followed the first tutorial I found weeks ago, succeed to make the dice pivot rolling. which use auto key to record the dice rolling. 
+
+4/16
+Jordan got some issues on github when merge his branch to master. He asked me if I can merge the staff manually. Spent couple hours typing and copying the files onto github,
+
+4/19
+Keep doing dice rolling animation, want to have the animation that throw the dice onto a surface. Spent couple hours rotating and moving the dice around and set keys for animation bar, but looks weird...
+
+4/22
+Take more time to make the dice fall to the surface smoothly.
+
 4/27
 Update the wiki page.
+
+4/29
+Working with Jordan to make the EXPO Poster
+
+5/2 
+EXPO Day. So tired of standing there for hours.
+
+5/8
+Printing all materials and make our portfolio. Bought tags.
