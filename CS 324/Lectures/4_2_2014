@@ -110,7 +110,7 @@ The requres nine refections coefficients
 	(diagram on note book)
 
 2.5 Light Sources in OpenGL
-OpenGL allows you to define up to eight sources which are referred to by the names GL_LIGHT0, _LIGHT1, etc.
+OpenGL allows you to define up to eight sources which are referred to by the names GL_LIGHT0, GL_LIGHT1, etc.
 
 GLfloat lightPosition[] = {3.0, 6.0, 5.0, 1.0};
 

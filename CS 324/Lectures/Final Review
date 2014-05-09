@@ -1,0 +1,27 @@
+1 Sectinos on Final Exam
+Test about 7 pages 
+	Math				|	30
+	Basic Concepts		| 	30
+	Modeling Concepts 	|	25
+	Rendering 			|	15
+
+2 Topics on Final Exam
+	-Math
+	Linear algebra (dot product, cross product. etc)
+
+	- Basic Concepts
+	  Standard terminolog and other concepts, e.g., Light Color, etc
+
+	- Modeling 
+	  Concepts we discusses (and often developed)
+
+	- Lighting
+
+	- Rendering Techniques
+	  Discussed in class:
+	  	- Z-Buffer
+	  	- Scanline
+	  	- Ray tracing
+	  	- Volume
+	  	- Texture mapping
+	  	- OpenGL ES

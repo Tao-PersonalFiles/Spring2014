@@ -46,7 +46,7 @@ Trace( Ray e, Scene scene)
 1.5 More Detailed Pseudocode for Trace ()
 Trace ( Ray eyeray, Scene scene )
 {
-	ohject = intersect (eyeray, scene)
+	object = intersect (eyeray, scene)
 	if(object is found)
 	{
 		shade(p,N,scene,e)
