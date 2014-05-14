@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/colors_kickshot.xml -->
+    <eat-comment />
+
+    <color name="pressed_kickshot">#CC33B5E5</color>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles_kickshot.xml -->
+    <eat-comment />
+
+    <style name="ActionBar.Solid.Kickshot" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_solid_kickshot</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_kickshot</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_kickshot</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Kickshot</item>
+        <item name="android:icon">@drawable/kickshotbig</item>
+        <item name="android:displayOptions">useLogo|showHome</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Kickshot" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_kickshot</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Kickshot</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Kickshot" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_kickshot</item>
+    </style>
+
+    <style name="ActionButton.CloseMode.Kickshot" parent="@android:style/Widget.Holo.Light.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_kickshot</item>
+    </style>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles.xml -->
+    <eat-comment />
+
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!-- API 11 theme customizations can go here. -->
+    </style>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles_kickshot.xml -->
+    <eat-comment />
+
+    <style name="DropDownListView.Kickshot" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_kickshot</item>
+    </style>
+
+    <style name="DropDownNav.Kickshot" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/spinner_background_ab_kickshot</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_kickshot</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_kickshot</item>
+    </style>
+
+    <style name="PopupMenu.Kickshot" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_kickshot</item>
+    </style>
+
+    <style name="ProgressBar.Kickshot" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_kickshot</item>
+    </style>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-v11/values.xml -->
+    <eat-comment />
+
+    <style name="Theme.Base" parent="android:Theme.Holo">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+
+        <!-- Attributes populated from the framework to be read by apps -->
+        <item name="buttonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="buttonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Theme.Base.Light" parent="android:Theme.Holo.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+
+        <!-- Attributes populated from the framework to be read by apps -->
+        <item name="buttonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="buttonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
+    </style>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles_kickshot.xml -->
+    <eat-comment />
+
+    <style name="Theme.Kickshot" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_kickshot</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Kickshot</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Kickshot</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Kickshot</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Kickshot</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Kickshot</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_kickshot</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_kickshot</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Kickshot</item>
+    </style>
+
+    <style name="Theme.Kickshot.Widget" parent="@android:style/Theme.Holo">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Kickshot</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Kickshot</item>
+    </style>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-v11/values.xml -->
+    <eat-comment />
+
+    <style name="Widget.AppCompat.Base.AutoCompleteTextView" parent="android:Widget.Holo.AutoCompleteTextView" />
+
+    <style name="Widget.AppCompat.Base.ProgressBar" parent="android:Widget.Holo.ProgressBar" />
+
+    <style name="Widget.AppCompat.Base.ProgressBar.Horizontal" parent="android:Widget.Holo.ProgressBar.Horizontal" />
+
+    <style name="Widget.AppCompat.Light.Base.AutoCompleteTextView" parent="android:Widget.Holo.Light.AutoCompleteTextView" />
+
+</resources>

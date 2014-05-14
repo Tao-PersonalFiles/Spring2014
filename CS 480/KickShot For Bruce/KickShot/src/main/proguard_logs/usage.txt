@@ -1,0 +1,60 @@
+com.redcarddev.kickshot_real.BuildConfig
+com.redcarddev.kickshot_real.GameOverAction
+com.redcarddev.kickshot_real.GifWebView
+com.redcarddev.kickshot_real.LevelOne:
+    static final java.lang.String PARAM_RANDOM
+    static final java.lang.String PARAM_STATE
+    public static final int OFFENSE_STATE
+    public static final int DEFENSE_STATE
+    public static final int SHOT_STATE
+    public static final int BLOCK_STATE
+    public static final int WON_STATE
+    public static final int LOST_STATE
+    static final int AWAY_GOAL_LINE
+    static final int HOME_GOAL_LINE
+com.redcarddev.kickshot_real.LevelOneActions:
+    static final int COMPUTER_SCORED
+    static final int COMPUTER_BLOCKED
+    static final int COMPUTER_SHOT
+    static final int COMPUTER_INTERCEPT
+    static final int COMPUTER_TURNOVER
+    static final int COMPUTER_TURN
+    static final int PLAYER_SCORED
+    static final int PLAYER_BLOCKED
+    static final int PLAYER_SHOT
+    static final int PLAYER_INTERCEPT
+    static final int PLAYER_TURNOVER
+    static final int PLAYER_TURN
+com.redcarddev.kickshot_real.R
+com.redcarddev.kickshot_real.R$attr
+com.redcarddev.kickshot_real.R$color
+com.redcarddev.kickshot_real.R$dimen
+com.redcarddev.kickshot_real.R$drawable
+com.redcarddev.kickshot_real.R$id
+com.redcarddev.kickshot_real.R$layout
+com.redcarddev.kickshot_real.R$menu
+com.redcarddev.kickshot_real.R$raw
+com.redcarddev.kickshot_real.R$string
+com.redcarddev.kickshot_real.R$style
+com.redcarddev.kickshot_real.Winning:
+    static final int COMPUTER_WON
+    static final int PLAYER_WON
+com.redcarddev.kickshot_real.utils.LevelOneState:
+    14:14:public int getCurrentState()
+    18:19:public void setCurrentState(int)
+    22:22:public int getCurrentBallPosition()
+    30:30:public int getComputerScore()
+    34:35:public void setComputerScore(int)
+    38:39:public void increaseComputerScore()
+    42:42:public int getPlayerScore()
+    46:47:public void setPlayerScore(int)
+com.redcarddev.kickshot_real.views.Board:
+    public static final int HOME
+    public static final int AWAY
+com.redcarddev.kickshot_real.views.Dice:
+    public static final int ONE
+    public static final int TWO
+    public static final int THREE
+    public static final int FOUR
+    public static final int FIVE
+    public static final int SIX

@@ -1,0 +1,63 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="com.redcarddev.kickshot.test.MainActivityTest" tests="1" failures="1" errors="0" timestamp="1970-01-01T00:00:00" hostname="Nicholass-MacBook-Air-2.local" time="1.382992962422E9">
+  <properties/>
+  <testcase name="shouldHaveAButtonThatSaysJuniorEdition" classname="com.redcarddev.kickshot.test.MainActivityTest" time="1.05">
+    <failure message="android.content.res.Resources$NotFoundException: unknown resource 2130903064" type="org.gradle.messaging.remote.internal.PlaceholderException">android.content.res.Resources$NotFoundException: unknown resource 2130903064
+	at org.robolectric.shadows.ShadowAssetManager.getAndResolve(ShadowAssetManager.java:258)
+	at org.robolectric.shadows.ShadowAssetManager.getResourceValue(ShadowAssetManager.java:85)
+	at android.content.res.AssetManager.getResourceValue(AssetManager.java)
+	at android.content.res.Resources.getValue(Resources.java:1009)
+	at android.content.res.Resources.loadXmlResourceParser(Resources.java:2098)
+	at android.content.res.Resources.getLayout(Resources.java:852)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java:394)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java:352)
+	at org.robolectric.tester.android.view.RoboWindow.setContentView(RoboWindow.java:82)
+	at org.robolectric.shadows.ShadowActivity.setContentView(ShadowActivity.java:272)
+	at android.app.Activity.setContentView(Activity.java)
+	at com.redcarddev.kickshot.MainActivity.onCreate(MainActivity.java:26)
+	at android.app.Activity.performCreate(Activity.java:5008)
+	at org.fest.reflect.method.Invoker.invoke(Invoker.java:112)
+	at org.robolectric.util.ActivityController$1.run(ActivityController.java:119)
+	at org.robolectric.shadows.ShadowLooper.runPaused(ShadowLooper.java:256)
+	at org.robolectric.util.ActivityController.create(ActivityController.java:114)
+	at org.robolectric.util.ActivityController.create(ActivityController.java:126)
+	at com.redcarddev.kickshot.test.MainActivityTest.setUp(MainActivityTest.java:38)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:27)
+	at org.robolectric.RobolectricTestRunner$2.evaluate(RobolectricTestRunner.java:241)
+	at org.junit.runners.BlockJUnit4ClassRunner.runNotIgnored(BlockJUnit4ClassRunner.java:79)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:71)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.robolectric.RobolectricTestRunner$1.evaluate(RobolectricTestRunner.java:177)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:80)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:47)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:69)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:49)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:103)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:355)
+	at org.gradle.internal.concurrent.DefaultExecutorFactory$StoppableExecutorImpl$1.run(DefaultExecutorFactory.java:66)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+</failure>
+  </testcase>
+  <system-out><![CDATA[WARNING: No manifest file found at ./AndroidManifest.xml.Falling back to the Android OS resources only.
+To remove this warning, annotate your test class with @Config(manifest=Config.NONE).
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

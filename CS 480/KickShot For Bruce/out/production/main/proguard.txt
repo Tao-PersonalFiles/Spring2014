@@ -1,0 +1,33 @@
+# view AndroidManifest.xml #generated:52
+-keep class com.redcarddev.kickshot_real.CoolVideos { <init>(...); }
+
+# view AndroidManifest.xml #generated:46
+-keep class com.redcarddev.kickshot_real.CorrectForm { <init>(...); }
+
+# view AndroidManifest.xml #generated:58
+-keep class com.redcarddev.kickshot_real.LevelOne { <init>(...); }
+
+# view AndroidManifest.xml #generated:68
+-keep class com.redcarddev.kickshot_real.LevelOneActions { <init>(...); }
+
+# view AndroidManifest.xml #generated:63
+-keep class com.redcarddev.kickshot_real.LevelOneRules { <init>(...); }
+
+# view AndroidManifest.xml #generated:30
+-keep class com.redcarddev.kickshot_real.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:40
+-keep class com.redcarddev.kickshot_real.PlayGame { <init>(...); }
+
+# view AndroidManifest.xml #generated:74
+-keep class com.redcarddev.kickshot_real.Winning { <init>(...); }
+
+# view AndroidManifest.xml #generated:35
+-keep class com.redcarddev.kickshot_real.credits { <init>(...); }
+
+# view AndroidManifest.xml #generated:19
+-keep class com.redcarddev.kickshot_real.splash { <init>(...); }
+
+# view res/layout/level_one.xml #generated:7
+-keep class com.redcarddev.kickshot_real.views.Board { <init>(...); }
+

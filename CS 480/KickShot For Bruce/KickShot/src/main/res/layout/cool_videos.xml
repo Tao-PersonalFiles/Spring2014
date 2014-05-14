@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="@drawable/cool_videos_background">
+
+    <RelativeLayout
+            android:minWidth="200dp"
+            android:minHeight="160dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
+        <Button
+                android:id="@+id/about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45dp"
+                android:text=" The Story Behind KickShot "
+                android:background="#ffDCD35A"
+                android:layout_margin="15dp"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"/>
+
+        <Button
+                android:id="@+id/inside"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffDCD35A"
+                android:textSize="50dp"
+                android:layout_margin="15dp"
+                android:text=" KickShot Inside "
+                android:clickable="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_below="@+id/about"
+                android:layout_centerHorizontal="true"/>
+
+        <Button
+                android:id="@+id/live_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffDCD35A"
+                android:textSize="40dp"
+                android:layout_margin="15dp"
+                android:text=" Game day at Russell Elementary "
+                android:clickable="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_below="@+id/inside"
+                android:layout_centerHorizontal="true"/>
+
+        <Button
+                android:id="@+id/ad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffDCD35A"
+                android:textSize="50dp"
+                android:layout_margin="15dp"
+                android:text=" KickShot Radio Ad "
+                android:clickable="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_below="@+id/live_action"
+                android:layout_centerHorizontal="true"/>
+
+        <Button
+                android:id="@+id/review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffDCD35A"
+                android:textSize="40dp"
+                android:layout_margin="15dp"
+                android:text=" KickShot Board Game Review "
+                android:clickable="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_below="@+id/ad"
+                android:layout_centerHorizontal="true"/>
+
+        <Button
+                android:id="@+id/credits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffDCD35A"
+                android:textSize="40dp"
+                android:layout_margin="15dp"
+                android:text=" Credits "
+                android:clickable="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_below="@+id/review"
+                android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

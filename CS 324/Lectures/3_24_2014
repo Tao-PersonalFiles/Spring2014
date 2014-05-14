@@ -20,7 +20,7 @@
   	1. put O1 at the root of the tree(normal perpendicular to pane of O1)
   	2. consider O2:
   		if all points of O2 are behind O1 (i.e., O2 behind O1), make it left child of O1.
-  		if all pints of O2 are in front of O1, make it right child of O1
+  		if all points of O2 are in front of O1, make it right child of O1
   		if neither, clip into two pieces on polygon plane
 
   Q: if we move the camera off the z-axis, do we need to rebuild the tree?
@@ -40,15 +40,15 @@
   	    setPixel(x,y,color)
   	    z_buffer(x,y) = z_depth
 
-  Coherence is often used to speed up the conputations
+  Coherence is often used to speed up the computations
 
-  Advatages
+  Advantages
   	- it always works and is simple to implement
   Disadvantages
     - may paint the same pixel several times(computing the color of a pixel may be expensive)
     - large memory requirements (less of an issue now)
 
- 1.2 Watkin;s algorithm(aka Scanline algorithm)
+ 1.2 Watkin's algorithm(aka Scanline algorithm)
     Assume we are given a set of polygons P1, ... , Pn.
 
     Overview: process the scene one scanline at a time.
@@ -96,7 +96,7 @@
         spans     | current span
 
     Active list is dynamic, polygons are added and removed from it as the scene is rendered
-    Oder the list of polygons by the maximum y-value of the vertices of the polygon(decreasing order),
+    Order the list of polygons by the maximum y-value of the vertices of the polygon(decreasing order),
      creating a sorted polygon list (inactive).
 
 

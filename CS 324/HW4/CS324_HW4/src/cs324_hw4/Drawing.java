@@ -43,8 +43,8 @@ public class Drawing extends JComponent{
     public void paintComponent(Graphics g){
         drawInfo(g);
         //drawFunction(g);
-        //drawRubik(g);
-        drawHallway(g);
+        drawRubik(g);
+        //drawHallway(g);
     }
     
     public void drawInfo(Graphics g){

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">KickShot</string>
+    <string name="action_settings">Settings</string>
+
+    <color name="background">#619ec6</color>
+
+    <!-- Level One / Game -->
+    <string name="LevelOnePlayerGoal">You scored!</string>
+    <string name="LevelOneComputerGoal">They scored</string>
+    <string name="LevelOnePlayerShot">You took a shot!</string>
+    <string name="LevelOneComputerShot">They took a shot</string>
+    <string name="LevelOnePlayerBlock">You blocked their shot!</string>
+    <string name="LevelOneComputerBlock">They blocked your shot</string>
+
+    <!-- Level One / Menu -->
+    <string name="PlayAgain">Play Again?</string>
+    <string name="Feedback">Give Feedback</string>
+    <string name="LevelOneRules">Rules</string>
+    <string name="Rule1">1) Ball Starts at the midfield circle after every score or the start of each half.</string>
+    <string name="Rule2">2) Offense rolls dice to advance the ball. Ball advances equal to the highest die value.</string>
+    <string name="Rule3">3) If a double is rolled, the offense turns the ball over.</string>
+    <string name="Rule4">4) Defense rolls dice. If doubles, defense intercepts the ball.</string>
+    <string name="Rule5">5) If offense advances to the goal line, they enter shooting mode and take a shot immediately.</string>
+    <string name="Rule6">6) Defense rolls dice. If doubles, defense blocks the shot and receives the ball on the line equal to the total dice roll.</string>
+    <string name="title_activity_game_over_action">GameOverAction</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>

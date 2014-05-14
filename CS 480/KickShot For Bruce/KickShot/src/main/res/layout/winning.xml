@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF">
+
+    <RelativeLayout
+            android:minWidth="200dp"
+            android:minHeight="160dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#77000000"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/play_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50dp"
+            android:text=" Play Again? "
+            android:background="#ffDCD35A"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"/>
+
+        <Button
+            android:id="@+id/main_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffDCD35A"
+            android:textSize="50dp"
+            android:layout_margin="10dp"
+            android:text=" Main Menu "
+            android:clickable="true"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_below="@+id/play_again"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+</RelativeLayout>

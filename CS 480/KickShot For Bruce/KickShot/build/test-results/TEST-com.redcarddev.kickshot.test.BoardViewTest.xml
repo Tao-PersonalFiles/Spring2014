@@ -1,0 +1,10 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="com.redcarddev.kickshot.test.BoardViewTest" tests="1" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="Nicholass-MacBook-Air-2.local" time="1.382992961344E9">
+  <properties/>
+  <testcase name="testSomeNumber" classname="com.redcarddev.kickshot.test.BoardViewTest" time="3.212"/>
+  <system-out><![CDATA[WARNING: No manifest file found at ./AndroidManifest.xml.Falling back to the Android OS resources only.
+To remove this warning, annotate your test class with @Config(manifest=Config.NONE).
+]]></system-out>
+  <system-err><![CDATA[WARNING: no system properties value for ro.build.date.utc
+]]></system-err>
+</testsuite>

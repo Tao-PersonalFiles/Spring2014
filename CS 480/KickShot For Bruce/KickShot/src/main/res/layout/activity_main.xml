@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/world_cup_background">
+    <!--android:background="@drawable/home_page_background" >-->
+
+    <Button
+            android:id="@+id/play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/online_game_button"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_above="@+id/form"
+            android:layout_alignParentRight="true"/>
+
+    <Button
+            android:id="@+id/form"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/correct_form"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_above="@+id/videos"
+            android:layout_alignParentRight="true"/>
+
+    <Button
+            android:id="@+id/videos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cool_videos_button"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_above="@+id/website"
+            android:layout_alignParentRight="true"/>
+
+    <Button
+            android:id="@+id/website"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/website_button"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_above="@+id/buy"
+            android:layout_alignParentRight="true"/>
+
+    <Button
+            android:id="@+id/buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buy_game_button"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_above="@+id/twitter"
+            android:layout_alignParentRight="true"/>
+
+    <Button
+            android:id="@+id/fb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/facebook_icon"
+            android:layout_alignTop="@+id/twitter"
+            android:layout_toLeftOf="@+id/twitter"/>
+
+    <Button
+            android:id="@+id/twitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/twitter_icon"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/buy"/>
+
+
+</RelativeLayout>

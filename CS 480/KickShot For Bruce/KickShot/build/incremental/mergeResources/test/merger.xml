@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/otternq/Documents/workspace/KickShot/KickShot/src/instrumentTest/res" />
+        <source path="/Users/otternq/Documents/workspace/KickShot/KickShot/build/res/rs/test" />
+    </dataSet>
+
+</merger>

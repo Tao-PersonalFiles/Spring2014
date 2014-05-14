@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+
+    <WebView
+        android:id="@+id/rule"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"></WebView>
+
+
+    <!--<TextView android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dip"
+                android:paddingTop="10dip"
+                android:paddingRight="5dip"
+                android:text="@string/Rule1"/>
+    <TextView android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dip"
+                android:paddingTop="10dip"
+                android:paddingRight="5dip"
+                android:text="@string/Rule2"/>
+    <TextView android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dip"
+                android:paddingTop="10dip"
+                android:paddingRight="5dip"
+                android:text="@string/Rule3"/>
+    <TextView android:id="@+id/text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dip"
+                android:paddingTop="10dip"
+                android:paddingRight="5dip"
+                android:text="@string/Rule4"/>
+    <TextView android:id="@+id/text5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dip"
+                android:paddingTop="10dip"
+                android:paddingRight="5dip"
+                android:text="@string/Rule5"/>
+    <TextView android:id="@+id/text6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dip"
+                android:paddingTop="10dip"
+                android:paddingRight="5dip"
+                android:text="@string/Rule6"/>-->
+</LinearLayout><!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/layout/level_one_rules.xml -->

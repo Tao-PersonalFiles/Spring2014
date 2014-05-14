@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/play_again"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/PlayAgain"/>
+
+    <item
+        android:id="@+id/action_rules"
+        android:orderInCategory="200"
+        android:showAsAction="never"
+        android:title="@string/LevelOneRules"/>
+
+
+    <item
+        android:id="@+id/action_promote"
+        android:orderInCategory="300"
+        android:showAsAction="never"
+        android:title="@string/Feedback" />
+
+</menu>
+<!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/menu/levelone.xml -->

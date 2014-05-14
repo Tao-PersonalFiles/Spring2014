@@ -1,0 +1,178 @@
+com.redcarddev.kickshot_real.CoolVideos -> com.redcarddev.kickshot_real.CoolVideos:
+    java.lang.String LOGTAG -> a
+    android.widget.Button aboutKickShot -> b
+    android.widget.Button boardGame -> c
+    android.widget.Button boardGamePlay -> d
+    android.widget.Button RadioAd -> e
+    android.widget.Button boardGameReview -> f
+    android.widget.Button credits -> g
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+com.redcarddev.kickshot_real.CorrectForm -> com.redcarddev.kickshot_real.CorrectForm:
+    java.lang.String LOGTAG -> a
+    android.widget.Button headerButton -> b
+    android.widget.Button throwinButton -> c
+    android.widget.Button slidetackleButton -> d
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+com.redcarddev.kickshot_real.LevelOne -> com.redcarddev.kickshot_real.LevelOne:
+    java.lang.String LOGTAG -> a
+    java.util.Random r -> b
+    com.redcarddev.kickshot_real.utils.LevelOneState state -> e
+    int currentState -> c
+    com.redcarddev.kickshot_real.views.Board board -> d
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onClick(android.view.View) -> onClick
+    void showToast(java.lang.String) -> a
+    void showAction(int) -> a
+    void showGameOver(int) -> b
+    int rollDice() -> a
+    int[] rollDiceAction() -> b
+    java.lang.Boolean doubles(int[]) -> a
+    int max(int[]) -> b
+    void playerOffenseAction() -> c
+    void computerOffenseAction() -> d
+    void playerDefenseAction() -> e
+    void computerDefenseAction() -> f
+    void playerBlockAction() -> g
+    void computerBlockAction() -> h
+    void playerTurn() -> i
+    void computerTurn() -> j
+    int moveBall(int) -> c
+com.redcarddev.kickshot_real.LevelOne$1 -> com.redcarddev.kickshot_real.a:
+    com.redcarddev.kickshot_real.LevelOne this$0 -> a
+    void run() -> run
+com.redcarddev.kickshot_real.LevelOne$1$1 -> com.redcarddev.kickshot_real.b:
+    com.redcarddev.kickshot_real.LevelOne$1 this$1 -> a
+    void run() -> run
+com.redcarddev.kickshot_real.LevelOne$1$1$1 -> com.redcarddev.kickshot_real.c:
+    com.redcarddev.kickshot_real.LevelOne$1$1 this$2 -> a
+    void run() -> run
+com.redcarddev.kickshot_real.LevelOne$1$1$1$1 -> com.redcarddev.kickshot_real.d:
+    com.redcarddev.kickshot_real.LevelOne$1$1$1 this$3 -> a
+    void run() -> run
+com.redcarddev.kickshot_real.LevelOne$1$1$1$1$1 -> com.redcarddev.kickshot_real.e:
+    com.redcarddev.kickshot_real.LevelOne$1$1$1$1 this$4 -> a
+    void run() -> run
+com.redcarddev.kickshot_real.LevelOne$1$1$1$1$1$1 -> com.redcarddev.kickshot_real.f:
+    com.redcarddev.kickshot_real.LevelOne$1$1$1$1$1 this$5 -> a
+    void run() -> run
+com.redcarddev.kickshot_real.LevelOneActions -> com.redcarddev.kickshot_real.LevelOneActions:
+    java.lang.String LOGTAG -> a
+    int state -> b
+    java.lang.String gifPath -> c
+    android.webkit.WebView webView -> d
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    java.lang.String setActionView() -> a
+com.redcarddev.kickshot_real.LevelOneRules -> com.redcarddev.kickshot_real.LevelOneRules:
+    java.lang.String LOGTAG -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onClick(android.view.View) -> onClick
+com.redcarddev.kickshot_real.MainActivity -> com.redcarddev.kickshot_real.MainActivity:
+    java.lang.String LOGTAG -> a
+    android.widget.Button playButton -> b
+    android.widget.Button r1 -> c
+    android.widget.Button facebook -> d
+    android.widget.Button twitter -> e
+    android.widget.Button buy -> f
+    android.widget.Button website -> g
+    android.widget.Button videos -> h
+    android.widget.Button form -> i
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    void onClick(android.view.View) -> onClick
+    void openWebUrl(java.lang.String) -> a
+com.redcarddev.kickshot_real.PlayGame -> com.redcarddev.kickshot_real.PlayGame:
+    java.lang.String LOGTAG -> a
+    android.widget.Button juniorButton -> b
+    android.widget.Button instructions -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+com.redcarddev.kickshot_real.Winning -> com.redcarddev.kickshot_real.Winning:
+    java.lang.String LOGTAG -> a
+    int state -> b
+    android.widget.Button playButton -> c
+    android.widget.Button menuButton -> d
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void onClick(android.view.View) -> onClick
+com.redcarddev.kickshot_real.credits -> com.redcarddev.kickshot_real.credits:
+    void onCreate(android.os.Bundle) -> onCreate
+com.redcarddev.kickshot_real.splash -> com.redcarddev.kickshot_real.splash:
+    int SPLASH_TIME_LENGTH -> a
+    android.webkit.WebView webView -> b
+    void onCreate(android.os.Bundle) -> onCreate
+com.redcarddev.kickshot_real.splash$1 -> com.redcarddev.kickshot_real.g:
+    com.redcarddev.kickshot_real.splash this$0 -> a
+    void run() -> run
+com.redcarddev.kickshot_real.utils.LevelOneState -> com.redcarddev.kickshot_real.a.a:
+    int computerScore -> a
+    int playerScore -> b
+    int currentState -> c
+    int currentBallPosition -> d
+    void setCurrentBallPosition(int) -> a
+    void increasePlayerScore() -> a
+com.redcarddev.kickshot_real.utils.SoundManager -> com.redcarddev.kickshot_real.a.b:
+    com.redcarddev.kickshot_real.utils.SoundManager _instance -> a
+    int MAX_STREAMS -> b
+    android.media.SoundPool _soundPool -> c
+    android.media.AudioManager _audioManager -> d
+    java.util.HashMap _soundMap -> e
+    android.app.Activity _owner -> f
+    com.redcarddev.kickshot_real.utils.SoundManager Instance() -> a
+    void SetOwner(android.app.Activity) -> a
+    void LoadSound(java.lang.String,int) -> a
+    void PlaySound(java.lang.String) -> a
+com.redcarddev.kickshot_real.views.Board -> com.redcarddev.kickshot_real.views.Board:
+    java.lang.String LOGTAG -> a
+    android.graphics.Bitmap chip -> b
+    com.redcarddev.kickshot_real.views.Dice[] dice -> c
+    android.graphics.Bitmap diceImage -> d
+    android.graphics.Canvas canvas -> v
+    int boardHeight -> w
+    int fieldHeight -> x
+    int awayGoalLine -> y
+    int homeGoalLine -> z
+    int pMoveAmount -> A
+    int chipXPos -> e
+    int chipYPos -> f
+    int chipInitYPos -> g
+    int chipLine -> h
+    int maxScore -> i
+    int[] diceYPos -> j
+    int[] boardMap -> k
+    int[] diceHomeYPosition -> l
+    int[] diceAwayYPosition -> m
+    android.graphics.Bitmap goalAwayImage -> n
+    android.graphics.Bitmap goalHomeImage -> o
+    int[] goalYPos -> p
+    int[] goalXPos -> q
+    int goalsAway -> r
+    int goalsHome -> s
+    android.graphics.Paint paint -> t
+    int initSet -> u
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void setChipLocation(int) -> setChipLocation
+    java.lang.Boolean ballPosession(int) -> a
+    java.lang.Boolean diceChangeFace(int,int) -> a
+    java.lang.Boolean dicePositionHome(int) -> b
+    java.lang.Boolean dicePositionAway(int) -> c
+    int ballTowardsAway(int) -> d
+    int ballTowardsHome(int) -> e
+    int ballMove() -> d
+    void initBoardMap() -> e
+    void init() -> f
+    void onDraw(android.graphics.Canvas) -> onDraw
+    java.lang.Boolean goalAddAway() -> a
+    java.lang.Boolean goalAddHome() -> b
+    java.lang.Integer GameOver() -> c
+com.redcarddev.kickshot_real.views.Dice -> com.redcarddev.kickshot_real.views.a:
+    android.content.Context context -> a
+    android.graphics.Bitmap face -> b
+    int currentDiceFace -> c
+    void setDiceFace(int) -> a
+    android.graphics.Bitmap getCurrent() -> a
