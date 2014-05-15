@@ -19,7 +19,7 @@ Intersect eye ray with all objects in scene
 		Show background color
 
 1.3 Slightly More Detailed Algorithm
-Define objects andlight sources in the scene
+Define objects and light sources in the scene
 Setup camera
 
 for each row index

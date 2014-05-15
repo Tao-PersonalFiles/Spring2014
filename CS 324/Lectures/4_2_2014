@@ -47,8 +47,8 @@ Light models can be very complicated and are usually very computationally intens
 Diffuse Scattering
   Occurs when some of the incident light penetrates the surface and is reflected uniformly in all directions. The scattered light interacts strongly with the surface, so its color is affected by the material of the surface.
 
-  Specular Reflections
-    Are more mirror-like and are highly directional--incident light does not penetrate the object, but directly reflected from its outer surface.
+Specular Reflections
+  Are more mirror-like and are highly directional--incident light does not penetrate the object, but directly reflected from its outer surface.
 
 2.4.2 Geometry of Reflected light
 To compute the diffuse and specular components of light, we need to find three vectors. The three principal vectors required to find the amount of light that reaches the eye from a point P.

@@ -10,7 +10,7 @@ Definitions:
 Texture - the image pasted on to the model
 Texels 	- pixels in the image being pasted are called texels.
 		Texels are addressed in 2D with (u,v) coordinates (or sometimes (s,t))
-Mapp 	- the manner in which the texture is pasted on to the model
+Map 	- the manner in which the texture is pasted on to the model
 
 Overview
 Map a (u,v) coordinate pair onto each model vertex.

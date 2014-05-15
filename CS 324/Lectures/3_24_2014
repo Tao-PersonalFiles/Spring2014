@@ -108,7 +108,7 @@ is a front face if its vertices are listed in CCW order as seen by the eye.
 
 This can be reversed with glFrontFace(GL_CW). A face is a front face only if its vertices are listed in clockwise (CW) order. The default is glFrontFace(GL_CCW).
 
-For ohjects that enclose some space, all faces that are visible to the eye are front faces and are drawn properly with the correct shading. OpenGL also draws the back faces. but ther are hidden by closer front faces.
+For objects that enclose some space, all faces that are visible to the eye are front faces and are drawn properly with the correct shading. OpenGL also draws the back faces. but ther are hidden by closer front faces.
 
 3 OpenGl Cube example
 

@@ -28,11 +28,11 @@ Two definitions for voxels in the literature:
 	- Marching cubes
 	- Ray casting
 
-1.2.1 Voxels in Binary partitionaed space
-Values are calculated for the entire voxel. This can produce a "bolcky" image. Also lacks dynamics range in the computed surface normals, which produces images with relatively poor shading.
+1.2.1 Voxels in Binary partitioned space
+Values are calculated for the entire voxel. This can produce a "blocky" image. Also lacks dynamics range in the computed surface normals, which produces images with relatively poor shading.
 
 1.2.2 marching Cubes
-Marching cubes solves the shading problem, but causes some others. Its biggest disadvantage is that it requires a binary decision be made on the position of the intermediate surface that is extracted and rendered. Extracting the intermeiate structure can cause false positives (artifacts that do ot exist) and false negatives(discarding small or poorly defined features).
+Marching cubes solves the shading problem, but causes some others. Its biggest disadvantage is that it requires a binary decision be made on the position of the intermediate surface that is extracted and rendered. Extracting the intermeiate structure can cause false positives (artifacts that do not exist) and false negatives(discarding small or poorly defined features).
 
 	Effect of a false positive or false negative?
 

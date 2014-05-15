@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+%adjustments
+%\parskip=.9ex
+\textwidth=6.3in
+\textheight=8in
+\oddsidemargin=0in
+\topmargin=-.25in
+
+\begin{document}
+
+\title{Individual Project Report}
+
+\author{Tao Zhang\\
+CS 383}
+
+\maketitle
+\newpage
+
+%====================================
+
+\section{Contributes}
+\paragraph{This semester, I mainly focused on working the spells for our project.}
+
+\paragraph{Most of the early work is doing UML-- usecases, class diagrams, ... -- with different groups. I wrote a logbook to record most of my early work of the semester, and is attached after this paper. (Please take a look at that.) I stop to keep writing the logbook since I was busy during the mid of the semester and forgot that. }
+
+\paragraph{After the early pre-work for our project, I was placed into the team Game Rules \& Play. I chose to do my work on spells, because I've already worked on Spell Search (mentioned in the logbook). First of all, I decided to make my own GUI to make a list of spell buttons by giving the character information, like magic power level and current manna. I found a Java class wrote by Tyler that has the method to return a spell book including a list of spells' node. By using his method, I succeed to make a frame to list the spell buttons sorted by the power level. Then, for each button, I linked them to another frame that will show the description by plug in my previous work.}
+
+\paragraph{Since the organization of those spell buttons are weird, I spent about 2-3 weeks (including the spring break) modifying it to make it looks nice, which is pretty the same as the one showed in last Demo.}
+
+\paragraph{After that, Cameron joined to help me work on the spells. We created classes for each spell, which each class will has their own different functions/methods to implement the spell effects. But when we were working on that, the HUD team don't have select character and target method, which means we can't cooperate our spells with the HUD. We then worked on writing functions with comments as feature designing code. Most of them has the procedure that:}
+
+\begin{itemize}
+\item Select a target
+\item Check Range: calculate the distance
+\item Check other limits
+\item Perform effects: need images to be visualization
+\item Perform effects on HUD
+\item Cost caster's manna
+\end{itemize}
+
+\paragraph{We don't have the method to select a target on the HUD so far, so I tend to deal with the range calculation. I asked Colin to write a method to do that and it works well in my functions. Since we did the most easiest spells, they don't have other limits. And the manna costing is easy to perform on character class}
+
+\paragraph{Then I searched images for Fear, Morale, and River Crossing. Then will be displayed once these spells was cast successfully. Finally, I worked with Jay to combine Morale, Fear, Teleportation with the HUD, and all them works. However, still need to add more details and consideration to cast these three spells.}
+
+\paragraph{What's more, I wrote several documents, like test plans, for spells during the last 2 weeks.}
+
+\paragraph{In short, I'm really happy to work on spells. Although I didn't finish all the spells, the work I'm done is a big process so far.}
+
+\paragraph{Most of my work on spells are here: \\https://github.com/cjeffery/sworsorc/tree/master/src/model/Spells}
+
+\section{Software Process Experience}
+\paragraph{Since everyone worked on different parts, I really don't have too much sense on how much work they did and how everything works. But when taking a look at files in one folder, I saw someone did huge work on Units which is the most impressive work to me.}
+
+\paragraph{What suprised me is that everything works fine when we combined our work. It should be the reason why we use Java.}
+
+\paragraph{First of all, I learned a lot on Java programming on NetBeans and found Java is really an easy language for me to use. So select a proper programming language for programmer in software engeneering is a good start.}
+
+\paragraph{Then everything talked during the lecture are all important when developing a project.}
+
+\paragraph{I have to say this semester is really a big success compared to last semester. Since we have a experienced supervisor to assign work to subteams.}
+
+ 
+\newpage
+\section{Pear Evolutionary}
+I chosed those who worked hard that I knew.
+\paragraph{Matt	5\\Jay 5\\Colin 5\\Shaung 4}
+
+\end{document}
