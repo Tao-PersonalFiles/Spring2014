@@ -22,7 +22,10 @@ public final class Rubic_Cube {   // 2*2*2 Cube
     int orange = 5;
     int tmp;    // use for rotation
     
+    public int total_rotation;
+    
     public Rubic_Cube(){
+        total_rotation = 0;
         setCube();
     }
     
@@ -64,6 +67,41 @@ public final class Rubic_Cube {   // 2*2*2 Cube
         Rubic[5][1][1] = orange;
     }
     
+    public boolean isSovled(){
+        boolean solved = true;
+        int i,j,k;
+        for(i = 0; i < 6; i ++){
+            if(Rubic[i][0][0] != Rubic[i][0][1])
+                solved = false;
+            if(Rubic[i][0][0] != Rubic[i][1][1])
+                solved = false;
+            if(Rubic[i][0][0] != Rubic[i][1][0])
+                solved = false;
+        }
+            
+        return solved;   
+    }
+    
+    public void Rotate_F(){
+        tmp = Rubic[0][0][0];
+        Rubic[0][0][0] = Rubic[0][1][0];
+        Rubic[0][1][0] = Rubic[0][1][1];
+        Rubic[0][1][1] = Rubic[0][0][1];
+        Rubic[0][0][1] = tmp;
+        
+        tmp = Rubic[2][1][0];
+        Rubic[2][1][0] = Rubic[4][1][1];
+        Rubic[4][1][1] = Rubic[5][0][1];
+        Rubic[5][0][1] = Rubic[1][0][0];
+        Rubic[1][0][0] = tmp;
+        
+        tmp = Rubic[4][0][1];
+        Rubic[4][0][1] = Rubic[5][0][0];
+        Rubic[5][0][0] = Rubic[1][1][0];
+        Rubic[1][1][0] = Rubic[2][1][1];
+        Rubic[2][1][1] = tmp;
+    }
+    
     public void Rotate_R(){
         tmp = Rubic[0][0][1];
         Rubic[0][0][1] = Rubic[5][0][1];
@@ -82,6 +120,86 @@ public final class Rubic_Cube {   // 2*2*2 Cube
         Rubic[1][1][0] = Rubic[1][1][1];
         Rubic[1][1][1] = Rubic[1][0][1];
         Rubic[1][0][1] = tmp;
+    }
+    
+    public void Rotate_U(){
+        tmp = Rubic[2][0][0];
+        Rubic[2][0][0] = Rubic[2][1][0];
+        Rubic[2][1][0] = Rubic[2][1][1];
+        Rubic[2][1][1] = Rubic[2][0][1];
+        Rubic[2][0][1] = tmp;
+        
+        tmp = Rubic[3][0][1];
+        Rubic[3][0][1] = Rubic[4][0][1];
+        Rubic[4][0][1] = Rubic[0][0][1];
+        Rubic[0][0][1] = Rubic[1][0][1];
+        Rubic[1][0][1] = tmp;
+        
+        tmp = Rubic[4][0][0];
+        Rubic[4][0][0] = Rubic[0][0][0];
+        Rubic[0][0][0] = Rubic[1][0][0];
+        Rubic[1][0][0] = Rubic[3][0][0];
+        Rubic[3][0][0] = tmp;
+    }
+    
+    public void Rotate_B(){
+        tmp = Rubic[3][0][1];
+        Rubic[3][0][1] = Rubic[3][1][1];
+        Rubic[3][1][1] = Rubic[3][1][0];
+        Rubic[3][1][0] = Rubic[3][0][0];
+        Rubic[3][0][0] = tmp;
+        
+        tmp = Rubic[2][0][0];
+        Rubic[2][0][0] = Rubic[4][1][0];
+        Rubic[4][1][0] = Rubic[5][1][1];
+        Rubic[5][1][1] = Rubic[1][0][1];
+        Rubic[1][0][1] = tmp;
+        
+        tmp = Rubic[4][0][0];
+        Rubic[4][0][0] = Rubic[5][1][0];
+        Rubic[5][1][0] = Rubic[1][1][1];
+        Rubic[1][1][1] = Rubic[2][0][1];
+        Rubic[2][0][1] = tmp;
+    }
+    
+    public void Rotate_L(){
+        tmp = Rubic[4][0][0];
+        Rubic[4][0][0] = Rubic[4][0][1];
+        Rubic[4][0][1] = Rubic[4][1][1];
+        Rubic[4][1][1] = Rubic[4][1][0];
+        Rubic[4][1][0] = tmp;
+        
+        tmp = Rubic[2][0][0];
+        Rubic[2][0][0] = Rubic[0][0][0];
+        Rubic[0][0][0] = Rubic[5][0][0];
+        Rubic[5][0][0] = Rubic[3][1][1];
+        Rubic[3][1][1] = tmp;
+        
+        tmp = Rubic[3][0][1];
+        Rubic[3][0][1] = Rubic[2][1][0];
+        Rubic[2][1][0] = Rubic[0][1][0];
+        Rubic[0][1][0] = Rubic[5][1][0];
+        Rubic[5][1][0] = tmp;        
+    }
+    
+    public void Rotate_D(){
+        tmp = Rubic[5][0][0];
+        Rubic[5][0][0] = Rubic[5][0][1];
+        Rubic[5][0][1] = Rubic[5][1][1];
+        Rubic[5][1][1] = Rubic[5][1][0];
+        Rubic[5][1][0] = tmp;
+        
+        tmp = Rubic[0][1][0];
+        Rubic[0][1][0] = Rubic[1][1][0];
+        Rubic[1][1][0] = Rubic[3][1][0];
+        Rubic[3][1][0] = Rubic[4][1][0];
+        Rubic[4][1][0] = tmp;
+        
+        tmp = Rubic[4][1][1];
+        Rubic[4][1][1] = Rubic[0][1][1];
+        Rubic[0][1][1] = Rubic[1][1][1];
+        Rubic[1][1][1] = Rubic[3][1][1];
+        Rubic[3][1][1] = tmp;
     }
     
     public void printCube(){

@@ -168,7 +168,52 @@ public class Individual {
      */
     
     public double fitness(){
-        return 0;
+        evaluate(root);
+        
+        if(rubic.isSovled())
+            return rubic.total_rotation;
+        else
+            return -1;
+    }
+    
+    public void evaluate(Node n){
+        if(rubic.total_rotation < 500 && !rubic.isSovled()){
+            switch(n.type){
+                case 0:
+                    evaluate(n.branch[0]);
+                    evaluate(n.branch[1]);
+                    break;
+                case 1:
+                    evaluate(n.branch[0]);
+                    evaluate(n.branch[1]);
+                    evaluate(n.branch[2]);
+                    break;
+                case 2: // front
+                    rubic.Rotate_F();
+                    rubic.total_rotation++;
+                    break;
+                case 3: // right
+                    rubic.Rotate_R();
+                    rubic.total_rotation++;
+                    break;
+                case 4: // up
+                    rubic.Rotate_U();
+                    rubic.total_rotation++;
+                    break;
+                case 5: // back
+                    rubic.Rotate_B();
+                    rubic.total_rotation++;
+                    break;
+                case 6: // left
+                    rubic.Rotate_L();
+                    rubic.total_rotation++;
+                    break;    
+                case 7: // down
+                    rubic.Rotate_D();
+                    rubic.total_rotation++;
+                    break;   
+            }
+        }
     }
     
     /** ==================================
